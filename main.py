@@ -31,8 +31,8 @@ for row in book_info_output:
     for entry, table_name in zip(row, SQL_BOOK_INFO_TEMPLATE.keys()):
         temp_dict[table_name] = entry
 
-        _id = temp_dict.get("id")
-        SQL_BOOK_INFO[_id]=temp_dict
+        id = temp_dict.get("id")
+        SQL_BOOK_INFO[id]=temp_dict
 
 SQL_LOOKUPS=dict()
 for row in lookup_cursor_output:
@@ -53,8 +53,19 @@ for row in lookup_cursor_output:
     id=temp_dict["id"]
     SQL_LOOKUPS[id] = temp_dict
 
-for i in SQL_LOOKUPS:
-    print(SQL_LOOKUPS.get(i).get("book_key"))
+
+with open("res.csv",mode="w",encoding="utf-8") as save_file:
+
+
+    for i in SQL_LOOKUPS:
+        header = list(SQL_LOOKUPS.get(i).keys())
+        break
+    csv_dictwriter = csv.DictWriter(save_file, header)
+
+    for i in SQL_LOOKUPS:
+        entry = SQL_LOOKUPS.get(i)
+
+        csv_dictwriter.writerow(entry)
 
 
 
