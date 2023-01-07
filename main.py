@@ -1,12 +1,17 @@
 # Standard
-import copy
 import csv
 import sqlite3
-import time
+
 from datetime import datetime
+
+#pip
+import genanki
 
 # Custom
 from utils import SQL_BOOK_INFO_TEMPLATE, SQL_LOOKUP_TEMPLATE
+from utils import anki_model,anki_deck
+
+
 
 # SQL Cursor
 vocab_database = sqlite3.connect("vocab_data/vocab.db")
@@ -54,24 +59,23 @@ for row in lookup_cursor_output:
     SQL_LOOKUPS[id] = temp_dict
 
 
-with open("res.csv",mode="w",encoding="utf-8") as save_file:
-
+with open("results/oasis.csv",mode="w",encoding="utf-8") as save_file:
 
     for i in SQL_LOOKUPS:
         header = list(SQL_LOOKUPS.get(i).keys())
         break
     csv_dictwriter = csv.DictWriter(save_file, header)
 
+
     for i in SQL_LOOKUPS:
         entry = SQL_LOOKUPS.get(i)
 
         csv_dictwriter.writerow(entry)
+        my_note = genanki.Note(
+            model=anki_model,
+            fields=list(entry.values()))
+        anki_deck.add_note(my_note)
 
-
-
-
-
-
-
-
+deck  = genanki.Package(anki_deck)
+save_deck = deck.write_to_file('oasis.apkg')
 
