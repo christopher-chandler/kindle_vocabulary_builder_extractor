@@ -1,0 +1,15 @@
+dt_object = datetime.fromtimestamp(SQL_LOOKUP_TEMPLATE["timestamp"] / 1000)
+time_stamp = dt_object.strftime("%B %d, %Y %I:%M:%S %p")
+SQL_LOOKUP_TEMPLATE["timestamp"] = time_stamp
+book_id = SQL_LOOKUP_TEMPLATE.get("book_key")
+book_title = book_info_results.get(book_id).get("title")
+
+lang, word = SQL_LOOKUP_TEMPLATE["word_key"].split(":")
+SQL_LOOKUP_TEMPLATE["lang"] = lang
+SQL_LOOKUP_TEMPLATE["word_key"] = word
+
+book, lang = SQL_LOOKUP_TEMPLATE["book_key"].replace(" ", "_"),SQL_LOOKUP_TEMPLATE["lang"]
+tag = " ".join((book,lang))
+SQL_LOOKUP_TEMPLATE["tag"] = tag
+
+lookup_results[id] = list(SQL_LOOKUP_TEMPLATE.values())
