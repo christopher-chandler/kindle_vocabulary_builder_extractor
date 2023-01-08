@@ -93,13 +93,7 @@ KINDLE_OASIS_VOCAB_FILE = r"vocab_data/kindle_oasis.pkl"
 # initalize pickle
 
 c = 0
-with open(KINDLE_PAPER_WHITE_VOCAB_FILE, "rb") as out:
-    KINDLE_PAPER_WHITE_VOCAB_FILE_ID = pickle.load(out)
 
-with open(KINDLE_OASIS_VOCAB_FILE, "rb") as out:
-    KINDLE_OASIS_VOCAB_FILE_ID = pickle.load(out)
-
-ALL_VOCAB_IDS = KINDLE_PAPER_WHITE_VOCAB_FILE_ID + KINDLE_OASIS_VOCAB_FILE_ID
 
 
 

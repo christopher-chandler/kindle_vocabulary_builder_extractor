@@ -1,6 +1,7 @@
 # Standard
 import logging
 import os
+import pickle
 import subprocess
 import time
 
@@ -10,7 +11,9 @@ from datetime import datetime
 import typer
 
 # Custom
-from app_util.constants import LOG_FILE_NAME, WORKING_DIRECTORY,  time_stamp_string, LOG_FOLDER
+from app_util.constants import LOG_FILE_NAME, WORKING_DIRECTORY, \
+    time_stamp_string, LOG_FOLDER,KINDLE_OASIS_VOCAB_FILE, \
+    KINDLE_PAPER_WHITE_VOCAB_FILE
 from app_util.serial_numbers import *
 from app_util.device_detector import analyze_kindle_vocab_data
 from app_util.folder_manager import clear_log_files, clear_results_files
@@ -28,6 +31,13 @@ print(f"{time_stamp_string}: Script started running.")
 
 while True:
     timestamp_str = datetime.now().strftime("%m_%d_%Y_%I_%M_%S_%p")
+    with open(KINDLE_PAPER_WHITE_VOCAB_FILE, "rb") as out:
+        KINDLE_PAPER_WHITE_VOCAB_FILE_ID = pickle.load(out)
+
+    with open(KINDLE_OASIS_VOCAB_FILE, "rb") as out:
+        KINDLE_OASIS_VOCAB_FILE_ID = pickle.load(out)
+
+    vocab_key_reference = KINDLE_PAPER_WHITE_VOCAB_FILE_ID + KINDLE_OASIS_VOCAB_FILE_ID
 
     output = subprocess.run(
         ["system_profiler", "SPUSBDataType"], capture_output=True
@@ -39,16 +49,18 @@ while True:
         clear_results_files(True)
         clear_log_files(5)
         analyze_kindle_vocab_data(device_name="kindle_oasis",
-                                  time_stamp=timestamp_str,dump_ids=False,
-                                  only_allow_unique_ids=True)
+                                  time_stamp=timestamp_str,dump_ids=True,
+                                  only_allow_unique_ids=True,
+                                  vocab_key_reference = vocab_key_reference)
         time.sleep(1)
     elif SC_PAPER_WHITE in output and KINDLE_MOUNT:
         clear_results_files(True)
         clear_log_files(5)
         analyze_kindle_vocab_data(device_name="kindle_paper_white",
                                   time_stamp=timestamp_str,
-                                  dump_ids=False,
-                                  only_allow_unique_ids=True)
+                                  dump_ids=True,
+                                  only_allow_unique_ids=True,
+                                  vocab_key_reference = vocab_key_reference)
         time.sleep(1)
     else:
         msg = "No Kindle device connected."

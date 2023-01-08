@@ -1,5 +1,6 @@
 # Standard
 import csv
+import logging
 import pickle
 import os
 import sqlite3
@@ -13,7 +14,7 @@ import typer
 # Custom
 from app_util.constants import SQL_BOOK_INFO_TEMPLATE, SQL_LOOKUP_TEMPLATE, \
     KINDLE_DATABASE, RESULTS_FOLDER, ANKI_MODEL, HEADER_SELECTION, \
-    WORKING_DIRECTORY, ALL_VOCAB_IDS
+    WORKING_DIRECTORY
 
 os.chdir(WORKING_DIRECTORY)
 
@@ -24,7 +25,7 @@ def main_program(**kwargs) -> bool:
     device_name = kwargs.get("device_name")
     dump_ids = kwargs.get("dump_ids")
     only_allow_unique_ids = kwargs.get("only_allow_unique_ids")
-
+    vocab_key_reference = kwargs.get("vocab_key_reference")
     vocab_database = sqlite3.connect(KINDLE_DATABASE)
     cursor = vocab_database.cursor()
 
@@ -111,18 +112,24 @@ def main_program(**kwargs) -> bool:
             if only_allow_unique_ids:
 
                 note_id = entry.get("id")
-                if note_id not in ALL_VOCAB_IDS:
+                if note_id not in vocab_key_reference:
                     unique_notes.append(note_id)
                     ANKI_DECK.add_note(anki_note)
             else:
                 ANKI_DECK.add_note(anki_note)
 
         if len(unique_notes) == 0:
-            typer.secho("No new notes could be found",
+            no_new_notes = "No new notes could be found."
+            logging.info(no_new_notes)
+            typer.secho(no_new_notes,
                         fg=typer.colors.BRIGHT_RED)
             return False
 
         else:
+            unique_notes = f"{len(unique_notes)} note(s) were found."
+            typer.secho(unique_notes)
+            logging.info(unique_notes)
             deck = genanki.Package(ANKI_DECK)
             deck.write_to_file(f"{RESULTS_FOLDER}/{device_name}.apkg")
+
             return True

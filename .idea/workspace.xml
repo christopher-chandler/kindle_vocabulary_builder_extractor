@@ -4,18 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="392a40ae-7096-4a6c-990f-acead6f6ac57" name="Changes" comment="restore deleted files">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="392a40ae-7096-4a6c-990f-acead6f6ac57" name="Changes" comment="Add id check">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/vocab_extractor.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/vocab_extractor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_util/import_deck_to_anki.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_util/anki_deck_importer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_util/start.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_util/device_detector.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_util/utilities.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_util/constants.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log_dir/kindle_2023-01-08_08:59:29.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log_dir/kindle_2023-01-08_09:00:09.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log_dir/kindle_2023-01-08_09:00:20.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_util/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_util/constants.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_util/device_detector.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_util/device_detector.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model_templates/front.html" beforeDir="false" afterPath="$PROJECT_DIR$/model_templates/front.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vocab_data/kindle_oasis.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/vocab_data/kindle_oasis.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vocab_data/kindle_paper_white.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/vocab_data/kindle_paper_white.pkl" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -259,12 +255,20 @@
       <option name="project" value="LOCAL" />
       <updated>1673170365392</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Add id check">
+      <created>1673208962481</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1673208962481</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="update" />
     <MESSAGE value="restore deleted files" />
-    <option name="LAST_COMMIT_MESSAGE" value="restore deleted files" />
+    <MESSAGE value="Add id check" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add id check" />
   </component>
 </project>
