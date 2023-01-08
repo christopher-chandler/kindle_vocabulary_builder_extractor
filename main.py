@@ -1,86 +1,70 @@
 # Standard
-import csv
+import logging
 import os
-import sqlite3
+import subprocess
+import time
 
-from datetime import datetime
-
-# pip
-import genanki
+# Pip
+# None
 
 # Custom
-from app_util.utilities import SQL_BOOK_INFO_TEMPLATE, SQL_LOOKUP_TEMPLATE
-from app_util.utilities import anki_model, anki_deck, anki_header
+from app.vocab_extractor import main_program
+from app_util.utilities import LOG_FILE_NAME, WORKING_DIRECTORY, EJECT_KINDLE
+from app_util.import_deck_to_anki import import_deck
+from app_util.serial_numbers import *
 
-os.chdir("/Users/christopherchandler/Github/Python/kindle_vocabulary_builder_extractor")
+os.chdir(WORKING_DIRECTORY)
 
+logging.basicConfig(
+    format="%(asctime)s %(message)s",
+    filemode="w",
+    filename=LOG_FILE_NAME,
+    datefmt="%m/%d/%Y %I:%M:%S %p",
+    level=logging.INFO,
+)
 
-def main_program(name:str ) -> None:
-    # SQL Cursor
-    vocab_database = sqlite3.connect("vocab_data/vocab.db")
-    cursor = vocab_database.cursor()
+while True:
+    kindle_mounted = os.path.ismount('/Volumes/Kindle')
+    output = subprocess.run(
+        ["system_profiler", "SPUSBDataType"], capture_output=True
+    ).stdout.decode()
 
-    book_info_cursor = cursor.execute("SELECT * from BOOK_INFO")
-    book_info_output = book_info_cursor.fetchall()
+    # Oasis
+    if SC_KINDLE_OASIS in output:
+        # Run the script
+        device_name = "kindle_oasis"
+        logging.info(device_name)
+        main_program(device_name)
+        print(device_name)
 
-    lookup_cursor = cursor.execute("SELECT * from LOOKUPS")
-    lookup_cursor_output = lookup_cursor.fetchall()
+    elif SC_PAPER_WHITE in output and kindle_mounted:
 
-    book_info_results = dict()
-    lookup_results = dict()
+        def device_checker():
+            device_name = "kindle_paperwhite"
+            mounted = f"{device_name} is mounted."
+            import_data = f"{device_name} data being imported."
+            data_imported = f"{device_name}.apkg deck imported."
+            unmounted = f"{device_name} unmounted"
 
+            time.sleep(5)
+            print(mounted)
+            logging.info(mounted)
 
-    SQL_BOOK_INFO = dict()
+            time.sleep(5)
+            print(import_data)
+            logging.info(import_data)
+            main_program(device_name)
+            time.sleep(5)
 
-    for row in book_info_output:
-        temp_dict = dict()
-        for entry, table_name in zip(row, SQL_BOOK_INFO_TEMPLATE.keys()):
-            temp_dict[table_name] = entry
+            import_deck("kindle_paperwhite")
+            print(data_imported)
+            logging.info(data_imported)
+            time.sleep(5)
 
-            id = temp_dict.get("id")
-            SQL_BOOK_INFO[id] = temp_dict
+            subprocess.run(EJECT_KINDLE)
+            logging.info(unmounted)
 
-    SQL_LOOKUPS = dict()
-    for row in lookup_cursor_output:
-        temp_dict = dict()
-        for entry, table_name in zip(row, SQL_LOOKUP_TEMPLATE.keys()):
-            temp_dict[table_name] = entry
-
-        dt_object = datetime.fromtimestamp(temp_dict["timestamp"] / 1000)
-        time_stamp = dt_object.strftime("%B %d, %Y %I:%M:%S %p")
-        temp_dict["timestamp"] = time_stamp
-        lang, word = temp_dict["word_key"].split(":")
-        temp_dict["lang"] = lang
-        temp_dict["word_key"] = word
-        book, lang = SQL_BOOK_INFO[temp_dict["book_key"]]["title"].replace(" ", "_"), temp_dict["lang"]
-
-        temp_dict["tag"] = [book.replace(" ","_"), lang]
-        temp_dict["book_key"] = SQL_BOOK_INFO[temp_dict["book_key"]]["title"]
-        id = temp_dict["id"]
-        SQL_LOOKUPS[id] = temp_dict
-
-
-    with open("results/kindle_oasis.csv", mode="w", encoding="utf-8") as save_file:
-
-        for i in SQL_LOOKUPS:
-            header = list(SQL_LOOKUPS.get(i).keys())
-            break
-        csv_dictwriter = csv.DictWriter(save_file, header)
-        csv_dictwriter.writeheader()
-
-        for i in SQL_LOOKUPS:
-            entry = SQL_LOOKUPS.get(i)
-
-            csv_dictwriter.writerow(entry)
-
-            for head in anki_header:
-                if head not in entry:
-                    entry[head]=" "
-            tags = entry.get("tag")
-            entry.pop("tag")
-
-            my_note = genanki.Note(model=anki_model,  fields=list(entry.values()), tags=tags)
-            anki_deck.add_note(my_note)
-
-    deck = genanki.Package(anki_deck)
-    deck.write_to_file(f"results/{name}.apkg")
+    else:
+        logging.debug("No Kindle present")
+        device_name = "No Kindle present"
+        logging.info(device_name)

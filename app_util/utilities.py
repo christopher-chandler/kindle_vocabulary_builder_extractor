@@ -1,19 +1,26 @@
 # Standard
-import datetime
 import os
+
+from datetime import datetime
 
 # Pip
 import genanki
 
-os.chdir("/Users/christopherchandler/Github/"
-         "Python/kindle_vocabulary_builder_extractor")
+# Custom
+# None
 
 # Get the current time
-now = datetime.datetime.now()
-timestamp_str = now.strftime("%Y-%m-%d_%H:%M:%S")
-log_file_name = f"log_dir/kindle_{timestamp_str}.log"
-results_folder = "/Users/christopherchandler/Github/Python/kindle_vocabulary_builder_extractor/results"
+timestamp_str = datetime.now().strftime("%Y-%m-%d_%H:%M:%S")
+WORKING_DIRECTORY = "/Users/christopherchandler/Github/Python/kindle_vocabulary_builder_extractor"
 
+os.chdir(WORKING_DIRECTORY)
+
+LOG_FILE_NAME = f"log_dir/kindle_{timestamp_str}.log"
+RESULTS_FOLDER = "/Users/christopherchandler/" \
+                 "Github/Python/kindle_vocabulary_builder_extractor/results"
+KINDLE_DATABASE = "/Volumes/Kindle/System/vocabulary/vocab.db"
+
+EJECT_KINDLE = ["diskutil", "unmount", "/Volumes/Kindle"]
 
 SQL_BOOK_INFO_TEMPLATE = {
     "id": list(),
@@ -34,9 +41,7 @@ SQL_LOOKUP_TEMPLATE = {
     "timestamp": list(),
 }
 
-front = open("model_templates/front.html", mode="r").read()
-back = open("model_templates/back.html", mode="r").read()
-anki_header = (
+HEADER_SELECTION = (
     "id",
     "word_key",
     "book_key",
@@ -61,16 +66,18 @@ anki_header = (
     "Explanation",
 )
 
-f = [{"name": head} for head in anki_header]
+ANKI_HEADER = [{"name": head} for head in HEADER_SELECTION]
+FRONT_TEMPLATE = open("model_templates/front.html", mode="r").read()
+BACK_TEMPLATE = open("model_templates/back.html", mode="r").read()
 
-anki_model = genanki.Model(
+ANKI_MODEL = genanki.Model(
     1607392319,
-    "Simple Model",
-    fields=f,
+    "Kindle Model",
+    fields=ANKI_HEADER,
     templates=[
-        {"name": "Card 1", "qfmt": f"{front}",
-         "afmt": f"{back}", "tags": "hello"},
+        {"name": "Card 1", "qfmt":
+            f"{FRONT_TEMPLATE}", "afmt": f"{BACK_TEMPLATE}", "tags": "hello"},
     ],
 )
 
-anki_deck = genanki.Deck(deck_id=2059400110, name="Kindle Oasis")
+ANKI_DECK = genanki.Deck(deck_id=2059400110, name="Kindle Oasis")
