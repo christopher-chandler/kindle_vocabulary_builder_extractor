@@ -11,6 +11,7 @@ import subprocess
 # Custom
 from main import main_program
 from app_util.utilities import log_file_name
+from app_util.serial_numbers import *
 
 os.chdir("/Users/christopherchandler/Github/Python/kindle_vocabulary_builder_extractor")
 logging.basicConfig(format='%(asctime)s %(message)s', filemode="w", filename=log_file_name,
