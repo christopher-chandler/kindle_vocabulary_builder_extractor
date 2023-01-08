@@ -6,96 +6,30 @@
     </svg>
 </div>
 
-<div class="migaku-card migaku-card-back">
-
-<br>
-
-<div style='font-family: "Arial";
-text-align: right; margin-right: 30px; font-size: 20px;'>{{Tags}}</div>
-
-    <div class="migaku-card-screenshot">
-        {{editable:Screenshot}}
-    </div>
-
+<div class="migaku-card migaku-card-front">
     <div class="migaku-card-content">
-        <div class="migaku-card-sentence-audio">
-            {{editable:Sentence Audio}}
-        </div>
-        <div class="migaku-card-sentence">
-            <div class="field" data-popup="yes" data-furigana="no" data-pitch-coloring="yes" data-pitch-shapes="yes">{{editable:usage}}</div>
-        </div>
-
-        <div class="migaku-card-translation">
-
-        </div>
-        {{#usage}}
-
-            <hr class="sentence-separator">
-					<div class="field" data-popup="yes" data-furigana="yes" data-pitch-coloring="yes" data-pitch-shapes="yes">
-        {{/usage}}
-        <div class="migaku-card-unknown-audio migaku-indented">
-            {{editable:Word Audio}}
-        </div>
-        <div class="migaku-card-unknown migaku-indented">
-            <div class="field" data-popup="yes" data-furigana="yes" data-pitch-coloring="yes" data-pitch-shapes="yes">{{editable:word_key}}</div>
-        </div>
-
-        <div class="migaku-card-examples migaku-indented">
-            <div class="field" data-popup="yes" data-furigana="yes" data-pitch-coloring="yes" data-pitch-shapes="yes">{{editable:Example Sentences}}</div>
-        </div>
-        <div class="migaku-card-definitions migaku-indented">
-            <div class="field" data-popup="yes" data-furigana="yes" data-pitch-coloring="no" data-pitch-shapes="no">{{editable:Definitions}}</div>
-        </div>
-        <div class="migaku-card-images">
-            {{editable:Images}}
-        </div>
+        {{^Is Audio Card}}
+            {{^Is Vocabulary Card}}
+                <div class="field" data-popup="yes" data-furigana="no" data-pitch-coloring="no" data-pitch-shapes="no">{{editable:usage}}</div>
+            {{/Is Vocabulary Card}}
+        {{/Is Audio Card}}
+        {{^Is Audio Card}}
+            {{#Is Vocabulary Card}}
+                <div class="field" data-popup="yes" data-furigana="no" data-pitch-coloring="no" data-pitch-shapes="no">{{editable:word_key}}</div>
+            {{/Is Vocabulary Card}}
+        {{/Is Audio Card}}
+        {{#Is Audio Card}}
+            {{^Is Vocabulary Card}}
+                {{editable:Sentence Audio}}
+            {{/Is Vocabulary Card}}
+        {{/Is Audio Card}}
+        {{#Is Audio Card}}
+            {{#Is Vocabulary Card}}
+                {{editable:Word Audio}}
+            {{/Is Vocabulary Card}}
+        {{/Is Audio Card}}
     </div>
 </div>
-
-
-<div class="migaku-typeselect">
-    <form>
-        <label>
-            <input type="radio" id="type-s" name="type" value="s">
-            Sentence
-        </label>
-
-        <label>
-            <input type="radio" id="type-v" name="type" value="v">
-            Vocabulary
-        </label>
-
-        <label>
-            <input type="radio" id="type-as" name="type" value="as">
-            Audio Sentence
-        </label>
-
-        <label>
-            <input type="radio" id="type-av" name="type" value="av">
-            Audio Vocabulary
-        </label>
-    </form>
-</div>
-
-<script>
-    if (typeof (pycmd) !== "undefined") {
-        const form = document.querySelector('.migaku-typeselect form');
-
-        let card_type = `{{Is Vocabulary Card}}`.replace(/(<([^>]+)>)/ig, '').length ? 'v' : 's';
-        if (`{{Is Audio Card}}`.replace(/(<([^>]+)>)/ig, '').length) {
-            card_type = 'a' + card_type;
-        }
-        form.elements["type"].value = card_type;
-
-        form.onchange = function () {
-            const card_type = form.elements['type'].value;
-            pycmd('update_card_type|' + card_type);
-        }
-    }
-    else {
-        document.querySelector('.migaku-typeselect').style.display = 'none';
-    }
-</script>
 
 <!--###MIGAKU JAPANESE SUPPORT JS STARTS###--><script>
 (function() {

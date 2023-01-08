@@ -1,4 +1,6 @@
 # Standard
+import pickle
+import random
 import os
 
 from datetime import datetime
@@ -10,16 +12,18 @@ import genanki
 # None
 
 # Get the current time
-timestamp_str = datetime.now().strftime("%Y-%m-%d_%H:%M:%S")
-WORKING_DIRECTORY = "/Users/christopherchandler/Github/Python/kindle_vocabulary_builder_extractor"
+time_stamp_string = datetime.now().strftime("%m_%d_%Y_%I_%M_%S_%p")
+WORKING_DIRECTORY = "/Users/christopherchandler/Github" \
+                    "/Python/kindle_vocabulary_builder_extractor"
 
 os.chdir(WORKING_DIRECTORY)
 
-LOG_FILE_NAME = f"log_dir/kindle_{timestamp_str}.log"
+LOG_FILE_NAME = f"log_dir/kindle_{time_stamp_string}.log"
+LOG_FOLDER = r"/Users/christopherchandler/Github/Python" \
+             r"/kindle_vocabulary_builder_extractor/log_dir"
 RESULTS_FOLDER = "/Users/christopherchandler/" \
                  "Github/Python/kindle_vocabulary_builder_extractor/results"
 KINDLE_DATABASE = "/Volumes/Kindle/System/vocabulary/vocab.db"
-
 EJECT_KINDLE = ["diskutil", "unmount", "/Volumes/Kindle"]
 
 SQL_BOOK_INFO_TEMPLATE = {
@@ -69,6 +73,7 @@ HEADER_SELECTION = (
 ANKI_HEADER = [{"name": head} for head in HEADER_SELECTION]
 FRONT_TEMPLATE = open("model_templates/front.html", mode="r").read()
 BACK_TEMPLATE = open("model_templates/back.html", mode="r").read()
+STYLE_TEMPLATE = open(r"model_templates/style.css", mode="r").read()
 
 ANKI_MODEL = genanki.Model(
     1607392319,
@@ -78,6 +83,27 @@ ANKI_MODEL = genanki.Model(
         {"name": "Card 1", "qfmt":
             f"{FRONT_TEMPLATE}", "afmt": f"{BACK_TEMPLATE}", "tags": "hello"},
     ],
+    css=STYLE_TEMPLATE
 )
 
-ANKI_DECK = genanki.Deck(deck_id=2059400110, name="Kindle Oasis")
+ANKI_DECK = genanki.Deck(deck_id=2059400110, name="Kindle")
+KINDLE_PAPER_WHITE_VOCAB_FILE = r"vocab_data/kindle_paper_white.pkl"
+KINDLE_OASIS_VOCAB_FILE = r"vocab_data/kindle_oasis.pkl"
+
+# initalize pickle
+
+c = 0
+with open(KINDLE_PAPER_WHITE_VOCAB_FILE, "rb") as out:
+    KINDLE_PAPER_WHITE_VOCAB_FILE_ID = pickle.load(out)
+
+with open(KINDLE_OASIS_VOCAB_FILE, "rb") as out:
+    KINDLE_OASIS_VOCAB_FILE_ID = pickle.load(out)
+
+ALL_VOCAB_IDS = KINDLE_PAPER_WHITE_VOCAB_FILE_ID + KINDLE_OASIS_VOCAB_FILE_ID
+
+
+
+
+
+
+

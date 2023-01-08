@@ -1,5 +1,6 @@
 # Standard
 import csv
+import pickle
 import os
 import sqlite3
 
@@ -7,17 +8,24 @@ from datetime import datetime
 
 # pip
 import genanki
+import typer
 
 # Custom
-from app_util.utilities import SQL_BOOK_INFO_TEMPLATE, SQL_LOOKUP_TEMPLATE
-from app_util.utilities import ANKI_MODEL, ANKI_DECK, HEADER_SELECTION
+from app_util.constants import SQL_BOOK_INFO_TEMPLATE, SQL_LOOKUP_TEMPLATE, \
+    KINDLE_DATABASE, RESULTS_FOLDER, ANKI_MODEL, HEADER_SELECTION, \
+    WORKING_DIRECTORY, ALL_VOCAB_IDS
 
-os.chdir("/")
+os.chdir(WORKING_DIRECTORY)
 
 
-def main_program(name: str) -> None:
+def main_program(**kwargs) -> bool:
     # SQL Cursor
-    vocab_database = sqlite3.connect("../vocab_data/vocab.db")
+
+    device_name = kwargs.get("device_name")
+    dump_ids = kwargs.get("dump_ids")
+    only_allow_unique_ids = kwargs.get("only_allow_unique_ids")
+
+    vocab_database = sqlite3.connect(KINDLE_DATABASE)
     cursor = vocab_database.cursor()
 
     book_info_cursor = cursor.execute("SELECT * from BOOK_INFO")
@@ -26,8 +34,7 @@ def main_program(name: str) -> None:
     lookup_cursor = cursor.execute("SELECT * from LOOKUPS")
     lookup_cursor_output = lookup_cursor.fetchall()
 
-    book_info_results = dict()
-    lookup_results = dict()
+    id_db = list()
 
     SQL_BOOK_INFO = dict()
 
@@ -36,8 +43,8 @@ def main_program(name: str) -> None:
         for entry, table_name in zip(row, SQL_BOOK_INFO_TEMPLATE.keys()):
             temp_dict[table_name] = entry
 
-            id = temp_dict.get("id")
-            SQL_BOOK_INFO[id] = temp_dict
+            word_id = temp_dict.get("id")
+            SQL_BOOK_INFO[word_id] = temp_dict
 
     SQL_LOOKUPS = dict()
     for row in lookup_cursor_output:
@@ -58,32 +65,64 @@ def main_program(name: str) -> None:
 
         temp_dict["tag"] = [book.replace(" ", "_"), lang]
         temp_dict["book_key"] = SQL_BOOK_INFO[temp_dict["book_key"]]["title"]
-        id = temp_dict["id"]
-        SQL_LOOKUPS[id] = temp_dict
+        word_id = temp_dict["id"]
+        SQL_LOOKUPS[word_id] = temp_dict
+        id_db.append(word_id)
 
-    with open("../results/kindle_oasis.csv", mode="w", encoding="utf-8") as save_file:
+    if dump_ids:
+        with open(f"vocab_data/{device_name}.pkl",
+                  "wb") as pickle_file:
+            pickle.dump(id_db, pickle_file)
 
-        for i in SQL_LOOKUPS:
-            header = list(SQL_LOOKUPS.get(i).keys())
+    with open(f"{RESULTS_FOLDER}/{device_name}.csv",
+              mode="w+", encoding="utf-8") as save_file:
+
+        if device_name == "kindle_oasis":
+            deck_id = 2059400110
+        else:
+            deck_id = 2059400111
+
+        unique_notes = list()
+        ANKI_DECK = genanki.Deck(deck_id=deck_id,
+                                 name=device_name)
+
+        for sql_entry in SQL_LOOKUPS:
+            header = list(SQL_LOOKUPS.get(sql_entry).keys())
             break
         csv_dictwriter = csv.DictWriter(save_file, header)
         csv_dictwriter.writeheader()
 
-        for i in SQL_LOOKUPS:
-            entry = SQL_LOOKUPS.get(i)
-
+        for sql_entry in SQL_LOOKUPS:
+            entry = SQL_LOOKUPS.get(sql_entry)
             csv_dictwriter.writerow(entry)
 
             for head in HEADER_SELECTION:
                 if head not in entry:
                     entry[head] = " "
             tags = entry.get("tag")
+            tags.append(device_name)
+
             entry.pop("tag")
 
-            my_note = genanki.Note(
+            anki_note = genanki.Note(
                 model=ANKI_MODEL, fields=list(entry.values()), tags=tags
             )
-            ANKI_DECK.add_note(my_note)
 
-    deck = genanki.Package(ANKI_DECK)
-    deck.write_to_file(f"results/{name}.apkg")
+            if only_allow_unique_ids:
+
+                note_id = entry.get("id")
+                if note_id not in ALL_VOCAB_IDS:
+                    unique_notes.append(note_id)
+                    ANKI_DECK.add_note(anki_note)
+            else:
+                ANKI_DECK.add_note(anki_note)
+
+        if len(unique_notes) == 0:
+            typer.secho("No new notes could be found",
+                        fg=typer.colors.BRIGHT_RED)
+            return False
+
+        else:
+            deck = genanki.Package(ANKI_DECK)
+            deck.write_to_file(f"{RESULTS_FOLDER}/{device_name}.apkg")
+            return True

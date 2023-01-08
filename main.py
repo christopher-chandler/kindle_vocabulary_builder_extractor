@@ -4,14 +4,16 @@ import os
 import subprocess
 import time
 
+from datetime import datetime
+
 # Pip
-# None
+import typer
 
 # Custom
-from app.vocab_extractor import main_program
-from app_util.utilities import LOG_FILE_NAME, WORKING_DIRECTORY, EJECT_KINDLE
-from app_util.import_deck_to_anki import import_deck
+from app_util.constants import LOG_FILE_NAME, WORKING_DIRECTORY,  time_stamp_string, LOG_FOLDER
 from app_util.serial_numbers import *
+from app_util.device_detector import analyze_kindle_vocab_data
+from app_util.folder_manager import clear_log_files, clear_results_files
 
 os.chdir(WORKING_DIRECTORY)
 
@@ -22,49 +24,34 @@ logging.basicConfig(
     datefmt="%m/%d/%Y %I:%M:%S %p",
     level=logging.INFO,
 )
+print(f"{time_stamp_string}: Script started running.")
 
 while True:
-    kindle_mounted = os.path.ismount('/Volumes/Kindle')
+    timestamp_str = datetime.now().strftime("%m_%d_%Y_%I_%M_%S_%p")
+
     output = subprocess.run(
         ["system_profiler", "SPUSBDataType"], capture_output=True
     ).stdout.decode()
+    KINDLE_MOUNT = os.path.ismount('/Volumes/Kindle')
 
     # Oasis
-    if SC_KINDLE_OASIS in output:
-        # Run the script
-        device_name = "kindle_oasis"
-        logging.info(device_name)
-        main_program(device_name)
-        print(device_name)
-
-    elif SC_PAPER_WHITE in output and kindle_mounted:
-
-        def device_checker():
-            device_name = "kindle_paperwhite"
-            mounted = f"{device_name} is mounted."
-            import_data = f"{device_name} data being imported."
-            data_imported = f"{device_name}.apkg deck imported."
-            unmounted = f"{device_name} unmounted"
-
-            time.sleep(5)
-            print(mounted)
-            logging.info(mounted)
-
-            time.sleep(5)
-            print(import_data)
-            logging.info(import_data)
-            main_program(device_name)
-            time.sleep(5)
-
-            import_deck("kindle_paperwhite")
-            print(data_imported)
-            logging.info(data_imported)
-            time.sleep(5)
-
-            subprocess.run(EJECT_KINDLE)
-            logging.info(unmounted)
-
+    if SC_KINDLE_OASIS in output and KINDLE_MOUNT:
+        clear_results_files(True)
+        clear_log_files(5)
+        analyze_kindle_vocab_data(device_name="kindle_oasis",
+                                  time_stamp=timestamp_str,dump_ids=False,
+                                  only_allow_unique_ids=True)
+        time.sleep(1)
+    elif SC_PAPER_WHITE in output and KINDLE_MOUNT:
+        clear_results_files(True)
+        clear_log_files(5)
+        analyze_kindle_vocab_data(device_name="kindle_paper_white",
+                                  time_stamp=timestamp_str,
+                                  dump_ids=False,
+                                  only_allow_unique_ids=True)
+        time.sleep(1)
     else:
-        logging.debug("No Kindle present")
-        device_name = "No Kindle present"
-        logging.info(device_name)
+        msg = "No Kindle device connected."
+        typer.secho(f"{timestamp_str}: {msg}",fg=typer.colors.BRIGHT_BLUE)
+        logging.info(msg)
+        time.sleep(1)
