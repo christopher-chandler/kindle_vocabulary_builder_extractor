@@ -9,7 +9,7 @@ import os
 from app_util.constants import LOG_FOLDER, RESULTS_FOLDER
 
 
-def clear_log_files(file_amount:int) -> None:
+def clear_log_files(file_amount: int) -> None:
 
     clear_files = "Clearing log files."
     process_complete = "Log files cleared."
@@ -48,7 +48,7 @@ def clear_results_files(clear_results: bool = True):
 
             if file_exist:
                 os.remove(full_file)
-        open(f"{RESULTS_FOLDER}/placeholder",mode="w")
+        open(f"{RESULTS_FOLDER}/placeholder", mode="w")
 
         print(process_complete)
         logging.info(process_complete)

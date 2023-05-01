@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="392a40ae-7096-4a6c-990f-acead6f6ac57" name="Changes" comment="Add id check" />
+    <list default="true" id="392a40ae-7096-4a6c-990f-acead6f6ac57" name="Changes" comment="Add id check">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/vocab_extractor.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/vocab_extractor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_util/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_util/constants.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_util/device_detector.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_util/device_detector.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_util/folder_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_util/folder_manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/kindle_oasis.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vocab_data/kindle_oasis.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/vocab_data/kindle_oasis.pkl" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,15 +48,15 @@
     <option name="showMembers" value="true" />
     <option name="sortByType" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "/Users/christopherchandler/Github/Python/kindle_vocabulary_builder_extractor",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/christopherchandler/Github/Python/kindle_vocabulary_builder_extractor&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/vocab_data" />
@@ -109,9 +118,10 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="/usr/local/bin/python3.10" />
+      <option name="SDK_NAME" value="Python 3.10" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
@@ -187,6 +197,7 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Python.voca" />
       <item itemvalue="Python.constants" />
       <item itemvalue="Python.folder_manager" />
       <item itemvalue="Python.test (1)" />

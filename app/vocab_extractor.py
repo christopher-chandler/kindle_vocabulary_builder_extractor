@@ -7,19 +7,25 @@ import sqlite3
 
 from datetime import datetime
 
-# pip
+# Pip
 import genanki
 import typer
 
 # Custom
-from app_util.constants import SQL_BOOK_INFO_TEMPLATE, SQL_LOOKUP_TEMPLATE, \
-    KINDLE_DATABASE, RESULTS_FOLDER, ANKI_MODEL, HEADER_SELECTION, \
-    WORKING_DIRECTORY
+from app_util.constants import (
+    SQL_BOOK_INFO_TEMPLATE,
+    SQL_LOOKUP_TEMPLATE,
+    KINDLE_DATABASE,
+    RESULTS_FOLDER,
+    ANKI_MODEL,
+    HEADER_SELECTION,
+    WORKING_DIRECTORY,
+)
 
 os.chdir(WORKING_DIRECTORY)
 
 
-def main_program(**kwargs) -> bool:
+def main_extractor(**kwargs) -> bool:
     # SQL Cursor
 
     device_name = kwargs.get("device_name")
@@ -36,7 +42,6 @@ def main_program(**kwargs) -> bool:
     lookup_cursor_output = lookup_cursor.fetchall()
 
     id_db = list()
-
     SQL_BOOK_INFO = dict()
 
     for row in book_info_output:
@@ -71,12 +76,12 @@ def main_program(**kwargs) -> bool:
         id_db.append(word_id)
 
     if dump_ids:
-        with open(f"vocab_data/{device_name}.pkl",
-                  "wb") as pickle_file:
+        with open(f"vocab_data/{device_name}.pkl", "wb") as pickle_file:
             pickle.dump(id_db, pickle_file)
 
-    with open(f"{RESULTS_FOLDER}/{device_name}.csv",
-              mode="w+", encoding="utf-8") as save_file:
+    with open(
+        f"{RESULTS_FOLDER}/{device_name}.csv", mode="w+", encoding="utf-8"
+    ) as save_file:
 
         if device_name == "kindle_oasis":
             deck_id = 2059400110
@@ -84,8 +89,7 @@ def main_program(**kwargs) -> bool:
             deck_id = 2059400111
 
         unique_notes = list()
-        ANKI_DECK = genanki.Deck(deck_id=deck_id,
-                                 name=device_name)
+        ANKI_DECK = genanki.Deck(deck_id=deck_id, name=device_name)
 
         for sql_entry in SQL_LOOKUPS:
             header = list(SQL_LOOKUPS.get(sql_entry).keys())
@@ -121,8 +125,7 @@ def main_program(**kwargs) -> bool:
         if len(unique_notes) == 0:
             no_new_notes = "No new notes could be found."
             logging.info(no_new_notes)
-            typer.secho(no_new_notes,
-                        fg=typer.colors.BRIGHT_RED)
+            typer.secho(no_new_notes, fg=typer.colors.BRIGHT_RED)
             return False
 
         else:

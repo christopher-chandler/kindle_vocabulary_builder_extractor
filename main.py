@@ -11,9 +11,13 @@ from datetime import datetime
 import typer
 
 # Custom
-from app_util.constants import LOG_FILE_NAME, WORKING_DIRECTORY, \
-    time_stamp_string, LOG_FOLDER,KINDLE_OASIS_VOCAB_FILE, \
-    KINDLE_PAPER_WHITE_VOCAB_FILE
+from app_util.constants import (
+    LOG_FILE_NAME,
+    WORKING_DIRECTORY,
+    time_stamp_string,
+    KINDLE_OASIS_VOCAB_FILE,
+    KINDLE_PAPER_WHITE_VOCAB_FILE,
+)
 from app_util.serial_numbers import *
 from app_util.device_detector import analyze_kindle_vocab_data
 from app_util.folder_manager import clear_log_files, clear_results_files
@@ -42,28 +46,34 @@ while True:
     output = subprocess.run(
         ["system_profiler", "SPUSBDataType"], capture_output=True
     ).stdout.decode()
-    KINDLE_MOUNT = os.path.ismount('/Volumes/Kindle')
+    KINDLE_MOUNT = os.path.ismount("/Volumes/Kindle")
 
     # Oasis
     if SC_KINDLE_OASIS in output and KINDLE_MOUNT:
         clear_results_files(True)
         clear_log_files(5)
-        analyze_kindle_vocab_data(device_name="kindle_oasis",
-                                  time_stamp=timestamp_str,dump_ids=True,
-                                  only_allow_unique_ids=True,
-                                  vocab_key_reference = vocab_key_reference)
+        analyze_kindle_vocab_data(
+            device_name="kindle_oasis",
+            time_stamp=timestamp_str,
+            dump_ids=True,
+            only_allow_unique_ids=True,
+            vocab_key_reference=vocab_key_reference,
+        )
+
         time.sleep(1)
     elif SC_PAPER_WHITE in output and KINDLE_MOUNT:
         clear_results_files(True)
         clear_log_files(5)
-        analyze_kindle_vocab_data(device_name="kindle_paper_white",
-                                  time_stamp=timestamp_str,
-                                  dump_ids=True,
-                                  only_allow_unique_ids=True,
-                                  vocab_key_reference = vocab_key_reference)
+        analyze_kindle_vocab_data(
+            device_name="kindle_paper_white",
+            time_stamp=timestamp_str,
+            dump_ids=True,
+            only_allow_unique_ids=True,
+            vocab_key_reference=vocab_key_reference,
+        )
         time.sleep(1)
     else:
         msg = "No Kindle device connected."
-        typer.secho(f"{timestamp_str}: {msg}",fg=typer.colors.BRIGHT_BLUE)
+        typer.secho(f"{timestamp_str}: {msg}", fg=typer.colors.BRIGHT_BLUE)
         logging.info(msg)
         time.sleep(1)
