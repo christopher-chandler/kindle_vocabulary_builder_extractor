@@ -41,7 +41,8 @@ while True:
     with open(KINDLE_OASIS_VOCAB_FILE, "rb") as out:
         KINDLE_OASIS_VOCAB_FILE_ID = pickle.load(out)
 
-    vocab_key_reference = KINDLE_PAPER_WHITE_VOCAB_FILE_ID + KINDLE_OASIS_VOCAB_FILE_ID
+    vocab_key_reference = KINDLE_PAPER_WHITE_VOCAB_FILE_ID + \
+                          KINDLE_OASIS_VOCAB_FILE_ID
 
     output = subprocess.run(
         ["system_profiler", "SPUSBDataType"], capture_output=True

@@ -82,7 +82,7 @@ STYLE_TEMPLATE = open(r"model_templates/style.css", mode="r").read()
 
 ANKI_MODEL = genanki.Model(
     1607392319,
-    "Kindle Model",
+    "Import Anki Deck",
     fields=ANKI_HEADER,
     templates=[
         {
@@ -92,9 +92,11 @@ ANKI_MODEL = genanki.Model(
             "tags": "hello",
         },
     ],
-    css=STYLE_TEMPLATE,
+    css=STYLE_TEMPLATE
 )
 
 ANKI_DECK = genanki.Deck(deck_id=2059400110, name="Kindle")
 KINDLE_PAPER_WHITE_VOCAB_FILE = r"vocab_data/kindle_paper_white.pkl"
 KINDLE_OASIS_VOCAB_FILE = r"vocab_data/kindle_oasis.pkl"
+SC_PAPER_WHITE = "G000T60783540207"
+SC_KINDLE_OASIS = "G000WM0602110684"
