@@ -18,7 +18,7 @@ from app_util.constants import (
     KINDLE_OASIS_VOCAB_FILE,
     KINDLE_PAPER_WHITE_VOCAB_FILE,
 )
-from app_util.serial_numbers import *
+from app_util.constants import *
 from app_util.device_detector import analyze_kindle_vocab_data
 from app_util.folder_manager import clear_log_files, clear_results_files
 

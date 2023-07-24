@@ -14,19 +14,19 @@ import genanki
 # Get the current time
 time_stamp_string = datetime.now().strftime("%m_%d_%Y_%I_%M_%S_%p")
 WORKING_DIRECTORY = (
-    "/Users/christopherchandler/Github" "/Python/kindle_vocabulary_builder_extractor"
+    "/Users/christopherchandler/repo/Python/kindle_vocabulary_builder_extractor"
 )
 
 os.chdir(WORKING_DIRECTORY)
 
 LOG_FILE_NAME = f"log_dir/kindle_{time_stamp_string}.log"
 LOG_FOLDER = (
-    r"/Users/christopherchandler/Github/Python"
+    r"/Users/christopherchandler/repo/Python"
     r"/kindle_vocabulary_builder_extractor/log_dir"
 )
 RESULTS_FOLDER = (
     "/Users/christopherchandler/"
-    "Github/Python/kindle_vocabulary_builder_extractor/results"
+    "repo/Python/kindle_vocabulary_builder_extractor/results"
 )
 KINDLE_DATABASE = "/Volumes/Kindle/System/vocabulary/vocab.db"
 EJECT_KINDLE = ["diskutil", "unmount", "/Volumes/Kindle"]
