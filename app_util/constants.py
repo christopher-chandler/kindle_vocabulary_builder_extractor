@@ -92,7 +92,7 @@ ANKI_MODEL = genanki.Model(
             "tags": "hello",
         },
     ],
-    css=STYLE_TEMPLATE
+    css=STYLE_TEMPLATE,
 )
 
 ANKI_DECK = genanki.Deck(deck_id=2059400110, name="Kindle")

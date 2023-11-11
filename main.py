@@ -18,7 +18,6 @@ from app_util.constants import (
     KINDLE_OASIS_VOCAB_FILE,
     KINDLE_PAPER_WHITE_VOCAB_FILE,
 )
-from app_util.constants import *
 from app_util.device_detector import analyze_kindle_vocab_data
 from app_util.folder_manager import clear_log_files, clear_results_files
 
@@ -41,8 +40,7 @@ while True:
     with open(KINDLE_OASIS_VOCAB_FILE, "rb") as out:
         KINDLE_OASIS_VOCAB_FILE_ID = pickle.load(out)
 
-    vocab_key_reference = KINDLE_PAPER_WHITE_VOCAB_FILE_ID + \
-                          KINDLE_OASIS_VOCAB_FILE_ID
+    vocab_key_reference = KINDLE_PAPER_WHITE_VOCAB_FILE_ID + KINDLE_OASIS_VOCAB_FILE_ID
 
     output = subprocess.run(
         ["system_profiler", "SPUSBDataType"], capture_output=True
