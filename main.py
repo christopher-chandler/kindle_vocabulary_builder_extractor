@@ -21,8 +21,11 @@ from app_util.constants import (
 from app_util.device_detector import analyze_kindle_vocab_data
 from app_util.folder_manager import clear_log_files, clear_results_files
 
+
+# The working directory must be the directory of the project
 os.chdir(WORKING_DIRECTORY)
 
+# Set up logger
 logging.basicConfig(
     format="%(asctime)s %(message)s",
     filemode="w",

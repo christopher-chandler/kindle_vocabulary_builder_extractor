@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="392a40ae-7096-4a6c-990f-acead6f6ac57" name="Changes" comment="implement black format">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_util/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_util/constants.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vocab_data/kindle_oasis.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/vocab_data/kindle_oasis.pkl" afterDir="false" />
-    </list>
+    <list default="true" id="392a40ae-7096-4a6c-990f-acead6f6ac57" name="Changes" comment="Add README.MD" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -281,7 +277,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684482082909</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Add README.MD">
+      <created>1699689843925</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1699689843925</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -289,6 +292,7 @@
     <MESSAGE value="restore deleted files" />
     <MESSAGE value="Add id check" />
     <MESSAGE value="implement black format" />
-    <option name="LAST_COMMIT_MESSAGE" value="implement black format" />
+    <MESSAGE value="Add README.MD" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add README.MD" />
   </component>
 </project>

@@ -13,9 +13,7 @@ import genanki
 
 # Get the current time
 time_stamp_string = datetime.now().strftime("%m_%d_%Y_%I_%M_%S_%p")
-WORKING_DIRECTORY = (
-    "/Users/christopherchandler/repo/Python/kindle_vocabulary_builder_extractor"
-)
+WORKING_DIRECTORY = ( "/Users/christopherchandler/code_repos/christopher-chandler/Python/kindle_vocabulary_builder_extractor")
 
 os.chdir(WORKING_DIRECTORY)
 
