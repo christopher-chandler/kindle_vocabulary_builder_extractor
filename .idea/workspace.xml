@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="392a40ae-7096-4a6c-990f-acead6f6ac57" name="Changes" comment="Add README.MD" />
+    <list default="true" id="392a40ae-7096-4a6c-990f-acead6f6ac57" name="Changes" comment="Update README.MD&#10;Update constants.py&#10;Update main.py" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -284,7 +284,14 @@
       <option name="project" value="LOCAL" />
       <updated>1699689843925</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Update README.MD&#10;Update constants.py&#10;Update main.py">
+      <created>1699690756680</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1699690756680</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -293,6 +300,7 @@
     <MESSAGE value="Add id check" />
     <MESSAGE value="implement black format" />
     <MESSAGE value="Add README.MD" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add README.MD" />
+    <MESSAGE value="Update README.MD&#10;Update constants.py&#10;Update main.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update README.MD&#10;Update constants.py&#10;Update main.py" />
   </component>
 </project>
