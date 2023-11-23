@@ -1,4 +1,4 @@
-/app_util/serial_numbers.py
+/device_system_manager/serial_numbers.py
 /Users/christopherchandler/Github/Python/kindle_vocabulary_builder_extractor/__pycache__/main.cpython-310.pyc
 /Users/christopherchandler/Github/Python/kindle_vocabulary_builder_extractor/.idea
 *.pyc
@@ -279,9 +279,9 @@ venv.bak/
 .mypy_cache/
 *.db
 /results/kindle_paperwhite.apkg
-/vocab_data/kindle_oasis.csv
+/vocab/dumped_kindle_data/kindle_oasis.csv
 /results/kindle_oasis.apkg
 /results/kindle_paper_white.apkg
-/vocab_data/kindle_oasis.csv
+/vocab/dumped_kindle_data/kindle_oasis.csv
 /results/kindle_paper_white.csv
-/vocab_data/note_id.pkl
+/vocab/dumped_kindle_data/note_id.pkl

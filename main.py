@@ -11,19 +11,21 @@ from datetime import datetime
 import typer
 
 # Custom
-from app_util.constants import (
+from constants import (
     LOG_FILE_NAME,
-    WORKING_DIRECTORY,
     time_stamp_string,
     KINDLE_OASIS_VOCAB_FILE,
     KINDLE_PAPER_WHITE_VOCAB_FILE,
+    SC_KINDLE_OASIS,
+    SC_PAPER_WHITE,
+    Configs,
 )
-from app_util.device_detector import analyze_kindle_vocab_data
-from app_util.folder_manager import clear_log_files, clear_results_files
+from device_system_manager.device_detector import analyze_kindle_vocab_data
+from device_system_manager.folder_manager import clear_log_files, clear_results_files
 
 
 # The working directory must be the directory of the project
-os.chdir(WORKING_DIRECTORY)
+os.chdir(Configs.WORKING_DIRECTORY.value)
 
 # Set up logger
 logging.basicConfig(
@@ -33,7 +35,7 @@ logging.basicConfig(
     datefmt="%m/%d/%Y %I:%M:%S %p",
     level=logging.INFO,
 )
-print(f"{time_stamp_string}: Script started running.")
+print(f"{time_stamp_string}: Main script started running.")
 
 while True:
     timestamp_str = datetime.now().strftime("%m_%d_%Y_%I_%M_%S_%p")

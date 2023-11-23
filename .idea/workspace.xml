@@ -4,7 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="392a40ae-7096-4a6c-990f-acead6f6ac57" name="Changes" comment="Update README.MD&#10;Update constants.py&#10;Update main.py" />
+    <list default="true" id="392a40ae-7096-4a6c-990f-acead6f6ac57" name="Changes" comment="Update README.MD&#10;Update constants.py&#10;Update main.py">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/anki_kindle/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/vocab_extractor.py" beforeDir="false" afterPath="$PROJECT_DIR$/anki_kindle/kindle_vocab_extractor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_util/anki_deck_importer.py" beforeDir="false" afterPath="$PROJECT_DIR$/anki_kindle/anki_deck_importer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_util/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/constants.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_util/device_detector.py" beforeDir="false" afterPath="$PROJECT_DIR$/device_system_manager/device_detector.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_util/folder_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/device_system_manager/folder_manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_templates/back.html" beforeDir="false" afterPath="$PROJECT_DIR$/vocab/flash_card_templates/back.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_templates/front.html" beforeDir="false" afterPath="$PROJECT_DIR$/vocab/flash_card_templates/front.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_templates/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/vocab/flash_card_templates/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/kindle_oasis.csv" beforeDir="false" afterPath="$PROJECT_DIR$/vocab/csv_vocab_results/kindle_oasis.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/placeholder" beforeDir="false" afterPath="$PROJECT_DIR$/vocab/csv_vocab_results/results" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vocab_data/kindle_oasis.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/vocab/dumped_kindle_data/kindle_oasis.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vocab_data/kindle_paper_white.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/vocab/dumped_kindle_data/kindle_paper_white.pkl" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,19 +60,21 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/christopherchandler/repo/Python/kindle_vocabulary_builder_extractor&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/christopherchandler/code_repos/christopher-chandler/Python/kindle_vocabulary_builder_extractor/device_system_manager&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/device_system_manager" />
       <recent name="$PROJECT_DIR$/vocab_data" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/vocab_data" />
+      <recent name="$PROJECT_DIR$/vocab" />
       <recent name="$PROJECT_DIR$/app" />
-      <recent name="$PROJECT_DIR$/app_util" />
-      <recent name="$PROJECT_DIR$/util" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/auto_start" />
+      <recent name="$PROJECT_DIR$/vocab_data" />
     </key>
   </component>
   <component name="RunManager" selected="Python.main">
@@ -72,7 +90,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app_util/constants.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/constants.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -94,6 +112,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app_util/folder_manager.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="kindle_vocab_extractor" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="kindle_vocabulary_builder_extractor" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app/kindle_vocab_extractor.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -166,40 +205,19 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="vocab_extractor" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="kindle_vocabulary_builder_extractor" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app/vocab_extractor.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <list>
+      <item itemvalue="Python.kindle_vocab_extractor" />
       <item itemvalue="Python.voca" />
       <item itemvalue="Python.constants" />
       <item itemvalue="Python.folder_manager" />
       <item itemvalue="Python.test (1)" />
       <item itemvalue="Python.main" />
-      <item itemvalue="Python.vocab_extractor" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.main" />
         <item itemvalue="Python.constants" />
-        <item itemvalue="Python.vocab_extractor" />
+        <item itemvalue="Python.kindle_vocab_extractor" />
         <item itemvalue="Python.test (1)" />
         <item itemvalue="Python.folder_manager" />
       </list>

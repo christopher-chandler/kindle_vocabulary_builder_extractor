@@ -9,11 +9,12 @@ import time
 import typer
 
 # Custom
-from app_util.constants import EJECT_KINDLE, WORKING_DIRECTORY
-from app.vocab_extractor import main_extractor
-from app_util.anki_deck_importer import import_deck
+from constants import EJECT_KINDLE, Configs
+from anki_kindle.kindle_vocab_extractor import main_extractor
+from anki_kindle.anki_deck_importer import import_deck
 
-os.chdir(WORKING_DIRECTORY)
+
+os.chdir(Configs.WORKING_DIRECTORY.value)
 
 
 def analyze_kindle_vocab_data(**kwargs) -> None:

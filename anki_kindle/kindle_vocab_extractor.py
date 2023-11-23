@@ -12,17 +12,17 @@ import genanki
 import typer
 
 # Custom
-from app_util.constants import (
+from constants import (
     SQL_BOOK_INFO_TEMPLATE,
     SQL_LOOKUP_TEMPLATE,
     KINDLE_DATABASE,
     RESULTS_FOLDER,
     ANKI_MODEL,
     HEADER_SELECTION,
-    WORKING_DIRECTORY,
+    Configs,
 )
 
-os.chdir(WORKING_DIRECTORY)
+os.chdir(Configs.WORKING_DIRECTORY.value)
 
 
 def main_extractor(**kwargs) -> bool:

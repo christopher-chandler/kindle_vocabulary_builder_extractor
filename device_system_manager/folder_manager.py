@@ -6,7 +6,7 @@ import os
 # None
 
 # Custom
-from app_util.constants import LOG_FOLDER, RESULTS_FOLDER
+from constants import Configs
 
 
 def clear_log_files(file_amount: int) -> None:
@@ -18,15 +18,17 @@ def clear_log_files(file_amount: int) -> None:
     logging.info(clear_files)
     log_count = 0
     # Iterate directory
-    for path in os.listdir(LOG_FOLDER):
+    for path in os.listdir(Configs.LOGGING_RESULTS.value):
         # check if current path is a file
-        file_exist: bool = os.path.isfile(os.path.join(LOG_FOLDER, path))
+        file_exist: bool = os.path.isfile(
+            os.path.join(Configs.LOGGING_RESULTS.value, path)
+        )
         if file_exist:
             log_count += 1
 
     if log_count >= file_amount:
-        for path in os.listdir(LOG_FOLDER):
-            full_path = f"{LOG_FOLDER}/{path}"
+        for path in os.listdir(Configs.LOGGING_RESULTS.value):
+            full_path = f"{Configs.LOGGING_RESULTS.value}/{path}"
             os.remove(full_path)
 
     print(process_complete)
@@ -41,14 +43,16 @@ def clear_results_files(clear_results: bool = True):
     logging.info(clear_files)
 
     if clear_results:
-        for path in os.listdir(RESULTS_FOLDER):
+        for path in os.listdir(Configs.CSV_VOCAB_RESULTS.value):
 
-            full_file: str = os.path.join(RESULTS_FOLDER, path)
-            file_exist: bool = os.path.isfile(os.path.join(RESULTS_FOLDER, path))
+            full_file: str = os.path.join(Configs.CSV_VOCAB_RESULTS.value, path)
+            file_exist: bool = os.path.isfile(
+                os.path.join(Configs.CSV_VOCAB_RESULTS.value, path)
+            )
 
             if file_exist:
                 os.remove(full_file)
-        open(f"{RESULTS_FOLDER}/placeholder", mode="w")
+        open(f"{Configs.CSV_VOCAB_RESULTS.value}/placeholder", mode="w")
 
         print(process_complete)
         logging.info(process_complete)
