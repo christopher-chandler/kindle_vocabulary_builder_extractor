@@ -1,23 +1,44 @@
-# Standard
+# Standard Library Imports
 import logging
 import os
 import sqlite3
 import subprocess
 import time
 
-# Pip
+# Third-party Library Imports
 import typer
 
-# Custom
+# Custom Imports
 from constants import EJECT_KINDLE, Configs
 from anki_kindle.kindle_vocab_extractor import main_extractor
 from anki_kindle.anki_deck_importer import import_deck
 
 
-os.chdir(Configs.WORKING_DIRECTORY.value)
-
-
 def analyze_kindle_vocab_data(**kwargs) -> None:
+    """
+    Analyze and process Kindle vocabulary data.
+
+    Parameters:
+    - kwargs (dict): Keyword arguments controlling the analysis and processing.
+
+    Keyword Arguments:
+    - device_name (str): Name of the Kindle device.
+    - time_stamp (str): Timestamp for logging purposes.
+    - dump_ids (bool): Whether to dump vocabulary IDs to a pickle file.
+    - only_allow_unique_ids (bool): Whether to allow only unique vocabulary IDs.
+    - vocab_key_reference (list): List of reference vocabulary keys.
+
+    Returns:
+    - None
+
+    Notes:
+    - This function assumes that the Kindle device is mounted and the necessary configurations are set.
+    - The Kindle device will be unmounted after processing.
+
+    Example:
+    analyze_kindle_vocab_data(device_name="kindle_device", time_stamp="2023-01-01 12:00:00",
+                              dump_ids=True, only_allow_unique_ids=True, vocab_key_reference=[...])
+    """
     try:
         device_name = kwargs.get("device_name", None)
         time_stamp = kwargs.get("time_stamp", None)

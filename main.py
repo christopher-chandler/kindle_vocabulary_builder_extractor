@@ -13,7 +13,7 @@ import typer
 # Custom
 from constants import (
     LOG_FILE_NAME,
-    time_stamp_string,
+    time_stamp,
     KINDLE_OASIS_VOCAB_FILE,
     KINDLE_PAPER_WHITE_VOCAB_FILE,
     SC_KINDLE_OASIS,
@@ -35,7 +35,7 @@ logging.basicConfig(
     datefmt="%m/%d/%Y %I:%M:%S %p",
     level=logging.INFO,
 )
-print(f"{time_stamp_string}: Main script started running.")
+print(f"{time_stamp}: Main script started running.")
 
 while True:
     timestamp_str = datetime.now().strftime("%m_%d_%Y_%I_%M_%S_%p")

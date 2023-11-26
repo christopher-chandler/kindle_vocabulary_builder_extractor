@@ -1,49 +1,67 @@
-# Standard
+# Standard Library Imports
 import csv
 import logging
 import pickle
 import os
 import sqlite3
-
 from datetime import datetime
 
-# Pip
+# Third-party Library Imports
 import genanki
 import typer
 
-# Custom
+# Custom Imports
 from constants import (
+    Configs,
     SQL_BOOK_INFO_TEMPLATE,
     SQL_LOOKUP_TEMPLATE,
-    KINDLE_DATABASE,
-    RESULTS_FOLDER,
     ANKI_MODEL,
     HEADER_SELECTION,
-    Configs,
 )
 
+# Change current working directory to the specified directory
 os.chdir(Configs.WORKING_DIRECTORY.value)
 
 
 def main_extractor(**kwargs) -> bool:
-    # SQL Cursor
+    """
+    Extracts Kindle vocabulary data, processes it, and generates Anki notes.
 
+    Parameters:
+    - kwargs (dict): Keyword arguments controlling the extraction and processing.
+
+    Keyword Arguments:
+    - device_name (str): Name of the Kindle device.
+    - dump_ids (bool): Whether to dump vocabulary IDs to a pickle file.
+    - only_allow_unique_ids (bool): Whether to allow only unique vocabulary IDs.
+    - vocab_key_reference (list): List of reference vocabulary keys.
+
+    Returns:
+    - bool: True if extraction and processing were successful, False otherwise.
+    """
+
+    # SQL Cursor
     device_name = kwargs.get("device_name")
     dump_ids = kwargs.get("dump_ids")
     only_allow_unique_ids = kwargs.get("only_allow_unique_ids")
     vocab_key_reference = kwargs.get("vocab_key_reference")
-    vocab_database = sqlite3.connect(KINDLE_DATABASE)
+
+    # Connect to the Kindle vocabulary database
+    vocab_database = sqlite3.connect(Configs.KINDLE_DATABASE.value)
     cursor = vocab_database.cursor()
 
+    # Retrieve data from BOOK_INFO table
     book_info_cursor = cursor.execute("SELECT * from BOOK_INFO")
     book_info_output = book_info_cursor.fetchall()
 
+    # Retrieve data from LOOKUPS table
     lookup_cursor = cursor.execute("SELECT * from LOOKUPS")
     lookup_cursor_output = lookup_cursor.fetchall()
 
     id_db = list()
     SQL_BOOK_INFO = dict()
 
+    # Process data from BOOK_INFO table
     for row in book_info_output:
         temp_dict = dict()
         for entry, table_name in zip(row, SQL_BOOK_INFO_TEMPLATE.keys()):
@@ -53,6 +71,7 @@ def main_extractor(**kwargs) -> bool:
             SQL_BOOK_INFO[word_id] = temp_dict
 
     SQL_LOOKUPS = dict()
+    # Process data from LOOKUPS table
     for row in lookup_cursor_output:
         temp_dict = dict()
         for entry, table_name in zip(row, SQL_LOOKUP_TEMPLATE.keys()):
@@ -75,12 +94,14 @@ def main_extractor(**kwargs) -> bool:
         SQL_LOOKUPS[word_id] = temp_dict
         id_db.append(word_id)
 
+    # Dump IDs to a pickle file if specified
     if dump_ids:
         with open(f"vocab_data/{device_name}.pkl", "wb") as pickle_file:
             pickle.dump(id_db, pickle_file)
 
+    # Write data to a CSV file
     with open(
-        f"{RESULTS_FOLDER}/{device_name}.csv", mode="w+", encoding="utf-8"
+        f"{Configs.RESULTS_FOLDER.value}/{device_name}.csv", mode="w+", encoding="utf-8"
     ) as save_file:
 
         if device_name == "kindle_oasis":
@@ -94,6 +115,7 @@ def main_extractor(**kwargs) -> bool:
         for sql_entry in SQL_LOOKUPS:
             header = list(SQL_LOOKUPS.get(sql_entry).keys())
             break
+
         csv_dictwriter = csv.DictWriter(save_file, header)
         csv_dictwriter.writeheader()
 
@@ -114,7 +136,6 @@ def main_extractor(**kwargs) -> bool:
             )
 
             if only_allow_unique_ids:
-
                 note_id = entry.get("id")
                 if note_id not in vocab_key_reference:
                     unique_notes.append(note_id)
@@ -122,17 +143,20 @@ def main_extractor(**kwargs) -> bool:
             else:
                 ANKI_DECK.add_note(anki_note)
 
+        # Log and print information about the extraction result
         if len(unique_notes) == 0:
             no_new_notes = "No new notes could be found."
             logging.info(no_new_notes)
             typer.secho(no_new_notes, fg=typer.colors.BRIGHT_RED)
             return False
-
         else:
             unique_notes = f"{len(unique_notes)} note(s) were found."
             typer.secho(unique_notes)
             logging.info(unique_notes)
             deck = genanki.Package(ANKI_DECK)
-            deck.write_to_file(f"{RESULTS_FOLDER}/{device_name}.apkg")
-
+            deck.write_to_file(f"{Configs.RESULTS_FOLDER.value}/{device_name}.apkg")
             return True
+
+
+if __name__ == "__main__":
+    pass

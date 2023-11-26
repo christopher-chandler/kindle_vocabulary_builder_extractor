@@ -1,10 +1,17 @@
+
+# Directories
 WORKING_DIRECTORY: "/Users/christopherchandler/code_repos/christopher-chandler/Python/\
 kindle_vocabulary_builder_extractor"
-
 LOGGING_RESULTS: "log_results"
 CSV_VOCAB_RESULTS: "vocab/csv_vocab_results"
+ANKI_VOCAB_RESULTS: "vocab/anki_vocab_results"
+ANKI_APP: "/Applications/Anki 2.1.54.app"
 
-KINDLE_PAPER_WHITE_VOCAB_FILE = r"vocab/dumped_kindle_data/kindle_paper_white.pkl"
-KINDLE_OASIS_VOCAB_FILE = r"vocab/dumped_kindle_data/kindle_oasis.pkl"
-SC_PAPER_WHITE = "G000T60783540207"
-SC_KINDLE_OASIS = "G000WM0602110684"
+# Kindle device pickles
+KINDLE_PAPER_WHITE_VOCAB_FILE: "vocab/dumped_kindle_data/kindle_paper_white.pkl"
+KINDLE_OASIS_VOCAB_FILE: "vocab/dumped_kindle_data/kindle_oasis.pkl"
+KINDLE_DATABASE : "/Volumes/Kindle/System/vocabulary/vocab.db"
+
+# Kindle device id
+SC_PAPER_WHITE: "G000T60783540207"
+SC_KINDLE_OASIS:  "G000WM0602110684"
