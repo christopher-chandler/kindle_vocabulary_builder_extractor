@@ -4,7 +4,10 @@ WORKING_DIRECTORY: "/Users/christopherchandler/code_repos/christopher-chandler/P
 kindle_vocabulary_builder_extractor"
 LOGGING_RESULTS: "logging_results"
 CSV_VOCAB_RESULTS: "vocab/csv_vocab_results"
+
+## Anki
 ANKI_VOCAB_RESULTS: "vocab/anki_vocab_results"
+ANKI_APKG: "vocab/apkg"
 ANKI_APP: "/Applications/Anki 2.1.54.app"
 
 # Kindle device pickles
@@ -12,8 +15,6 @@ KINDLE_PAPER_WHITE_VOCAB_FILE: "vocab/dumped_kindle_data/kindle_paper_white.pkl"
 KINDLE_OASIS_VOCAB_FILE: "vocab/dumped_kindle_data/kindle_oasis.pkl"
 KINDLE_DATABASE : "/Volumes/Kindle/System/vocabulary/vocab.db"
 DUMPED_DATA : "vocab/dumped_kindle_data"
-
-ANKI_APKG: "vocab/apkg"
 
 # Kindle device id
 SC_PAPER_WHITE: "G000T60783540207"

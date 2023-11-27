@@ -96,12 +96,16 @@ def main_extractor(**kwargs) -> bool:
 
     # Dump IDs to a pickle file if specified
     if dump_ids:
-        with open(f"{Configs.DUMPED_DATA.value}/{device_name}.pkl", "wb") as pickle_file:
+        with open(
+            f"{Configs.DUMPED_DATA.value}/{device_name}.pkl", "wb"
+        ) as pickle_file:
             pickle.dump(id_db, pickle_file)
 
     # Write data to a CSV file
     with open(
-        f"{Configs.CSV_VOCAB_RESULTS.value}/{device_name}.csv", mode="w+", encoding="utf-8"
+        f"{Configs.CSV_VOCAB_RESULTS.value}/{device_name}.csv",
+        mode="w+",
+        encoding="utf-8",
     ) as save_file:
 
         if device_name == "kindle_oasis":
