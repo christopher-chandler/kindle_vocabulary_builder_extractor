@@ -14,10 +14,6 @@ import typer
 from constants import (
     LOG_FILE_NAME,
     time_stamp,
-    KINDLE_OASIS_VOCAB_FILE,
-    KINDLE_PAPER_WHITE_VOCAB_FILE,
-    SC_KINDLE_OASIS,
-    SC_PAPER_WHITE,
     Configs,
 )
 from device_system_manager.device_detector import analyze_kindle_vocab_data
@@ -39,10 +35,10 @@ print(f"{time_stamp}: Main script started running.")
 
 while True:
     timestamp_str = datetime.now().strftime("%m_%d_%Y_%I_%M_%S_%p")
-    with open(KINDLE_PAPER_WHITE_VOCAB_FILE, "rb") as out:
+    with open(Configs.KINDLE_PAPER_WHITE_VOCAB_FILE.value, "rb") as out:
         KINDLE_PAPER_WHITE_VOCAB_FILE_ID = pickle.load(out)
 
-    with open(KINDLE_OASIS_VOCAB_FILE, "rb") as out:
+    with open(Configs.KINDLE_OASIS_VOCAB_FILE.value, "rb") as out:
         KINDLE_OASIS_VOCAB_FILE_ID = pickle.load(out)
 
     vocab_key_reference = KINDLE_PAPER_WHITE_VOCAB_FILE_ID + KINDLE_OASIS_VOCAB_FILE_ID
@@ -53,7 +49,7 @@ while True:
     KINDLE_MOUNT = os.path.ismount("/Volumes/Kindle")
 
     # Oasis
-    if SC_KINDLE_OASIS in output and KINDLE_MOUNT:
+    if Configs.SC_KINDLE_OASIS.value in output and KINDLE_MOUNT:
         clear_results_files(True)
         clear_log_files(5)
         analyze_kindle_vocab_data(
@@ -65,7 +61,7 @@ while True:
         )
 
         time.sleep(1)
-    elif SC_PAPER_WHITE in output and KINDLE_MOUNT:
+    elif Configs.SC_PAPER_WHITE.value in output and KINDLE_MOUNT:
         clear_results_files(True)
         clear_log_files(5)
         analyze_kindle_vocab_data(

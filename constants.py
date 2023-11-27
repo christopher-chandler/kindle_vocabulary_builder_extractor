@@ -75,7 +75,7 @@ class Configs(Enum):
 # Set the path to the main directory
 os.chdir(Configs.WORKING_DIRECTORY.value)
 
-LOG_FILE_NAME = f"log_results/kindle_{time_stamp}.log"
+LOG_FILE_NAME = f"logging_results/kindle_{time_stamp}.log"
 
 # Kindle will be unmounted after all data has been extracted
 EJECT_KINDLE = ["diskutil", "unmount", "/Volumes/Kindle"]
