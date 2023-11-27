@@ -27,7 +27,7 @@ def import_deck(name: str) -> None:
     but the import may not be successful.
 
     """
-    filename = f"{Configs.ANKI_VOCAB_RESULTS.value}/{name}.apkg"
+    filename = f"{Configs.ANKI_APKG.value}/{name}.apkg"
     anki_app = Configs.ANKI_APP.value
     subprocess.run(["open", "-a", anki_app, filename])
 

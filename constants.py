@@ -54,13 +54,14 @@ class Configs(Enum):
     WORKING_DIRECTORY = yml_config.get("WORKING_DIRECTORY")
     LOGGING_RESULTS = yml_config.get("LOGGING_RESULTS")
     CSV_VOCAB_RESULTS = yml_config.get("CSV_VOCAB_RESULTS")
-    ANKI_VOCAB_RESULTS = yml_config.get("ANKI_VOCAB_RESULTS")
 
     # Anki
     ANKI_APP = yml_config.get("ANKI_APP")
+    ANKI_APKG = yml_config.get("ANKI_APKG")
 
     # Kindle
     KINDLE_DATABASE = yml_config.get("KINDLE_DATABASE")
+    DUMPED_DATA = yml_config.get("DUMPED_DATA")
 
     # Kindle device pickles
     KINDLE_PAPER_WHITE_VOCAB_FILE = yml_config.get("KINDLE_PAPER_WHITE_VOCAB_FILE")
