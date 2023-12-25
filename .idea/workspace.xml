@@ -4,10 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="392a40ae-7096-4a6c-990f-acead6f6ac57" name="Changes" comment="Fix config imports">
+    <list default="true" id="392a40ae-7096-4a6c-990f-acead6f6ac57" name="Changes" comment="Fix config imports&#10;Add japanese dbs">
+      <change afterPath="$PROJECT_DIR$/kindle_extractor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_11_23,_06_41_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_11_23__06_41__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anki_kindle/kindle_vocab_extractor.py" beforeDir="false" afterPath="$PROJECT_DIR$/anki_kindle/kindle_vocab_extractor.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_auto_start/auto_start.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_auto_start/kindle_anki_importer_automator.app/Contents/Info.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_auto_start/kindle_anki_importer_automator.app/Contents/MacOS/Automator Application Stub" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_auto_start/kindle_anki_importer_automator.app/Contents/Resources/ApplicationStub.icns" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_auto_start/kindle_anki_importer_automator.app/Contents/Resources/Assets.car" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_auto_start/kindle_anki_importer_automator.app/Contents/Resources/InfoPlist.loctable" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_auto_start/kindle_anki_importer_automator.app/Contents/_CodeSignature/CodeResources" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_auto_start/kindle_anki_importer_automator.app/Contents/document.wflow" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vocab/apkg/kindle_oasis.apkg" beforeDir="false" afterPath="$PROJECT_DIR$/vocab/apkg/kindle_oasis.apkg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vocab/csv_vocab_results/kindle_oasis.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vocab/dumped_kindle_data/kindle_oasis.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/vocab/dumped_kindle_data/kindle_oasis.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vocab/dumped_kindle_data/kindle_paper_white.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/vocab/dumped_kindle_data/kindle_paper_white.pkl" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,11 +73,11 @@
       <recent name="$PROJECT_DIR$/vocab_data" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/jp_data" />
       <recent name="$PROJECT_DIR$/vocab" />
       <recent name="$PROJECT_DIR$/app" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/auto_start" />
-      <recent name="$PROJECT_DIR$/vocab_data" />
     </key>
   </component>
   <component name="RunManager" selected="Python.main">
@@ -87,19 +102,20 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="folder_manager" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="kindle_extractor" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="kindle_vocabulary_builder_extractor" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/app_util" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="SDK_HOME" value="/usr/local/bin/python3.10" />
+      <option name="SDK_NAME" value="Python 3.10" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app_util/folder_manager.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/kindle_extractor.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -136,10 +152,9 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="/usr/local/bin/python3.10" />
-      <option name="SDK_NAME" value="Python 3.10" />
+      <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
@@ -172,42 +187,20 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="voca" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="kindle_vocabulary_builder_extractor" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/voca.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <list>
+      <item itemvalue="Python.kindle_extractor" />
       <item itemvalue="Python.kindle_vocab_extractor" />
-      <item itemvalue="Python.voca" />
       <item itemvalue="Python.constants" />
-      <item itemvalue="Python.folder_manager" />
       <item itemvalue="Python.test (1)" />
       <item itemvalue="Python.main" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.main" />
+        <item itemvalue="Python.kindle_extractor" />
         <item itemvalue="Python.constants" />
         <item itemvalue="Python.kindle_vocab_extractor" />
         <item itemvalue="Python.test (1)" />
-        <item itemvalue="Python.folder_manager" />
       </list>
     </recent_temporary>
   </component>
@@ -311,7 +304,14 @@
       <option name="project" value="LOCAL" />
       <updated>1701065962830</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Fix config imports&#10;Add japanese dbs">
+      <created>1701098352004</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1701098352004</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -322,6 +322,7 @@
     <MESSAGE value="Add README.MD" />
     <MESSAGE value="Update README.MD&#10;Update constants.py&#10;Update main.py" />
     <MESSAGE value="Fix config imports" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix config imports" />
+    <MESSAGE value="Fix config imports&#10;Add japanese dbs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix config imports&#10;Add japanese dbs" />
   </component>
 </project>
