@@ -279,9 +279,9 @@ venv.bak/
 .mypy_cache/
 *.db
 /results/kindle_paperwhite.apkg
-/vocab/dumped_kindle_data/kindle_oasis.csv
+/results/dumped_kindle_data/kindle_oasis.csv
 /results/kindle_oasis.apkg
 /results/kindle_paper_white.apkg
-/vocab/dumped_kindle_data/kindle_oasis.csv
+/results/dumped_kindle_data/kindle_oasis.csv
 /results/kindle_paper_white.csv
-/vocab/dumped_kindle_data/note_id.pkl
+/results/dumped_kindle_data/note_id.pkl

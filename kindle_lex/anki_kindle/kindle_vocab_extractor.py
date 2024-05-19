@@ -4,23 +4,24 @@ import logging
 import pickle
 import os
 import sqlite3
+
 from datetime import datetime
 
 # Third-party Library Imports
 import genanki
 import typer
 
-# Custom Imports
-from constants import (
-    Configs,
-    SQL_BOOK_INFO_TEMPLATE,
+# Custom
+from kindle_lex.settings.constants.constant_vars import (
     SQL_LOOKUP_TEMPLATE,
+    SQL_BOOK_INFO_TEMPLATE,
     ANKI_MODEL,
     HEADER_SELECTION,
 )
+from kindle_lex.settings.constants.constant_paths import GeneralPaths as Gp
 
 # Change current working directory to the specified directory
-os.chdir(Configs.WORKING_DIRECTORY.value)
+os.chdir(Gp.WORKING_DIRECTORY.value)
 
 
 def main_extractor(**kwargs) -> bool:
@@ -47,7 +48,7 @@ def main_extractor(**kwargs) -> bool:
     vocab_key_reference = kwargs.get("vocab_key_reference")
 
     # Connect to the Kindle vocabulary database
-    vocab_database = sqlite3.connect(Configs.KINDLE_DATABASE.value)
+    vocab_database = sqlite3.connect(Gp.KINDLE_DATABASE.value)
     cursor = vocab_database.cursor()
 
     # Retrieve data from BOOK_INFO table
@@ -96,14 +97,12 @@ def main_extractor(**kwargs) -> bool:
 
     # Dump IDs to a pickle file if specified
     if dump_ids:
-        with open(
-            f"{Configs.DUMPED_DATA.value}/{device_name}.pkl", "wb"
-        ) as pickle_file:
+        with open(f"{Gp.DUMPED_DATA.value}/{device_name}.pkl", "wb") as pickle_file:
             pickle.dump(id_db, pickle_file)
 
     # Write data to a CSV file
     with open(
-        f"{Configs.CSV_VOCAB_RESULTS.value}/{device_name}.csv",
+        f"{Gp.CSV_VOCAB_RESULTS.value}/{device_name}.csv",
         mode="w+",
         encoding="utf-8",
     ) as save_file:
@@ -158,7 +157,7 @@ def main_extractor(**kwargs) -> bool:
             typer.secho(unique_notes)
             logging.info(unique_notes)
             deck = genanki.Package(ANKI_DECK)
-            deck.write_to_file(f"{Configs.ANKI_APKG.value}/{device_name}.apkg")
+            deck.write_to_file(f"{Gp.ANKI_APKG.value}/{device_name}.apkg")
             return True
 
 

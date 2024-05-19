@@ -9,9 +9,9 @@ import time
 import typer
 
 # Custom Imports
-from constants import EJECT_KINDLE, Configs
-from anki_kindle.kindle_vocab_extractor import main_extractor
-from anki_kindle.anki_deck_importer import import_deck
+from kindle_lex.settings.constants.constant_vars import EJECT_KINDLE
+from kindle_lex.anki_kindle.kindle_vocab_extractor import main_extractor
+from kindle_lex.anki_kindle.anki_deck_importer import import_deck
 
 
 def analyze_kindle_vocab_data(**kwargs) -> None:
@@ -76,7 +76,6 @@ def analyze_kindle_vocab_data(**kwargs) -> None:
             time.sleep(5)
 
             logging.info(unmounted)
-            print(kindle_ids_dumped)
 
             logging.info(kindle_ids_dumped)
             subprocess.run(EJECT_KINDLE)

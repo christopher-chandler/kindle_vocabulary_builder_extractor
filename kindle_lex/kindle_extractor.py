@@ -11,22 +11,23 @@ from datetime import datetime
 import typer
 
 # Custom
-from constants import (
-    LOG_FILE_NAME,
-    time_stamp,
-    Configs,
+from kindle_lex.settings.constants.constant_vars import TIMESTAMP
+from kindle_lex.settings.constants.constant_paths import GeneralPaths as Gp
+
+from kindle_lex.device_system_manager.device_detector import analyze_kindle_vocab_data
+from kindle_lex.device_system_manager.folder_manager import (
+    clear_log_files,
+    clear_results_files,
 )
-from device_system_manager.device_detector import analyze_kindle_vocab_data
-from device_system_manager.folder_manager import clear_log_files, clear_results_files
 
 # The working directory must be the directory of the project
-os.chdir(Configs.WORKING_DIRECTORY.value)
+os.chdir(Gp.WORKING_DIRECTORY.value)
 
 # Set up logger
 logging.basicConfig(
     format="%(asctime)s %(message)s",
     filemode="w",
-    filename=LOG_FILE_NAME,
+    filename=Gp.LOGGING_RESULTS.value + "/log",
     datefmt="%m/%d/%Y %I:%M:%S %p",
     level=logging.INFO,
 )
@@ -48,17 +49,19 @@ def vocab_extractor() -> None:
         None
     """
 
-    print(f"{time_stamp}: Main script started running...")
+    print(f"{TIMESTAMP}: Main script started running...")
 
     while True:
         timestamp_str = datetime.now().strftime("%m_%d_%Y_%I_%M_%S_%p")
-        with open(Configs.KINDLE_PAPER_WHITE_VOCAB_FILE.value, "rb") as out:
+        with open(Gp.KINDLE_PAPER_WHITE_VOCAB_FILE.value, "rb") as out:
             KINDLE_PAPER_WHITE_VOCAB_FILE_ID = pickle.load(out)
 
-        with open(Configs.KINDLE_OASIS_VOCAB_FILE.value, "rb") as out:
+        with open(Gp.KINDLE_OASIS_VOCAB_FILE.value, "rb") as out:
             KINDLE_OASIS_VOCAB_FILE_ID = pickle.load(out)
 
-        vocab_key_reference = KINDLE_PAPER_WHITE_VOCAB_FILE_ID + KINDLE_OASIS_VOCAB_FILE_ID
+        vocab_key_reference = (
+            KINDLE_PAPER_WHITE_VOCAB_FILE_ID + KINDLE_OASIS_VOCAB_FILE_ID
+        )
 
         output = subprocess.run(
             ["system_profiler", "SPUSBDataType"], capture_output=True
@@ -66,7 +69,7 @@ def vocab_extractor() -> None:
         KINDLE_MOUNT = os.path.ismount("/Volumes/Kindle")
 
         # Oasis
-        if Configs.SC_KINDLE_OASIS.value in output and KINDLE_MOUNT:
+        if Gp.SC_KINDLE_OASIS.value in output and KINDLE_MOUNT:
             clear_results_files(True)
             clear_log_files(5)
             analyze_kindle_vocab_data(
@@ -78,7 +81,7 @@ def vocab_extractor() -> None:
             )
 
             time.sleep(1)
-        elif Configs.SC_PAPER_WHITE.value in output and KINDLE_MOUNT:
+        elif Gp.SC_PAPER_WHITE.value in output and KINDLE_MOUNT:
             clear_results_files(True)
             clear_log_files(5)
             analyze_kindle_vocab_data(
@@ -94,3 +97,7 @@ def vocab_extractor() -> None:
             typer.secho(f"{timestamp_str}: {msg}", fg=typer.colors.BRIGHT_BLUE)
             logging.info(msg)
             time.sleep(1)
+
+
+if __name__ == "__main__":
+    pass

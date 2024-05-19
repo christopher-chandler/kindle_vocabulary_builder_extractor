@@ -1,2 +1,3 @@
 genanki~=0.13.0
 typer~=0.4.2
+PyYAML~=6.0.1

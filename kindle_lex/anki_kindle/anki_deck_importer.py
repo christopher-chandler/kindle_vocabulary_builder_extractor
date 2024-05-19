@@ -5,7 +5,7 @@ import subprocess
 # None
 
 # Custom
-from constants import Configs
+from kindle_lex.settings.constants.constant_paths import GeneralPaths as Gp
 
 
 def import_deck(name: str) -> None:
@@ -27,8 +27,8 @@ def import_deck(name: str) -> None:
     but the import may not be successful.
 
     """
-    filename = f"{Configs.ANKI_APKG.value}/{name}.apkg"
-    anki_app = Configs.ANKI_APP.value
+    filename = f"{Gp.ANKI_APKG.value}/{name}.apkg"
+    anki_app = Gp.ANKI_APP.value
     subprocess.run(["open", "-a", anki_app, filename])
 
 

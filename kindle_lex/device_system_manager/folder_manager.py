@@ -3,7 +3,7 @@ import logging
 import os
 
 # Custom Imports
-from constants import Configs
+from kindle_lex.settings.constants.constant_paths import GeneralPaths as Gp
 
 
 def clear_log_files(file_amount: int) -> None:
@@ -17,7 +17,7 @@ def clear_log_files(file_amount: int) -> None:
     - None
 
     Notes:
-    - This function clears log files in the directory specified by Configs.LOGGING_RESULTS.
+    - This function clears log files in the directory specified by Gp.LOGGING_RESULTS.
     - If the number of log files exceeds the specified limit (file_amount),
       the function removes the excess files, keeping the most recent ones.
     """
@@ -29,17 +29,15 @@ def clear_log_files(file_amount: int) -> None:
     log_count = 0
 
     # Iterate over files in the directory
-    for path in os.listdir(Configs.LOGGING_RESULTS.value):
-        file_exist: bool = os.path.isfile(
-            os.path.join(Configs.LOGGING_RESULTS.value, path)
-        )
+    for path in os.listdir(Gp.LOGGING_RESULTS.value):
+        file_exist: bool = os.path.isfile(os.path.join(Gp.LOGGING_RESULTS.value, path))
         if file_exist:
             log_count += 1
 
     # Remove excess log files if the count exceeds the specified limit
     if log_count >= file_amount:
-        for path in os.listdir(Configs.LOGGING_RESULTS.value):
-            full_path = f"{Configs.LOGGING_RESULTS.value}/{path}"
+        for path in os.listdir(Gp.LOGGING_RESULTS.value):
+            full_path = f"{Gp.LOGGING_RESULTS.value}/{path}"
             os.remove(full_path)
 
     print(process_complete)
@@ -57,7 +55,7 @@ def clear_results_files(clear_results: bool = True) -> None:
     - None
 
     Notes:
-    - This function clears result files in the directory specified by Configs.CSV_VOCAB_RESULTS.
+    - This function clears result files in the directory specified by Gp.CSV_VOCAB_RESULTS.
     - If clear_results is set to True, the function removes all result files and creates a placeholder file.
     """
     clear_files = "Clearing result files."
@@ -67,8 +65,8 @@ def clear_results_files(clear_results: bool = True) -> None:
     logging.info(clear_files)
 
     if clear_results:
-        for path in os.listdir(Configs.CSV_VOCAB_RESULTS.value):
-            full_file: str = os.path.join(Configs.CSV_VOCAB_RESULTS.value, path)
+        for path in os.listdir(Gp.CSV_VOCAB_RESULTS.value):
+            full_file: str = os.path.join(Gp.CSV_VOCAB_RESULTS.value, path)
             file_exist: bool = os.path.isfile(full_file)
 
             # Remove result files
@@ -76,7 +74,7 @@ def clear_results_files(clear_results: bool = True) -> None:
                 os.remove(full_file)
 
         # Create a placeholder file
-        open(f"{Configs.CSV_VOCAB_RESULTS.value}/placeholder", mode="w")
+        open(f"{Gp.CSV_VOCAB_RESULTS.value}/placeholder", mode="w")
 
         print(process_complete)
         logging.info(process_complete)
