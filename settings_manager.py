@@ -7,6 +7,12 @@ import yaml
 # Custom
 # None
 
+"""
+In order for KindleLex to work, you have to properly set up the configuration file. 
+Most of the configs should work out of the box, the only setting that needs to be changed
+is when you 
+
+"""
 
 def get_config_data(file: str = None) -> dict:
     """

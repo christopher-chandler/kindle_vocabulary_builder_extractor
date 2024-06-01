@@ -6,8 +6,12 @@ import typer
 
 # Custom
 from kindle_lex.kindle_extractor import vocab_extractor
-
 from kindle_lex.settings.constants.natural_order_group import NaturalOrderGroup
+
+'''
+This is the main entry point of the program 
+'''
+
 
 main_app = typer.Typer(
     no_args_is_help=True,
