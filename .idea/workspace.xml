@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="392a40ae-7096-4a6c-990f-acead6f6ac57" name="Changes" comment="readme.rst">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/conf.py" beforeDir="false" afterPath="$PROJECT_DIR$/docs/conf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.rst" afterDir="false" />
-    </list>
+    <list default="true" id="392a40ae-7096-4a6c-990f-acead6f6ac57" name="Changes" comment="restructure docs" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -343,7 +339,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717219900868</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="restructure docs">
+      <option name="closed" value="true" />
+      <created>1717225287823</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1717225287823</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -358,6 +362,7 @@
     <MESSAGE value="Restructure project to be CLI" />
     <MESSAGE value="Add Sphinx documentation&#10;Restructure project to be device agnostic &#10;Update system requirements &#10;black ." />
     <MESSAGE value="readme.rst" />
-    <option name="LAST_COMMIT_MESSAGE" value="readme.rst" />
+    <MESSAGE value="restructure docs" />
+    <option name="LAST_COMMIT_MESSAGE" value="restructure docs" />
   </component>
 </project>
