@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="392a40ae-7096-4a6c-990f-acead6f6ac57" name="Changes" comment="Add Sphinx documentation&#10;Restructure project to be device agnostic &#10;Update system requirements &#10;black .">
+    <list default="true" id="392a40ae-7096-4a6c-990f-acead6f6ac57" name="Changes" comment="readme.rst">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/conf.py" beforeDir="false" afterPath="$PROJECT_DIR$/docs/conf.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/main.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/main.rst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,23 +64,24 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Shell Script.main.sh.executor": "Run",
-    "last_opened_file_path": "/Users/christopherchandler/code_repos/christopher-chandler/kindle_vocabulary_builder_extractor/results",
+    "last_opened_file_path": "/Users/christopherchandler/code_repos/christopher-chandler/kindle_vocabulary_builder_extractor/docs",
     "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/docs" />
       <recent name="$PROJECT_DIR$/results" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/device_system_manager" />
       <recent name="$PROJECT_DIR$/vocab_data" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/docs" />
       <recent name="$PROJECT_DIR$/resources/lang_dict/jp" />
       <recent name="$PROJECT_DIR$/results/dumped_kindle_data" />
       <recent name="$PROJECT_DIR$/kindle_lex" />
       <recent name="$PROJECT_DIR$/resources" />
-      <recent name="$PROJECT_DIR$/settings_files" />
     </key>
   </component>
   <component name="RunManager" selected="Python.conf">
@@ -335,7 +335,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717219237299</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="readme.rst">
+      <option name="closed" value="true" />
+      <created>1717219900868</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1717219900868</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -349,6 +357,7 @@
     <MESSAGE value="Fix config imports&#10;Add japanese dbs" />
     <MESSAGE value="Restructure project to be CLI" />
     <MESSAGE value="Add Sphinx documentation&#10;Restructure project to be device agnostic &#10;Update system requirements &#10;black ." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Sphinx documentation&#10;Restructure project to be device agnostic &#10;Update system requirements &#10;black ." />
+    <MESSAGE value="readme.rst" />
+    <option name="LAST_COMMIT_MESSAGE" value="readme.rst" />
   </component>
 </project>
