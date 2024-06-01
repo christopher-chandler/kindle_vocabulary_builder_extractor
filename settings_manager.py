@@ -28,16 +28,15 @@ def get_config_data(file: str = None) -> dict:
         # The path to the YAML configuration file relative to the script's directory
         file = os.path.join(
             script_directory,
-            "/Users/christopherchandler/code_repos/christopher-chandler/kindle_vocabulary_builder_extractor/settings_files/settings.yaml",
+            "settings_files/settings.yaml",
         )
 
     # Load the YAML configuration file
-    with open(file, "r") as config_file:
+    with open(file, mode="r", encoding="utf-8") as config_file:
         config_data: dict = yaml.safe_load(config_file)
 
     return config_data
 
 
 if __name__ == "__main__":
-    r = get_config_data()
-    print(r)
+    pass

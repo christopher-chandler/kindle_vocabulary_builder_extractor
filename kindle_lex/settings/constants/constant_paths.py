@@ -20,30 +20,28 @@ class GeneralPaths(Enum):
     of this project.
     """
 
-    # dir
-
+    # Directories
     WORKING_DIRECTORY = get_config_data().get("WORKING_DIRECTORY")
     LOGGING_RESULTS = get_config_data().get("LOGGING_RESULTS")
     CSV_VOCAB_RESULTS = get_config_data().get("CSV_VOCAB_RESULTS")
+    DUMPED_KINDLE_DATA = get_config_data().get("CSV_VOCAB_RESULTS")
 
     # Anki
     ANKI_APP = get_config_data().get("ANKI_APP")
     ANKI_APKG = get_config_data().get("ANKI_APKG")
 
+    # Anki Templates
+    CARD_FRONT_TEMPLATE = "resources/flash_card_templates/front.html"
+    CARD_BACK_TEMPLATE = "resources/flash_card_templates/back.html"
+    CARD_CSS_TEMPLATE = r"resources/flash_card_templates/style.css"
+
     # Kindle
     KINDLE_DATABASE = get_config_data().get("KINDLE_DATABASE")
     DUMPED_DATA = get_config_data().get("DUMPED_DATA")
 
-    # Kindle device pickles
-    KINDLE_PAPER_WHITE_VOCAB_FILE = get_config_data().get(
-        "KINDLE_PAPER_WHITE_VOCAB_FILE"
-    )
-    KINDLE_OASIS_VOCAB_FILE = get_config_data().get("KINDLE_OASIS_VOCAB_FILE")
+    # Kindle device
     KINDLE_DATABASE_FILE = get_config_data().get("KINDLE_DATABASE_FILE")
-
-    # Kindle device id
-    SC_PAPER_WHITE = get_config_data().get("SC_PAPER_WHITE")
-    SC_KINDLE_OASIS = get_config_data().get("SC_KINDLE_OASIS")
+    KINDLE_DEVICES = get_config_data().get("KINDLE_DEVICES")
 
     try:
         """
@@ -52,6 +50,7 @@ class GeneralPaths(Enum):
         """
 
         os.chdir(WORKING_DIRECTORY)
+
     except Exception as e:
         catch_and_log_error(
             error=e,

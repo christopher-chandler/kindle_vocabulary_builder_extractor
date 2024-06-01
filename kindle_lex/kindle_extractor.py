@@ -1,45 +1,46 @@
 # Standard
-import logging
+import datetime
 import os
-import pickle
 import subprocess
 import time
-
-from datetime import datetime
 
 # Pip
 import typer
 
+from kindle_lex.anki_kindle.kindle_vocab_extractor import main_extractor
+
 # Custom
-from kindle_lex.settings.constants.constant_vars import TIMESTAMP
+
+# Constants
 from kindle_lex.settings.constants.constant_paths import GeneralPaths as Gp
 
+from kindle_lex.settings.constants.constant_vars import TIMESTAMP
+
+# Device
 from kindle_lex.device_system_manager.device_detector import analyze_kindle_vocab_data
-from kindle_lex.device_system_manager.folder_manager import (
+from kindle_lex.device_system_manager.load_dumped_kindle_data import get_pickle_data
+from kindle_lex.device_system_manager.file_manager import (
     clear_log_files,
     clear_results_files,
 )
 
+# Logger
+from kindle_lex.settings.logger.basic_logger import catch_and_log_info
+
 # The working directory must be the directory of the project
 os.chdir(Gp.WORKING_DIRECTORY.value)
 
-# Set up logger
-logging.basicConfig(
-    format="%(asctime)s %(message)s",
-    filemode="w",
-    filename=Gp.LOGGING_RESULTS.value + "/log",
-    datefmt="%m/%d/%Y %I:%M:%S %p",
-    level=logging.INFO,
-)
+WAIT_TIME = 3
 
 
 def vocab_extractor() -> None:
     """
-    Continuously monitors for connected Kindle devices and extracts vocabulary data when detected.
+    Continuously monitors for connected Kindle devices and extracts vocabulary data
+    when detected.
 
     This script runs in an infinite loop, checking for the presence of Kindle devices
-    and extracting vocabulary data when a Kindle device is connected. It supports Kindle
-    Paper White and Kindle Oasis devices. The extracted data is analyzed and logged.
+    and extracting vocabulary data when a Kindle device is connected.
+    The extracted data is analyzed and logged.
 
     Note:
     - The script runs indefinitely until manually stopped.
@@ -49,54 +50,56 @@ def vocab_extractor() -> None:
         None
     """
 
-    print(f"{TIMESTAMP}: Main script started running...")
-
+    catch_and_log_info(
+        custom_message=f"{TIMESTAMP}: Main script started running...",
+        echo_msg=True,
+        echo_color=typer.colors.BRIGHT_GREEN,
+    )
     while True:
-        timestamp_str = datetime.now().strftime("%m_%d_%Y_%I_%M_%S_%p")
-        with open(Gp.KINDLE_PAPER_WHITE_VOCAB_FILE.value, "rb") as out:
-            KINDLE_PAPER_WHITE_VOCAB_FILE_ID = pickle.load(out)
+        RUN_TIME_TIME_STAMP = datetime.datetime.now().strftime("%Y_%m_%d_%H_%M_%S")
+        KINDLE_DEVICES = Gp.KINDLE_DEVICES.value
 
-        with open(Gp.KINDLE_OASIS_VOCAB_FILE.value, "rb") as out:
-            KINDLE_OASIS_VOCAB_FILE_ID = pickle.load(out)
-
-        vocab_key_reference = (
-            KINDLE_PAPER_WHITE_VOCAB_FILE_ID + KINDLE_OASIS_VOCAB_FILE_ID
-        )
-
-        output = subprocess.run(
+        # Checks if device with the kindle id is connected to the computer
+        subprocess_connected_devices_output = subprocess.run(
             ["system_profiler", "SPUSBDataType"], capture_output=True
         ).stdout.decode()
         KINDLE_MOUNT = os.path.ismount("/Volumes/Kindle")
 
-        # Oasis
-        if Gp.SC_KINDLE_OASIS.value in output and KINDLE_MOUNT:
-            clear_results_files(True)
-            clear_log_files(5)
-            analyze_kindle_vocab_data(
-                device_name="kindle_oasis",
-                time_stamp=timestamp_str,
-                dump_ids=True,
-                only_allow_unique_ids=True,
-                vocab_key_reference=vocab_key_reference,
-            )
+        for device_name in KINDLE_DEVICES:
+            device_id = KINDLE_DEVICES.get(device_name)
 
-            time.sleep(1)
-        elif Gp.SC_PAPER_WHITE.value in output and KINDLE_MOUNT:
-            clear_results_files(True)
-            clear_log_files(5)
-            analyze_kindle_vocab_data(
-                device_name="kindle_paper_white",
-                time_stamp=timestamp_str,
-                dump_ids=True,
-                only_allow_unique_ids=True,
-                vocab_key_reference=vocab_key_reference,
-            )
-            time.sleep(1)
+            if device_id in subprocess_connected_devices_output and KINDLE_MOUNT:
+                # clear_log_files(5)
+                clear_results_files(False)
+
+                kindle_pickle = get_pickle_data(device_name)
+
+                # Dump IDS for the first time
+                if kindle_pickle is False:
+                    main_extractor(
+                        device_name=device_name,
+                        initial_id_dump=True,
+                    )
+
+                else:
+                    analyze_kindle_vocab_data(
+                        device_name=device_name,
+                        time_stamp=TIMESTAMP,
+                        dump_ids=True,
+                        only_allow_unique_ids=True,
+                        vocab_key_reference=get_pickle_data(device_name),
+                    )
+
+                time.sleep(WAIT_TIME)
         else:
-            msg = "No Kindle device connected..."
-            typer.secho(f"{timestamp_str}: {msg}", fg=typer.colors.BRIGHT_BLUE)
-            logging.info(msg)
-            time.sleep(1)
+            msg = "No Kindle device connected at the moment..."
+
+            catch_and_log_info(
+                custom_message=f"{RUN_TIME_TIME_STAMP}: {msg}",
+                echo_msg=True,
+                echo_color=typer.colors.BRIGHT_BLUE,
+            )
+            time.sleep(WAIT_TIME)
 
 
 if __name__ == "__main__":

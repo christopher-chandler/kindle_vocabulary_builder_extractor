@@ -4,33 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="392a40ae-7096-4a6c-990f-acead6f6ac57" name="Changes" comment="Fix config imports&#10;Add japanese dbs">
-      <change afterPath="$PROJECT_DIR$/results/apkg/kindle_oasis.apkg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/dumped_kindle_data/kindle_oasis.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="392a40ae-7096-4a6c-990f-acead6f6ac57" name="Changes" comment="Restructure project to be CLI">
+      <change afterPath="$PROJECT_DIR$/log_res/log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/anki_apkg/SC_KINDLE_OASIS.apkg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/anki_apkg/SC_PAPER_WHITE.apkg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/csv_vocab_results/SC_KINDLE_OASIS.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anki_kindle/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kindle_lex/anki_kindle/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anki_kindle/anki_deck_importer.py" beforeDir="false" afterPath="$PROJECT_DIR$/kindle_lex/anki_kindle/anki_deck_importer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anki_kindle/kindle_vocab_extractor.py" beforeDir="false" afterPath="$PROJECT_DIR$/kindle_lex/anki_kindle/kindle_vocab_extractor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/settings_files/settings.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/constants.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/device_system_manager/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kindle_lex/device_system_manager/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/device_system_manager/device_detector.py" beforeDir="false" afterPath="$PROJECT_DIR$/kindle_lex/device_system_manager/device_detector.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/device_system_manager/folder_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/kindle_lex/device_system_manager/folder_manager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kindle_extractor.py" beforeDir="false" afterPath="$PROJECT_DIR$/kindle_lex/kindle_extractor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/device_system_manager/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kindle_lex/anki_kindle/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kindle_lex/anki_kindle/anki_deck_importer.py" beforeDir="false" afterPath="$PROJECT_DIR$/kindle_lex/anki_kindle/anki_deck_importer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kindle_lex/anki_kindle/kindle_vocab_extractor.py" beforeDir="false" afterPath="$PROJECT_DIR$/kindle_lex/anki_kindle/kindle_vocab_extractor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kindle_lex/device_system_manager/device_detector.py" beforeDir="false" afterPath="$PROJECT_DIR$/kindle_lex/device_system_manager/device_detector.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kindle_lex/device_system_manager/folder_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/kindle_lex/device_system_manager/file_manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kindle_lex/kindle_extractor.py" beforeDir="false" afterPath="$PROJECT_DIR$/kindle_lex/kindle_extractor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kindle_lex/settings/constants/constant_paths.py" beforeDir="false" afterPath="$PROJECT_DIR$/kindle_lex/settings/constants/constant_paths.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kindle_lex/settings/constants/constant_vars.py" beforeDir="false" afterPath="$PROJECT_DIR$/kindle_lex/settings/constants/constant_vars.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kindle_lex/settings/logger/basic_logger.py" beforeDir="false" afterPath="$PROJECT_DIR$/kindle_lex/settings/logger/basic_logger.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/log" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vocab/apkg/kindle_oasis.apkg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vocab/apkg/kindle_paper_white.apkg" beforeDir="false" afterPath="$PROJECT_DIR$/results/apkg/kindle_paper_white.apkg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vocab/csv_vocab_results/kindle_paper_white.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vocab/csv_vocab_results/placeholder" beforeDir="false" afterPath="$PROJECT_DIR$/results/csv_vocab_results/placeholder" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vocab/dumped_kindle_data/dumped_data" beforeDir="false" afterPath="$PROJECT_DIR$/results/dumped_kindle_data/dumped_data" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vocab/dumped_kindle_data/kindle_oasis.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vocab/dumped_kindle_data/kindle_paper_white.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/results/dumped_kindle_data/kindle_paper_white.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vocab/flash_card_templates/back.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/flash_card_templates/back.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vocab/flash_card_templates/front.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/flash_card_templates/front.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vocab/flash_card_templates/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/flash_card_templates/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/apkg/kindle_oasis.apkg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/apkg/kindle_paper_white.apkg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/csv_vocab_results/kindle_oasis.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/dumped_kindle_data/kindle_oasis.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/dumped_kindle_data/kindle_paper_white.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings_files/settings.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/settings_files/settings.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/settings_manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vocab/csv_vocab_results/placeholder" beforeDir="false" afterPath="$PROJECT_DIR$/kindle_lex/device_system_manager/__init__.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,36 +69,44 @@
     <option name="sortByType" value="true" />
     <option name="sortKey" value="BY_TYPE" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.constant_paths.executor&quot;: &quot;Run&quot;,
-    &quot;Python.constant_vars.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.settings_manager.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Shell Script.main.sh.executor&quot;: &quot;Run&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/christopherchandler/code_repos/christopher-chandler/kindle_vocabulary_builder_extractor&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.basic_logger.executor": "Run",
+    "Python.conf.executor": "Run",
+    "Python.constant_paths.executor": "Run",
+    "Python.constant_vars.executor": "Run",
+    "Python.dumped_data.executor": "Run",
+    "Python.dumped_kindle_data.executor": "Run",
+    "Python.folder_manager.executor": "Run",
+    "Python.kindle_extractor.executor": "Run",
+    "Python.load_pkl.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.settings_manager.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Shell Script.main.sh.executor": "Run",
+    "last_opened_file_path": "/Users/christopherchandler/code_repos/christopher-chandler/kindle_vocabulary_builder_extractor/results",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/results" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/device_system_manager" />
       <recent name="$PROJECT_DIR$/vocab_data" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/lang_dict/jp" />
+      <recent name="$PROJECT_DIR$/results/dumped_kindle_data" />
       <recent name="$PROJECT_DIR$/kindle_lex" />
       <recent name="$PROJECT_DIR$/resources" />
       <recent name="$PROJECT_DIR$/settings_files" />
-      <recent name="$PROJECT_DIR$/jp_data" />
-      <recent name="$PROJECT_DIR$/vocab" />
     </key>
   </component>
-  <component name="RunManager" selected="Shell Script.main.sh">
-    <configuration name="constant_paths" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.conf">
+    <configuration name="conf" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="kindle_vocabulary_builder_extractor" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -108,11 +115,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/kindle_lex/settings/constants" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/docs" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/kindle_lex/settings/constants/constant_paths.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/docs/conf.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -121,7 +128,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="constant_vars" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="file_manager" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="kindle_vocabulary_builder_extractor" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -130,11 +137,55 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/kindle_lex/settings/constants" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/kindle_lex/device_system_manager" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/kindle_lex/settings/constants/constant_vars.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/kindle_lex/device_system_manager/file_manager.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="kindle_extractor" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="kindle_vocabulary_builder_extractor" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/kindle_lex" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/kindle_lex/kindle_extractor.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="load_dumped_kindle_data" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="kindle_vocabulary_builder_extractor" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/kindle_lex/device_system_manager" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/kindle_lex/device_system_manager/load_dumped_kindle_data.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -165,57 +216,20 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="settings_manager" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="kindle_vocabulary_builder_extractor" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/settings_manager.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="main.sh" type="ShConfigurationType" temporary="true">
-      <option name="SCRIPT_TEXT" value="" />
-      <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
-      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/main.sh" />
-      <option name="SCRIPT_OPTIONS" value="" />
-      <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
-      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
-      <option name="INTERPRETER_PATH" value="/bin/zsh" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="EXECUTE_IN_TERMINAL" value="true" />
-      <option name="EXECUTE_SCRIPT_FILE" value="true" />
-      <envs />
-      <method v="2" />
-    </configuration>
     <list>
-      <item itemvalue="Python.constant_paths" />
-      <item itemvalue="Python.constant_vars" />
-      <item itemvalue="Python.settings_manager" />
+      <item itemvalue="Python.conf" />
+      <item itemvalue="Python.load_dumped_kindle_data" />
+      <item itemvalue="Python.file_manager" />
+      <item itemvalue="Python.kindle_extractor" />
       <item itemvalue="Python.main" />
-      <item itemvalue="Shell Script.main.sh" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Shell Script.main.sh" />
-        <item itemvalue="Python.constant_paths" />
-        <item itemvalue="Python.settings_manager" />
-        <item itemvalue="Python.constant_vars" />
+        <item itemvalue="Python.conf" />
         <item itemvalue="Python.main" />
+        <item itemvalue="Python.load_dumped_kindle_data" />
+        <item itemvalue="Python.kindle_extractor" />
+        <item itemvalue="Python.file_manager" />
       </list>
     </recent_temporary>
   </component>
@@ -326,7 +340,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701098352004</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Restructure project to be CLI">
+      <option name="closed" value="true" />
+      <created>1716147846511</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1716147846511</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -338,6 +360,7 @@
     <MESSAGE value="Update README.MD&#10;Update constants.py&#10;Update main.py" />
     <MESSAGE value="Fix config imports" />
     <MESSAGE value="Fix config imports&#10;Add japanese dbs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix config imports&#10;Add japanese dbs" />
+    <MESSAGE value="Restructure project to be CLI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Restructure project to be CLI" />
   </component>
 </project>

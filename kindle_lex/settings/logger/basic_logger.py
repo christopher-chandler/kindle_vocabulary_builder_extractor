@@ -7,10 +7,12 @@ import datetime
 import typer
 
 # Custom
-#from kindle_lex.settings.constants.constant_vars import SIMPLE_TIMESTAMP
+
+
 current_datetime = datetime.datetime.now()
 TIMESTAMP = current_datetime.strftime("%Y_%m_%d_%H_%M_%S")
 SIMPLE_TIMESTAMP = current_datetime.strftime("%Y_%m_%d")
+
 
 def get_logger(log_level=logging.ERROR) -> logging.Logger:
     """
@@ -52,9 +54,8 @@ def get_logger(log_level=logging.ERROR) -> logging.Logger:
         ),
     }
 
-    log_file = "log"
     logging.basicConfig(
-        filename=f"{log_file}/log_{SIMPLE_TIMESTAMP}.log",
+        filename=f"log_res/kindle_lex_{TIMESTAMP}.log",
         level=log_level,
         format=logger_formats.get(log_level),
     )

@@ -1,9 +1,12 @@
 # Standard Library Imports
-import logging
 import os
 
 # Custom Imports
 from kindle_lex.settings.constants.constant_paths import GeneralPaths as Gp
+from kindle_lex.settings.logger.basic_logger import (
+    catch_and_log_error,
+    catch_and_log_info,
+)
 
 
 def clear_log_files(file_amount: int) -> None:
@@ -24,8 +27,7 @@ def clear_log_files(file_amount: int) -> None:
     clear_files = "Clearing log files."
     process_complete = "Log files cleared."
 
-    print(clear_files)
-    logging.info(clear_files)
+    catch_and_log_info(custom_message=clear_files, echo_msg=True)
     log_count = 0
 
     # Iterate over files in the directory
@@ -40,8 +42,7 @@ def clear_log_files(file_amount: int) -> None:
             full_path = f"{Gp.LOGGING_RESULTS.value}/{path}"
             os.remove(full_path)
 
-    print(process_complete)
-    logging.info(process_complete)
+    catch_and_log_info(custom_message=process_complete, echo_msg=True)
 
 
 def clear_results_files(clear_results: bool = True) -> None:
@@ -55,16 +56,17 @@ def clear_results_files(clear_results: bool = True) -> None:
     - None
 
     Notes:
-    - This function clears result files in the directory specified by Gp.CSV_VOCAB_RESULTS.
-    - If clear_results is set to True, the function removes all result files and creates a placeholder file.
+    - This function clears result files in the directory specified by Gp.ANKI_VOCAB_RESULTS.
+    - If clear_results is set to True, the function removes all result files and
+    creates a placeholder file.
     """
     clear_files = "Clearing result files."
     process_complete = "Result files cleared."
 
-    print(clear_files)
-    logging.info(clear_files)
+    catch_and_log_info(custom_message=clear_files, echo_msg=True)
 
     if clear_results:
+
         for path in os.listdir(Gp.CSV_VOCAB_RESULTS.value):
             full_file: str = os.path.join(Gp.CSV_VOCAB_RESULTS.value, path)
             file_exist: bool = os.path.isfile(full_file)
@@ -76,5 +78,35 @@ def clear_results_files(clear_results: bool = True) -> None:
         # Create a placeholder file
         open(f"{Gp.CSV_VOCAB_RESULTS.value}/placeholder", mode="w")
 
-        print(process_complete)
-        logging.info(process_complete)
+        catch_and_log_info(custom_message=process_complete, echo_msg=True)
+
+
+def open_template(template: str) -> str:
+    """
+    Opens a text file containing an Anki card template (html and css)
+     and returns its content as a string.
+
+    This function is designed to be used with Anki card templates,
+    which are plain text files defining the structure of flashcards within the
+    Anki spaced repetition software.
+
+    Args:
+        template (str): The path to the template file.
+
+    Returns:
+        str: The content of the template file.
+
+    Raises:
+        IOError: If the template file cannot be opened.
+    """
+    try:
+        with open(template, mode="r") as template_file:
+            return template_file.read()
+    except FileNotFoundError as error:
+        catch_and_log_error(
+            error=error,
+            echo_msg=True,
+            echo_traceback=True,
+            custom_message=f"Template file {template} could not be found.",
+        )
+        return False

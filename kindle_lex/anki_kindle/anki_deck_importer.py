@@ -1,11 +1,14 @@
 # Standard
 import subprocess
 
+import typer.colors
+
 # Pip
 # None
 
 # Custom
 from kindle_lex.settings.constants.constant_paths import GeneralPaths as Gp
+from kindle_lex.settings.logger.basic_logger import catch_and_log_info
 
 
 def import_deck(name: str) -> None:
@@ -30,6 +33,11 @@ def import_deck(name: str) -> None:
     filename = f"{Gp.ANKI_APKG.value}/{name}.apkg"
     anki_app = Gp.ANKI_APP.value
     subprocess.run(["open", "-a", anki_app, filename])
+    catch_and_log_info(
+        custom_message="The deck is being imported...",
+        echo_msg=True,
+        echo_color=typer.colors.GREEN,
+    )
 
 
 if __name__ == "__main__":

@@ -1,6 +1,4 @@
 # Standard Library Imports
-import logging
-import os
 import sqlite3
 import subprocess
 import time
@@ -12,6 +10,11 @@ import typer
 from kindle_lex.settings.constants.constant_vars import EJECT_KINDLE
 from kindle_lex.anki_kindle.kindle_vocab_extractor import main_extractor
 from kindle_lex.anki_kindle.anki_deck_importer import import_deck
+
+from kindle_lex.settings.logger.basic_logger import (
+    catch_and_log_error,
+    catch_and_log_info,
+)
 
 
 def analyze_kindle_vocab_data(**kwargs) -> None:
@@ -37,7 +40,7 @@ def analyze_kindle_vocab_data(**kwargs) -> None:
 
     Example:
     analyze_kindle_vocab_data(device_name="kindle_device", time_stamp="2023-01-01 12:00:00",
-                              dump_ids=True, only_allow_unique_ids=True, vocab_key_reference=[...])
+                     dump_ids=True, only_allow_unique_ids=True, vocab_key_reference=[...])
     """
     try:
         device_name = kwargs.get("device_name", None)
@@ -46,19 +49,30 @@ def analyze_kindle_vocab_data(**kwargs) -> None:
         only_allow_unique_ids = kwargs.get("only_allow_unique_ids", None)
         vocab_key_reference = kwargs.get("vocab_key_reference")
 
-        mounted = f"{device_name} is mounted."
+        device_mounted = f"{device_name} is mounted."
         import_data = f"{device_name} data being imported."
         data_imported = f"{device_name}.apkg deck imported."
-        unmounted = f"{device_name} unmounted"
-        kindle_ids_dumped = f"{device_name} word ids dumped"
+        device_unmounted = f"{device_name} unmounted."
+        kindle_ids_dumped = f"{device_name} word ids dumped."
 
         time.sleep(5)
-        typer.secho(f"{time_stamp}: {mounted}", fg=typer.colors.BRIGHT_GREEN)
-        logging.info(mounted)
+        mounting_device = f"{time_stamp}: {device_mounted}"
+        catch_and_log_info(
+            custom_message=mounting_device,
+            echo_msg=True,
+            echo_color=typer.colors.BRIGHT_GREEN,
+        )
+        catch_and_log_info(custom_message=device_mounted, echo_msg=True)
 
         time.sleep(5)
-        typer.secho(f"{time_stamp}: {import_data}", fg=typer.colors.CYAN)
-        logging.info(import_data)
+        data_being_imported = f"{time_stamp}: {import_data}"
+        catch_and_log_info(
+            custom_message=data_being_imported,
+            echo_msg=True,
+            echo_color=typer.colors.CYAN,
+        )
+        catch_and_log_info(custom_message=import_data, echo_color=True)
+
         new_notes = main_extractor(
             device_name=device_name,
             dump_ids=dump_ids,
@@ -67,6 +81,7 @@ def analyze_kindle_vocab_data(**kwargs) -> None:
         )
         time.sleep(5)
 
+        # Kindle Lex checks if there is a difference between the data dumped
         if new_notes:
             import_deck(device_name)
             typer.secho(
@@ -75,7 +90,7 @@ def analyze_kindle_vocab_data(**kwargs) -> None:
             logging.info(data_imported)
             time.sleep(5)
 
-            logging.info(unmounted)
+            logging.info(device_unmounted)
 
             logging.info(kindle_ids_dumped)
             subprocess.run(EJECT_KINDLE)

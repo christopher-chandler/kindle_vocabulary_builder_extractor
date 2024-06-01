@@ -1,13 +1,14 @@
-# Standard Library Imports
+# Standard
 import csv
 import logging
 import pickle
 import os
+import random
 import sqlite3
 
 from datetime import datetime
 
-# Third-party Library Imports
+# Pip
 import genanki
 import typer
 
@@ -16,9 +17,11 @@ from kindle_lex.settings.constants.constant_vars import (
     SQL_LOOKUP_TEMPLATE,
     SQL_BOOK_INFO_TEMPLATE,
     ANKI_MODEL,
-    HEADER_SELECTION,
+    ANKI_HEADER_SELECTION,
 )
+
 from kindle_lex.settings.constants.constant_paths import GeneralPaths as Gp
+from kindle_lex.settings.logger.basic_logger import catch_and_log_info
 
 # Change current working directory to the specified directory
 os.chdir(Gp.WORKING_DIRECTORY.value)
@@ -40,10 +43,9 @@ def main_extractor(**kwargs) -> bool:
     Returns:
     - bool: True if extraction and processing were successful, False otherwise.
     """
-
-    # SQL Cursor
     device_name = kwargs.get("device_name")
     dump_ids = kwargs.get("dump_ids")
+    initial_id_dump = kwargs.get("initial_id_dump")
     only_allow_unique_ids = kwargs.get("only_allow_unique_ids")
     vocab_key_reference = kwargs.get("vocab_key_reference")
 
@@ -100,6 +102,11 @@ def main_extractor(**kwargs) -> bool:
         with open(f"{Gp.DUMPED_DATA.value}/{device_name}.pkl", "wb") as pickle_file:
             pickle.dump(id_db, pickle_file)
 
+    if initial_id_dump:
+        with open(f"{Gp.DUMPED_DATA.value}/{device_name}.pkl", "wb") as pickle_file:
+            pickle.dump(id_db, pickle_file)
+        raise SystemExit("Id files initially dumped. Restart the program.")
+
     # Write data to a CSV file
     with open(
         f"{Gp.CSV_VOCAB_RESULTS.value}/{device_name}.csv",
@@ -107,11 +114,7 @@ def main_extractor(**kwargs) -> bool:
         encoding="utf-8",
     ) as save_file:
 
-        if device_name == "kindle_oasis":
-            deck_id = 2059400110
-        else:
-            deck_id = 2059400111
-
+        deck_id = random.randint(1, 2059400111)
         unique_notes = list()
         ANKI_DECK = genanki.Deck(deck_id=deck_id, name=device_name)
 
@@ -126,7 +129,7 @@ def main_extractor(**kwargs) -> bool:
             entry = SQL_LOOKUPS.get(sql_entry)
             csv_dictwriter.writerow(entry)
 
-            for head in HEADER_SELECTION:
+            for head in ANKI_HEADER_SELECTION:
                 if head not in entry:
                     entry[head] = " "
             tags = entry.get("tag")
@@ -149,11 +152,21 @@ def main_extractor(**kwargs) -> bool:
         # Log and print information about the extraction result
         if len(unique_notes) == 0:
             no_new_notes = "No new notes could be found."
-            logging.info(no_new_notes)
-            typer.secho(no_new_notes, fg=typer.colors.BRIGHT_RED)
+            catch_and_log_info(
+                custom_message=no_new_notes,
+                echo_msg=True,
+                log_info_message=True,
+                echo_color=typer.colors.BRIGHT_RED,
+            )
+
             return False
         else:
-            unique_notes = f"{len(unique_notes)} note(s) were found."
+
+            if len(unique_notes) == 1:
+                unique_notes = f"{len(unique_notes)} note was found."
+            else:
+                unique_notes = f"{len(unique_notes)} notes were found."
+
             typer.secho(unique_notes)
             logging.info(unique_notes)
             deck = genanki.Package(ANKI_DECK)

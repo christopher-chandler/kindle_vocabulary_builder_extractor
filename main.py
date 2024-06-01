@@ -17,7 +17,7 @@ main_app = typer.Typer(
 )
 
 
-@main_app.command()
+@main_app.command(help="run the main program")
 def start():
     try:
         vocab_extractor()
@@ -27,8 +27,8 @@ def start():
 
 @main_app.command(name="init", help="initialize the app settings file")
 def config_init():
-    pass
+    person_name = typer.prompt("What's your name?")
 
 
 if __name__ == "__main__":
-    main_app()
+    start()

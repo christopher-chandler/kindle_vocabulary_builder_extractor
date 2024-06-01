@@ -1,22 +1,21 @@
 # Standard
 import datetime
-import os
 
 # Pip
 import genanki
 
 # Custom
-from kindle_lex.settings.constants.constant_paths import GeneralPaths as Gp
+from kindle_lex.device_system_manager.file_manager import open_template
 
-print(os.getcwd())
 """
 Hier sind Konstanten, die von anderen Funktionen verwendet werden. 
 """
 
+LOG_DIR = "log_res"
+
 current_datetime = datetime.datetime.now()
 TIMESTAMP = current_datetime.strftime("%Y_%m_%d_%H_%M_%S")
 SIMPLE_TIMESTAMP = current_datetime.strftime("%Y_%m_%d")
-
 
 LOG_FILE_NAME = f"logging_results/kindle_{TIMESTAMP}.log"
 
@@ -44,7 +43,7 @@ SQL_LOOKUP_TEMPLATE = {
 }
 
 # Anki Template
-HEADER_SELECTION = (
+ANKI_HEADER_SELECTION = (
     "id",
     "word_key",
     "book_key",
@@ -69,36 +68,28 @@ HEADER_SELECTION = (
     "Explanation",
 )
 
-ANKI_HEADER = [{"name": head} for head in HEADER_SELECTION]
-FRONT_TEMPLATE = open(
-    "resources/flash_card_templates/front.html",
-    mode="r",
-).read()
-BACK_TEMPLATE = open(
-    "resources/flash_card_templates/back.html",
-    mode="r",
-).read()
-STYLE_TEMPLATE = open(
-    r"resources/flash_card_templates/style.css",
-    mode="r",
-).read()
+ANKI_HEADER = [{"name": head} for head in ANKI_HEADER_SELECTION]
+ANKI_DECK = genanki.Deck(deck_id=2059400110, name="Kindle")
 
 # Anki deck model
+MODEL_NAME = "Kindle Import"
+MODEL_ID = 1607392319
+CARD_NAME = "Kindle Card"
+
 ANKI_MODEL = genanki.Model(
-    1607392319,
-    "Kindle Import",
+    MODEL_ID,
+    MODEL_NAME,
     fields=ANKI_HEADER,
     templates=[
         {
-            "name": "Card 1",
-            "qfmt": f"{FRONT_TEMPLATE}",
-            "afmt": f"{BACK_TEMPLATE}",
+            "name": CARD_NAME,
+            "qfmt": open_template("resources/flash_card_templates/front.html"),
+            "afmt": open_template("resources/flash_card_templates/back.html"),
             "tags": "hello",
         },
     ],
-    css=STYLE_TEMPLATE,
+    css=open_template("resources/flash_card_templates/style.css"),
 )
-ANKI_DECK = genanki.Deck(deck_id=2059400110, name="Kindle")
 
 if __name__ == "__main__":
     pass
