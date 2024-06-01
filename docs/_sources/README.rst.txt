@@ -1,6 +1,6 @@
 .. _top:
 
-..
+.. image:: readme_img/logo.png
    :alt: Logo
    :width: 80
    :height: 80
@@ -13,13 +13,16 @@
 ![Windows](https://img.shields.io/badge/Windows-Tested-purple) ![Mac](https://img.shields.io/badge/Mac-Tested-purple)
 
 ====================
-Kindle Lex ReadMe
+project_title
 ====================
 
 project_description
 
 `Report Bug <https://github.com/christopher-chandler/repo_name/issues>`_ · `Request Feature <https://github.com/christopher-chandler/repo_name/issues>`_
 
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
 
 About The Project
 =================

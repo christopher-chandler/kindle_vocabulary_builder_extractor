@@ -5,69 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="392a40ae-7096-4a6c-990f-acead6f6ac57" name="Changes" comment="restructure docs">
-      <change beforePath="$PROJECT_DIR$/docs/.buildinfo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/README.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_sources/README.rst.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_sources/index.rst.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_sources/kindle_lex.anki_kindle.rst.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_sources/kindle_lex.device_system_manager.rst.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_sources/kindle_lex.rst.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_sources/kindle_lex.settings.constants.rst.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_sources/kindle_lex.settings.logger.rst.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_sources/kindle_lex.settings.messages.rst.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_sources/kindle_lex.settings.rst.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_sources/kindle_lex.settings.typer_references.rst.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_sources/kindle_lex.tests.rst.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_sources/main.rst.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_sources/modules.rst.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_sources/settings_manager.rst.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/_sphinx_javascript_frameworks_compat.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/alabaster.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/basic.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/css/badge_only.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/css/fonts/Roboto-Slab-Bold.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/css/fonts/Roboto-Slab-Bold.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/css/fonts/Roboto-Slab-Regular.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/css/fonts/Roboto-Slab-Regular.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/css/fonts/fontawesome-webfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/css/fonts/fontawesome-webfont.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/css/fonts/fontawesome-webfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/css/fonts/fontawesome-webfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/css/fonts/fontawesome-webfont.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/css/fonts/lato-bold-italic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/css/fonts/lato-bold-italic.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/css/fonts/lato-bold.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/css/fonts/lato-bold.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/css/fonts/lato-normal-italic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/css/fonts/lato-normal-italic.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/css/fonts/lato-normal.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/css/fonts/lato-normal.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/css/theme.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/custom.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/debug.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/doctools.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/documentation_options.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/file.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/js/badge_only.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/js/html5shiv-printshiv.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/js/html5shiv.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/js/theme.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/language_data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/minus.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/plus.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/pygments.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/scripts/furo-extensions.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/scripts/furo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/scripts/furo.js.LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/scripts/furo.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/searchtools.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/skeleton.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/sphinx_highlight.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/styles/furo-extensions.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/styles/furo-extensions.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/styles/furo.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/styles/furo.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/README.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_sources/README.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_sources/README.rst.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/conf.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/genindex.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/kindle_lex.anki_kindle.html" beforeDir="false" />
@@ -81,13 +23,11 @@
       <change beforePath="$PROJECT_DIR$/docs/kindle_lex.tests.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/main.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/modules.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/objects.inv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/objects.inv" beforeDir="false" afterPath="$PROJECT_DIR$/docs/objects.inv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/py-modindex.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/search.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/searchindex.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/settings_manager.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/settings_manager.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,6 +70,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Python.basic_logger.executor": "Run",
+    "Python.build_docs.executor": "Run",
     "Python.conf.executor": "Run",
     "Python.constant_paths.executor": "Run",
     "Python.constant_vars.executor": "Run",
@@ -157,14 +98,36 @@
       <recent name="$PROJECT_DIR$/vocab_data" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources" />
       <recent name="$PROJECT_DIR$/docs" />
       <recent name="$PROJECT_DIR$/resources/lang_dict/jp" />
       <recent name="$PROJECT_DIR$/results/dumped_kindle_data" />
       <recent name="$PROJECT_DIR$/kindle_lex" />
-      <recent name="$PROJECT_DIR$/resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.conf">
+  <component name="RunManager" selected="Python.build_docs">
+    <configuration name="build_docs" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="kindle_vocabulary_builder_extractor" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/docs" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/docs/build_docs.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="conf" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="kindle_vocabulary_builder_extractor" />
       <option name="ENV_FILES" value="" />
@@ -179,28 +142,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/docs/conf.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="file_manager" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="kindle_vocabulary_builder_extractor" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/kindle_lex/device_system_manager" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/kindle_lex/device_system_manager/file_manager.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -276,19 +217,19 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Python.build_docs" />
       <item itemvalue="Python.conf" />
       <item itemvalue="Python.load_dumped_kindle_data" />
-      <item itemvalue="Python.file_manager" />
       <item itemvalue="Python.kindle_extractor" />
       <item itemvalue="Python.main" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.build_docs" />
         <item itemvalue="Python.conf" />
         <item itemvalue="Python.main" />
         <item itemvalue="Python.load_dumped_kindle_data" />
         <item itemvalue="Python.kindle_extractor" />
-        <item itemvalue="Python.file_manager" />
       </list>
     </recent_temporary>
   </component>
@@ -447,7 +388,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717251352911</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="restructure docs">
+      <option name="closed" value="true" />
+      <created>1717251718920</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1717251718920</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
