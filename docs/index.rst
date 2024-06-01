@@ -11,6 +11,7 @@ Welcome to KindleLex CLI's documentation!
    :caption: Contents:
 
    modules
+   README.md
 
 Indices and tables
 ==================
@@ -18,3 +19,4 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+

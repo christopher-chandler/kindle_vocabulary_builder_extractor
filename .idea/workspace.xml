@@ -4,32 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="392a40ae-7096-4a6c-990f-acead6f6ac57" name="Changes" comment="Restructure project to be CLI">
-      <change afterPath="$PROJECT_DIR$/log_res/log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/anki_apkg/SC_KINDLE_OASIS.apkg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/anki_apkg/SC_PAPER_WHITE.apkg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/csv_vocab_results/SC_KINDLE_OASIS.csv" afterDir="false" />
+    <list default="true" id="392a40ae-7096-4a6c-990f-acead6f6ac57" name="Changes" comment="Add Sphinx documentation&#10;Restructure project to be device agnostic &#10;Update system requirements &#10;black .">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/device_system_manager/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kindle_lex/anki_kindle/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kindle_lex/anki_kindle/anki_deck_importer.py" beforeDir="false" afterPath="$PROJECT_DIR$/kindle_lex/anki_kindle/anki_deck_importer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kindle_lex/anki_kindle/kindle_vocab_extractor.py" beforeDir="false" afterPath="$PROJECT_DIR$/kindle_lex/anki_kindle/kindle_vocab_extractor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kindle_lex/device_system_manager/device_detector.py" beforeDir="false" afterPath="$PROJECT_DIR$/kindle_lex/device_system_manager/device_detector.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kindle_lex/device_system_manager/folder_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/kindle_lex/device_system_manager/file_manager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kindle_lex/kindle_extractor.py" beforeDir="false" afterPath="$PROJECT_DIR$/kindle_lex/kindle_extractor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kindle_lex/settings/constants/constant_paths.py" beforeDir="false" afterPath="$PROJECT_DIR$/kindle_lex/settings/constants/constant_paths.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kindle_lex/settings/constants/constant_vars.py" beforeDir="false" afterPath="$PROJECT_DIR$/kindle_lex/settings/constants/constant_vars.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kindle_lex/settings/logger/basic_logger.py" beforeDir="false" afterPath="$PROJECT_DIR$/kindle_lex/settings/logger/basic_logger.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/apkg/kindle_oasis.apkg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/apkg/kindle_paper_white.apkg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/csv_vocab_results/kindle_oasis.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/dumped_kindle_data/kindle_oasis.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/dumped_kindle_data/kindle_paper_white.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings_files/settings.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/settings_files/settings.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/settings_manager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vocab/csv_vocab_results/placeholder" beforeDir="false" afterPath="$PROJECT_DIR$/kindle_lex/device_system_manager/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/conf.py" beforeDir="false" afterPath="$PROJECT_DIR$/docs/conf.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/main.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/main.rst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -348,7 +327,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716147846511</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Add Sphinx documentation&#10;Restructure project to be device agnostic &#10;Update system requirements &#10;black .">
+      <option name="closed" value="true" />
+      <created>1717219237299</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1717219237299</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -361,6 +348,7 @@
     <MESSAGE value="Fix config imports" />
     <MESSAGE value="Fix config imports&#10;Add japanese dbs" />
     <MESSAGE value="Restructure project to be CLI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Restructure project to be CLI" />
+    <MESSAGE value="Add Sphinx documentation&#10;Restructure project to be device agnostic &#10;Update system requirements &#10;black ." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Sphinx documentation&#10;Restructure project to be device agnostic &#10;Update system requirements &#10;black ." />
   </component>
 </project>
