@@ -4,30 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="392a40ae-7096-4a6c-990f-acead6f6ac57" name="Changes" comment="restructure docs">
+    <list default="true" id="392a40ae-7096-4a6c-990f-acead6f6ac57" name="Changes" comment="restructure docs&#10;add doc build script">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/README.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/README.rst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_sources/README.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_sources/README.rst.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/conf.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/genindex.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/kindle_lex.anki_kindle.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/kindle_lex.device_system_manager.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/kindle_lex.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/kindle_lex.settings.constants.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/kindle_lex.settings.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/kindle_lex.settings.logger.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/kindle_lex.settings.messages.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/kindle_lex.settings.typer_references.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/kindle_lex.tests.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/main.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/modules.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/objects.inv" beforeDir="false" afterPath="$PROJECT_DIR$/docs/objects.inv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/py-modindex.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/search.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/searchindex.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/settings_manager.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings_files/settings.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/settings_files/settings.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,8 +64,14 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Shell Script.main.sh.executor": "Run",
-    "last_opened_file_path": "/Users/christopherchandler/code_repos/christopher-chandler/kindle_vocabulary_builder_extractor/docs",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+    "last_opened_file_path": "/Users/christopherchandler/code_repos/christopher-chandler/Python/kindle_vocabulary_builder_extractor",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -105,7 +90,7 @@
       <recent name="$PROJECT_DIR$/kindle_lex" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.build_docs">
+  <component name="RunManager" selected="Python.main">
     <configuration name="build_docs" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="kindle_vocabulary_builder_extractor" />
       <option name="ENV_FILES" value="" />
@@ -119,6 +104,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/docs/build_docs.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -141,6 +127,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/docs/conf.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -163,6 +150,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/kindle_lex/kindle_extractor.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -185,6 +173,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/kindle_lex/device_system_manager/load_dumped_kindle_data.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -203,10 +192,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.10 (Git_leicht_gemacht)" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -225,13 +216,21 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.main" />
         <item itemvalue="Python.build_docs" />
         <item itemvalue="Python.conf" />
-        <item itemvalue="Python.main" />
         <item itemvalue="Python.load_dumped_kindle_data" />
         <item itemvalue="Python.kindle_extractor" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-PY-241.17011.127" />
+        <option value="bundled-python-sdk-48aec45f0201-7e9c3bbb6e34-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.17011.127" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -241,6 +240,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1673078588533</updated>
+      <workItem from="1719156975429" duration="1475000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1673098600716</created>
@@ -396,8 +396,19 @@
       <option name="project" value="LOCAL" />
       <updated>1717251718920</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="restructure docs&#10;add doc build script">
+      <option name="closed" value="true" />
+      <created>1717253410563</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1717253410563</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="update" />
@@ -412,6 +423,10 @@
     <MESSAGE value="Add Sphinx documentation&#10;Restructure project to be device agnostic &#10;Update system requirements &#10;black ." />
     <MESSAGE value="readme.rst" />
     <MESSAGE value="restructure docs" />
-    <option name="LAST_COMMIT_MESSAGE" value="restructure docs" />
+    <MESSAGE value="restructure docs&#10;add doc build script" />
+    <option name="LAST_COMMIT_MESSAGE" value="restructure docs&#10;add doc build script" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/kindle_vocabulary_builder_extractor$main.coverage" NAME="main Coverage Results" MODIFIED="1719205155825" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

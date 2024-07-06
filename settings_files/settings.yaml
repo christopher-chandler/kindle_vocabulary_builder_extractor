@@ -1,5 +1,5 @@
 # Directories
-WORKING_DIRECTORY: "/Users/christopherchandler/code_repos/christopher-chandler/kindle_vocabulary_builder_extractor"
+WORKING_DIRECTORY: "/Users/christopherchandler/code_repos/christopher-chandler/Python/kindle_vocabulary_builder_extractor"
 DUMPED_DATA : "results/dumped_kindle_data"
 CSV_VOCAB_RESULTS: "results/csv_vocab_results"
 
