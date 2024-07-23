@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="392a40ae-7096-4a6c-990f-acead6f6ac57" name="Changes" comment="restructure docs&#10;add doc build script">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings_files/settings.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/settings_files/settings.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kindle_lex/settings/constants/constant_vars.py" beforeDir="false" afterPath="$PROJECT_DIR$/kindle_lex/settings/constants/constant_vars.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kindle_lex/settings/messages/custom_error_messages.py" beforeDir="false" afterPath="$PROJECT_DIR$/kindle_lex/settings/messages/custom_error_messages.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/settings_manager.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,34 +49,34 @@
     <option name="sortByType" value="true" />
     <option name="sortKey" value="BY_TYPE" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.basic_logger.executor": "Run",
-    "Python.build_docs.executor": "Run",
-    "Python.conf.executor": "Run",
-    "Python.constant_paths.executor": "Run",
-    "Python.constant_vars.executor": "Run",
-    "Python.dumped_data.executor": "Run",
-    "Python.dumped_kindle_data.executor": "Run",
-    "Python.folder_manager.executor": "Run",
-    "Python.kindle_extractor.executor": "Run",
-    "Python.load_pkl.executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.settings_manager.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Shell Script.main.sh.executor": "Run",
-    "last_opened_file_path": "/Users/christopherchandler/code_repos/christopher-chandler/Python/kindle_vocabulary_builder_extractor",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.basic_logger.executor&quot;: &quot;Run&quot;,
+    &quot;Python.build_docs.executor&quot;: &quot;Run&quot;,
+    &quot;Python.conf.executor&quot;: &quot;Run&quot;,
+    &quot;Python.constant_paths.executor&quot;: &quot;Run&quot;,
+    &quot;Python.constant_vars.executor&quot;: &quot;Run&quot;,
+    &quot;Python.dumped_data.executor&quot;: &quot;Run&quot;,
+    &quot;Python.dumped_kindle_data.executor&quot;: &quot;Run&quot;,
+    &quot;Python.folder_manager.executor&quot;: &quot;Run&quot;,
+    &quot;Python.kindle_extractor.executor&quot;: &quot;Run&quot;,
+    &quot;Python.load_pkl.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.settings_manager.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Shell Script.main.sh.executor&quot;: &quot;Run&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/christopherchandler/code_repos/christopher-chandler/Python/kindle_vocabulary_builder_extractor&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/docs" />
@@ -90,7 +93,7 @@
       <recent name="$PROJECT_DIR$/kindle_lex" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Shell Script.main.sh">
     <configuration name="build_docs" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="kindle_vocabulary_builder_extractor" />
       <option name="ENV_FILES" value="" />
@@ -137,29 +140,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="kindle_extractor" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="kindle_vocabulary_builder_extractor" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/kindle_lex" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/kindle_lex/kindle_extractor.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="load_dumped_kindle_data" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="kindle_vocabulary_builder_extractor" />
       <option name="ENV_FILES" value="" />
@@ -192,7 +172,6 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="SDK_NAME" value="Python 3.10 (Git_leicht_gemacht)" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -207,20 +186,35 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="main.sh" type="ShConfigurationType" temporary="true">
+      <option name="SCRIPT_TEXT" value="" />
+      <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
+      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/main.sh" />
+      <option name="SCRIPT_OPTIONS" value="" />
+      <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
+      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
+      <option name="INTERPRETER_PATH" value="/bin/zsh" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="EXECUTE_IN_TERMINAL" value="true" />
+      <option name="EXECUTE_SCRIPT_FILE" value="true" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.build_docs" />
       <item itemvalue="Python.conf" />
       <item itemvalue="Python.load_dumped_kindle_data" />
-      <item itemvalue="Python.kindle_extractor" />
       <item itemvalue="Python.main" />
+      <item itemvalue="Shell Script.main.sh" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Shell Script.main.sh" />
         <item itemvalue="Python.main" />
         <item itemvalue="Python.build_docs" />
         <item itemvalue="Python.conf" />
         <item itemvalue="Python.load_dumped_kindle_data" />
-        <item itemvalue="Python.kindle_extractor" />
       </list>
     </recent_temporary>
   </component>
@@ -241,6 +235,8 @@
       <option name="presentableId" value="Default" />
       <updated>1673078588533</updated>
       <workItem from="1719156975429" duration="1475000" />
+      <workItem from="1721582603028" duration="2330000" />
+      <workItem from="1721650787325" duration="37000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1673098600716</created>
@@ -427,6 +423,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="restructure docs&#10;add doc build script" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/kindle_vocabulary_builder_extractor$main.coverage" NAME="main Coverage Results" MODIFIED="1719205155825" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/kindle_vocabulary_builder_extractor$main.coverage" NAME="main Coverage Results" MODIFIED="1721582614437" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

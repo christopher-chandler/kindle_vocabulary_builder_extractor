@@ -14,6 +14,7 @@ is when you
 
 """
 
+
 def get_config_data(file: str = None) -> dict:
     """
     Reads configuration data from a YAML file and returns it as

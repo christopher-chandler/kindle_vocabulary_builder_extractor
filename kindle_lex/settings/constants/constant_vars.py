@@ -8,7 +8,7 @@ import genanki
 from kindle_lex.device_system_manager.file_manager import open_template
 
 """
-Hier sind Konstanten, die von anderen Funktionen verwendet werden. 
+Constants used by other functions 
 """
 
 LOG_DIR = "log_res"
