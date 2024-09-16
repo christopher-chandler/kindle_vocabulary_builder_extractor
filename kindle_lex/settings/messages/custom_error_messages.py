@@ -3,12 +3,18 @@ class CustomErrorMessages:
     Custom error messages
     """
 
-    class MultiLingualSpacyError(Exception):
+    class Template(Exception):
         """
-        Exception raised for unsupported languages in Spacy.
+        Template for exceptions
         """
 
         def __init__(self, message):
-            self.language = message
-
             super().__init__(message)
+
+
+if __name__ == "__main__":
+
+    a = 0
+
+    if a == 0:
+        raise CustomErrorMessages.Template(message="Error message")

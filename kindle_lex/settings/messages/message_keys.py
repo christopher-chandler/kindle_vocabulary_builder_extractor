@@ -15,4 +15,4 @@ class MessageKeys:
     """
 
     class General(Enum):
-        pass
+        INCORRECT_DIRECTORY = "The home directory was not correctly specified."

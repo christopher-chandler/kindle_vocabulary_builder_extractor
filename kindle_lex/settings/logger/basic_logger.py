@@ -1,14 +1,15 @@
 # Standard
+import datetime
 import logging
 import traceback
-import datetime
 
 # Pip
 import typer
 
 # Custom
+# None
 
-
+# Date and Time
 current_datetime = datetime.datetime.now()
 TIMESTAMP = current_datetime.strftime("%Y_%m_%d_%H_%M_%S")
 SIMPLE_TIMESTAMP = current_datetime.strftime("%Y_%m_%d")
@@ -55,7 +56,7 @@ def get_logger(log_level=logging.ERROR) -> logging.Logger:
     }
 
     logging.basicConfig(
-        filename=f"log_res/kindle_lex_{TIMESTAMP}.log",
+        filename=f"logs/kindle_lex_{SIMPLE_TIMESTAMP}.log",
         level=log_level,
         format=logger_formats.get(log_level),
     )
@@ -115,7 +116,7 @@ def catch_and_log_info(
     echo_msg=False,
     log_info_message=True,
     echo_color=typer.colors.GREEN,
-):
+) -> None:
     """
     Setup logger and log an information message.
 

@@ -11,7 +11,7 @@ import typer
 # None
 
 
-def main():
+def main() -> None:
     typer.echo("Running sphinx-apidoc...")
     subprocess.call(["sphinx-apidoc", "-o", ".", ".."])
 

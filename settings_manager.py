@@ -1,5 +1,6 @@
 # Standard
 import os
+import json
 
 # Pip
 import yaml
@@ -9,9 +10,8 @@ import yaml
 
 """
 In order for KindleLex to work, you have to properly set up the configuration file. 
-Most of the configs should work out of the box, the only setting that needs to be changed
-is when you 
-
+Most of the configs should work out of the box, 
+the only setting that needs to be changed is the home directory of the working app 
 """
 
 
@@ -42,8 +42,16 @@ def get_config_data(file: str = None) -> dict:
     with open(file, mode="r", encoding="utf-8") as config_file:
         config_data: dict = yaml.safe_load(config_file)
 
-    return config_data
+    return {"config_data": config_data, "file": file}
+
+
+def set_working_directory():
+    config_data, file = list(get_config_data().values())
+    config_data["WORKING_DIRECTORY"] = os.getcwd()
+
+    with open(file, mode="w+", encoding="utf-8") as config_file:
+        yaml.dump(config_data, config_file)
 
 
 if __name__ == "__main__":
-    pass
+    set_working_directory()
