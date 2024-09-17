@@ -1,6 +1,5 @@
 # Standard Library Imports
 import logging
-import os
 import sqlite3
 import subprocess
 import time
@@ -9,7 +8,7 @@ import time
 import typer
 
 # Custom Imports
-from constants import EJECT_KINDLE, Configs
+from constants import EJECT_KINDLE
 from anki_kindle.kindle_vocab_extractor import main_extractor
 from anki_kindle.anki_deck_importer import import_deck
 
@@ -59,12 +58,14 @@ def analyze_kindle_vocab_data(**kwargs) -> None:
         time.sleep(5)
         typer.secho(f"{time_stamp}: {import_data}", fg=typer.colors.CYAN)
         logging.info(import_data)
+
         new_notes = main_extractor(
             device_name=device_name,
             dump_ids=dump_ids,
             only_allow_unique_ids=only_allow_unique_ids,
             vocab_key_reference=vocab_key_reference,
         )
+
         time.sleep(5)
 
         if new_notes:

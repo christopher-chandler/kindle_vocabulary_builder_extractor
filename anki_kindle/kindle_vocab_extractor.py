@@ -4,7 +4,9 @@ import logging
 import pickle
 import os
 import sqlite3
+
 from datetime import datetime
+from copy import deepcopy
 
 # Third-party Library Imports
 import genanki
@@ -102,6 +104,8 @@ def main_extractor(**kwargs) -> bool:
             pickle.dump(id_db, pickle_file)
 
     # Write data to a CSV file
+    current_entries = open("current_entries.csv",mode="w+")
+
     with open(
         f"{Configs.CSV_VOCAB_RESULTS.value}/{device_name}.csv",
         mode="w+",
@@ -120,12 +124,16 @@ def main_extractor(**kwargs) -> bool:
             header = list(SQL_LOOKUPS.get(sql_entry).keys())
             break
 
-        csv_dictwriter = csv.DictWriter(save_file, header)
-        csv_dictwriter.writeheader()
+        all_entries_csv_DictWriter = csv.DictWriter(save_file, header)
+        all_entries_csv_DictWriter.writeheader()
+        current_entries = csv.DictWriter(current_entries, header)
+        current_entries.writeheader()
 
         for sql_entry in SQL_LOOKUPS:
             entry = SQL_LOOKUPS.get(sql_entry)
-            csv_dictwriter.writerow(entry)
+            pure_entry = deepcopy(entry)
+            all_entries_csv_DictWriter.writerow(entry)
+
 
             for head in HEADER_SELECTION:
                 if head not in entry:
@@ -142,6 +150,9 @@ def main_extractor(**kwargs) -> bool:
             if only_allow_unique_ids:
                 note_id = entry.get("id")
                 if note_id not in vocab_key_reference:
+                    current_entries.writerow(pure_entry)
+
+
                     unique_notes.append(note_id)
                     ANKI_DECK.add_note(anki_note)
             else:
