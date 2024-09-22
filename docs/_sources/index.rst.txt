@@ -7,9 +7,9 @@ Welcome to KindleLex CLI's documentation!
 =========================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :caption: Contents:
-
+   README.rst
    modules
 
 .. toctree::
@@ -20,8 +20,6 @@ Welcome to KindleLex CLI's documentation!
 
 Indices and tables
 ==================
-
 * :ref:`genindex`
 * :ref:`modindex`
-* :ref:`search`
-* :ref:` README.rst`
+* `README <README.MD>`_

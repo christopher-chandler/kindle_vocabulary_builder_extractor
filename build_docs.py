@@ -19,7 +19,8 @@ def main() -> None:
     subprocess.call(["make", "html"])
 
     typer.echo("Copying README file from main directory...")
-    shutil.copy(src="../README.rst", dst=f"{os.getcwd()}/README.rst")
+    #shutil.copy(src="/Users/christopherchandler/code_repos/christopher-chandler/Python
+    # /kindle_vocabulary_builder_extractor/README.rst", dst=f"{os.getcwd()}/README.rst")
 
     typer.echo(f"Current working directory: {os.getcwd()}")
 
@@ -43,8 +44,7 @@ def main() -> None:
         mv = file.split("/")[-1]
         shutil.copy(src=file, dst=f"{os.getcwd()}/{mv}")
 
-    typer.echo("Removing _build directory...")
-    shutil.rmtree(f"{os.getcwd()}/_build")
+
 
 
 if __name__ == "__main__":

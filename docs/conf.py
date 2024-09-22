@@ -21,12 +21,15 @@ release = "2024"
 
 extensions = [
     "sphinx.ext.autodoc",
-    "recommonmark",
+    "myst_parser",
 ]
 
 templates_path = ["_templates"]
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
-
+source_suffix = {
+    ".rst": "restructuredtext",
+    ".md": "markdown",  # Add markdown as a source suffix
+}
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
