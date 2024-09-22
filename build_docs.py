@@ -7,19 +7,27 @@ import subprocess
 # Pip
 import typer
 
+
 # Custom
 # None
 
 
-def main() -> None:
+def generate_documenation() -> None:
+    """
+    After making changes to the code, run this script in order to update the documentation
+    files.
+
+    :return:
+    None
+    """
     typer.echo("Running sphinx-apidoc...")
     subprocess.call(["sphinx-apidoc", "-o", ".", ".."])
 
     typer.echo("Running make html...")
     subprocess.call(["make", "html"])
 
-    typer.echo("Copying README file from main directory...")
-    #shutil.copy(src="/Users/christopherchandler/code_repos/christopher-chandler/Python
+    # typer.echo("Copying README file from main directory...")
+    # shutil.copy(src="/Users/christopherchandler/code_repos/christopher-chandler/Python
     # /kindle_vocabulary_builder_extractor/README.rst", dst=f"{os.getcwd()}/README.rst")
 
     typer.echo(f"Current working directory: {os.getcwd()}")
@@ -45,7 +53,5 @@ def main() -> None:
         shutil.copy(src=file, dst=f"{os.getcwd()}/{mv}")
 
 
-
-
 if __name__ == "__main__":
-    typer.run(main)
+    typer.run(generate_documenation)
