@@ -87,12 +87,20 @@ def analyze_kindle_vocab_data(**kwargs) -> None:
             typer.secho(
                 f"{time_stamp}: {data_imported}", fg=typer.colors.BRIGHT_MAGENTA
             )
-            logging.info(data_imported)
+
+            catch_and_log_info(
+                custom_message=data_imported, echo_msg=True, log_info_message=True
+            )
             time.sleep(5)
 
-            logging.info(device_unmounted)
+            catch_and_log_info(
+                custom_message=device_unmounted, echo_msg=True, log_info_message=True
+            )
 
-            logging.info(kindle_ids_dumped)
+            catch_and_log_info(
+                custom_message=kindle_ids_dumped, echo_msg=True, log_info_message=True
+            )
+
             subprocess.run(EJECT_KINDLE)
             time.sleep(5)
 
@@ -101,4 +109,7 @@ def analyze_kindle_vocab_data(**kwargs) -> None:
             time.sleep(5)
 
     except sqlite3.OperationalError as Error:
-        logging.error(Error)
+
+        catch_and_log_error(
+            custom_message="SQL error", error=Error, kill_if_fatal_error=True
+        )

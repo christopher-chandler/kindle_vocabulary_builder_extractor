@@ -25,6 +25,7 @@ class GeneralPaths(Enum):
     """
 
     # Directories
+
     WORKING_DIRECTORY = config_data.get("WORKING_DIRECTORY")
     LOGGING_RESULTS = config_data.get("LOGGING_RESULTS")
     CSV_VOCAB_RESULTS = config_data.get("CSV_VOCAB_RESULTS")
@@ -42,6 +43,7 @@ class GeneralPaths(Enum):
     # Kindle
     KINDLE_DATABASE = config_data.get("KINDLE_DATABASE")
     DUMPED_DATA = config_data.get("DUMPED_DATA")
+    CURRENT_RESULTS = "results/csv_vocab_results/"
 
     # Kindle device
     KINDLE_DATABASE_FILE = config_data.get("KINDLE_DATABASE_FILE")

@@ -44,5 +44,10 @@ def start_kindlelex() -> None:
         raise SystemExit("Program exited.")
 
 
+@main_app.command(name="init", help="initialize the KindleLex config file")
+def generate_config_file():
+    pass
+
+
 if __name__ == "__main__":
     main_app()

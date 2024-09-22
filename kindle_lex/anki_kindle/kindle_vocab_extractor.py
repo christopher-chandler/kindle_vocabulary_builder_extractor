@@ -7,6 +7,7 @@ import random
 import sqlite3
 
 from datetime import datetime
+from copy import deepcopy
 
 # Pip
 import genanki
@@ -25,6 +26,8 @@ from kindle_lex.settings.logger.basic_logger import catch_and_log_info
 
 # Change current working directory to the specified directory
 os.chdir(Gp.WORKING_DIRECTORY.value)
+
+
 
 
 def main_extractor(**kwargs) -> bool:
@@ -107,71 +110,92 @@ def main_extractor(**kwargs) -> bool:
             pickle.dump(id_db, pickle_file)
         raise SystemExit("Id files initially dumped. Restart the program.")
 
-    # Write data to a CSV file
-    with open(
+    # Gather entires
+
+    all_entries = open(
         f"{Gp.CSV_VOCAB_RESULTS.value}/{device_name}.csv",
         mode="w+",
         encoding="utf-8",
-    ) as save_file:
+    )
+    current_entries = open(
+        f"{Gp.CURRENT_RESULTS.value}current_results_{device_name}.csv",
+        mode="w+",
+        encoding="utf-8",
+    )
 
-        deck_id = random.randint(1, 2059400111)
-        unique_notes = list()
-        ANKI_DECK = genanki.Deck(deck_id=deck_id, name=device_name)
+    # Write data to a CSV file
 
-        for sql_entry in SQL_LOOKUPS:
-            header = list(SQL_LOOKUPS.get(sql_entry).keys())
-            break
+    deck_id = random.randint(1, 2059400111)
+    unique_notes = list()
+    ANKI_DECK = genanki.Deck(deck_id=deck_id, name=device_name)
 
-        csv_dictwriter = csv.DictWriter(save_file, header)
-        csv_dictwriter.writeheader()
+    # Get the keys of the first entry in SQL_LOOKUPS as the header
+    dict_writer_field_names = list(next(iter(SQL_LOOKUPS.values())).keys())
 
-        for sql_entry in SQL_LOOKUPS:
-            entry = SQL_LOOKUPS.get(sql_entry)
-            csv_dictwriter.writerow(entry)
+    all_entries_csv_dict_writer = csv.DictWriter(all_entries, dict_writer_field_names)
+    current_entries_csv_dict_writer = csv.DictWriter(
+        current_entries, dict_writer_field_names
+    )
 
-            for head in ANKI_HEADER_SELECTION:
-                if head not in entry:
-                    entry[head] = " "
-            tags = entry.get("tag")
-            tags.append(device_name)
+    all_entries_csv_dict_writer.writeheader()
+    current_entries_csv_dict_writer.writeheader()
 
-            entry.pop("tag")
+    for sql_entry in SQL_LOOKUPS:
+        entry = SQL_LOOKUPS.get(sql_entry)
+        entry_copy = deepcopy(entry)
 
-            anki_note = genanki.Note(
-                model=ANKI_MODEL, fields=list(entry.values()), tags=tags
-            )
+        all_entries_csv_dict_writer.writerow(entry)
 
-            if only_allow_unique_ids:
-                note_id = entry.get("id")
-                if note_id not in vocab_key_reference:
-                    unique_notes.append(note_id)
-                    ANKI_DECK.add_note(anki_note)
-            else:
+        for head in ANKI_HEADER_SELECTION:
+            if head not in entry:
+                entry[head] = " "
+        tags = entry.get("tag")
+        tags.append(device_name)
+
+        entry.pop("tag")
+
+        anki_note = genanki.Note(
+            model=ANKI_MODEL, fields=list(entry.values()), tags=tags
+        )
+
+        if only_allow_unique_ids:
+            note_id = entry.get("id")
+            if note_id not in vocab_key_reference:
+                unique_notes.append(note_id)
+                current_entries_csv_dict_writer.writerow(entry_copy)
                 ANKI_DECK.add_note(anki_note)
-
-        # Log and print information about the extraction result
-        if len(unique_notes) == 0:
-            no_new_notes = "No new notes could be found."
-            catch_and_log_info(
-                custom_message=no_new_notes,
-                echo_msg=True,
-                log_info_message=True,
-                echo_color=typer.colors.BRIGHT_RED,
-            )
-
-            return False
         else:
+            ANKI_DECK.add_note(anki_note)
 
-            if len(unique_notes) == 1:
-                unique_notes = f"{len(unique_notes)} note was found."
-            else:
-                unique_notes = f"{len(unique_notes)} notes were found."
+    # Log and print information about the extraction result
+    if len(unique_notes) == 0:
+        no_new_notes = "No new notes could be found."
 
-            typer.secho(unique_notes)
-            logging.info(unique_notes)
-            deck = genanki.Package(ANKI_DECK)
-            deck.write_to_file(f"{Gp.ANKI_APKG.value}/{device_name}.apkg")
-            return True
+        catch_and_log_info(
+            custom_message=no_new_notes,
+            echo_msg=True,
+            log_info_message=True,
+            echo_color=typer.colors.BRIGHT_RED,
+        )
+
+        return False
+
+    else:
+
+        if len(unique_notes) == 1:
+            unique_notes_info = f"{len(unique_notes)} note was found."
+        else:
+            unique_notes_info = f"{len(unique_notes)} notes were found."
+
+        # Log info
+        typer.secho(unique_notes_info)
+        logging.info(unique_notes_info)
+
+        # Add to anki package
+        deck = genanki.Package(ANKI_DECK)
+        deck.write_to_file(f"{Gp.ANKI_APKG.value}/{device_name}.apkg")
+
+        return True
 
 
 if __name__ == "__main__":
