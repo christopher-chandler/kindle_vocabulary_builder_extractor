@@ -65,14 +65,14 @@ ANKI_HEADER_SELECTION = (
     "Is Vocabulary Card",
     "Is Audio Card",
     "Notes",
-    "Explanation",
+    "Explanation"
 )
 
 ANKI_HEADER = [{"name": head} for head in ANKI_HEADER_SELECTION]
 ANKI_DECK = genanki.Deck(deck_id=2059400110, name="Kindle")
 
 # Anki deck model
-MODEL_NAME = "Kindle Import"
+MODEL_NAME = "KN - Kindle Import"
 MODEL_ID = 1607392319
 CARD_NAME = "Kindle Card"
 
@@ -90,6 +90,8 @@ ANKI_MODEL = genanki.Model(
     ],
     css=open_template("resources/flash_card_templates/style.css"),
 )
+
+WAITING_TIME_IN_SECONDS = 5
 
 if __name__ == "__main__":
     pass
