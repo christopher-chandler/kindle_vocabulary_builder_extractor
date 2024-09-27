@@ -10,6 +10,7 @@ import sys
 
 sys.path.insert(0, os.path.abspath(".."))
 
+print(os.path.abspath(".."))
 
 project = "KindleLex CLI"
 copyright = "2024, Christopher Chandler"
@@ -36,5 +37,3 @@ source_suffix = {
 
 html_theme = "furo"
 html_static_path = ["_static"]
-
-source_suffix = [".rst", ".md"]
