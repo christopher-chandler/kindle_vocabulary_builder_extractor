@@ -39,11 +39,12 @@ def get_pickle_data(vocab_pickle: str) -> dict:
             )
 
             return loaded_pickle_data
+
     except FileNotFoundError as file_not_found_error:
         # Indicate an error if the file is not found
         catch_and_log_error(
-            error=FileNotFoundError,
-            custom_message=file_not_found_error,
+            error=file_not_found_error,
+            custom_message=str(file_not_found_error),
             echo_color=typer.colors.RED,
             echo_msg=True,
             echo_traceback=True,
