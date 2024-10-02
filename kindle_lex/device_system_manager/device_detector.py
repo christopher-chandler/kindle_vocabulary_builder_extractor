@@ -8,13 +8,17 @@ import typer
 
 # Custom Imports
 from kindle_lex.settings.constants.constant_vars import EJECT_KINDLE
-from kindle_lex.anki_kindle.kindle_vocab_extractor import main_extractor
+from kindle_lex.anki_kindle.main_kindle_vocab_extractor import main_extractor
 from kindle_lex.anki_kindle.anki_deck_importer import import_deck
 
 from kindle_lex.settings.logger.basic_logger import (
     catch_and_log_error,
     catch_and_log_info,
 )
+
+from kindle_lex.settings.constants.constant_vars import WAITING_TIME_IN_SECONDS
+
+# WAITING_TIME_IN_SECONDS = 5
 
 
 def analyze_kindle_vocab_data(**kwargs) -> None:
@@ -47,7 +51,7 @@ def analyze_kindle_vocab_data(**kwargs) -> None:
         time_stamp = kwargs.get("time_stamp", None)
         dump_ids = kwargs.get("dump_ids", None)
         only_allow_unique_ids = kwargs.get("only_allow_unique_ids", None)
-        vocab_key_reference = kwargs.get("vocab_key_reference")
+        vocab_key_reference = kwargs.get("vocab_key_reference", None)
 
         device_mounted = f"{device_name} is mounted."
         import_data = f"{device_name} data being imported."
@@ -55,7 +59,7 @@ def analyze_kindle_vocab_data(**kwargs) -> None:
         device_unmounted = f"{device_name} unmounted."
         kindle_ids_dumped = f"{device_name} word ids dumped."
 
-        time.sleep(5)
+        time.sleep(WAITING_TIME_IN_SECONDS)
         mounting_device = f"{time_stamp}: {device_mounted}"
         catch_and_log_info(
             custom_message=mounting_device,
@@ -64,7 +68,7 @@ def analyze_kindle_vocab_data(**kwargs) -> None:
         )
         catch_and_log_info(custom_message=device_mounted, echo_msg=True)
 
-        time.sleep(5)
+        time.sleep(WAITING_TIME_IN_SECONDS)
         data_being_imported = f"{time_stamp}: {import_data}"
         catch_and_log_info(
             custom_message=data_being_imported,
@@ -79,7 +83,7 @@ def analyze_kindle_vocab_data(**kwargs) -> None:
             only_allow_unique_ids=only_allow_unique_ids,
             vocab_key_reference=vocab_key_reference,
         )
-        time.sleep(5)
+        time.sleep(WAITING_TIME_IN_SECONDS)
 
         # Kindle Lex checks if there is a difference between the data dumped
         if new_notes:
@@ -91,7 +95,7 @@ def analyze_kindle_vocab_data(**kwargs) -> None:
             catch_and_log_info(
                 custom_message=data_imported, echo_msg=True, log_info_message=True
             )
-            time.sleep(5)
+            time.sleep(WAITING_TIME_IN_SECONDS)
 
             catch_and_log_info(
                 custom_message=device_unmounted, echo_msg=True, log_info_message=True
@@ -102,11 +106,11 @@ def analyze_kindle_vocab_data(**kwargs) -> None:
             )
 
             subprocess.run(EJECT_KINDLE)
-            time.sleep(5)
+            time.sleep(WAITING_TIME_IN_SECONDS)
 
         else:
             subprocess.run(EJECT_KINDLE)
-            time.sleep(5)
+            time.sleep(WAITING_TIME_IN_SECONDS)
 
     except sqlite3.OperationalError as Error:
 
