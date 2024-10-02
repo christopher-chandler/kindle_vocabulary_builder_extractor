@@ -28,8 +28,6 @@ from kindle_lex.settings.logger.basic_logger import catch_and_log_info
 os.chdir(Gp.WORKING_DIRECTORY.value)
 
 
-
-
 def main_extractor(**kwargs) -> bool:
     """
     Extracts Kindle vocabulary data, processes it, and generates Anki notes.
@@ -149,6 +147,7 @@ def main_extractor(**kwargs) -> bool:
         for head in ANKI_HEADER_SELECTION:
             if head not in entry:
                 entry[head] = " "
+
         tags = entry.get("tag")
         tags.append(device_name)
 
