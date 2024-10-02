@@ -7,13 +7,11 @@ import time
 # Pip
 import typer
 
-from kindle_lex.anki_kindle.kindle_vocab_extractor import main_extractor
-
 # Custom
 
 # Constants
+from kindle_lex.anki_kindle.main_kindle_vocab_extractor import main_extractor
 from kindle_lex.settings.constants.constant_paths import GeneralPaths as Gp
-
 from kindle_lex.settings.constants.constant_vars import TIMESTAMP
 
 # Device
@@ -21,7 +19,7 @@ from kindle_lex.device_system_manager.device_detector import analyze_kindle_voca
 from kindle_lex.device_system_manager.load_dumped_kindle_data import get_pickle_data
 from kindle_lex.device_system_manager.file_manager import (
     clear_log_files,
-    clear_results_files,
+    clear_results_files
 )
 
 # Logger
@@ -69,7 +67,7 @@ def vocab_extractor() -> None:
             device_id = KINDLE_DEVICES.get(device_name)
 
             if device_id in subprocess_connected_devices_output and KINDLE_MOUNT:
-                # clear_log_files(5)
+                clear_log_files(5)
                 clear_results_files(False)
 
                 kindle_pickle = get_pickle_data(device_name)
