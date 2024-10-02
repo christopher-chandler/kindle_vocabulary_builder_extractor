@@ -14,7 +14,6 @@ from kindle_lex.anki_kindle.kindle.kindle_db_getter import KindleDBGetter
 from kindle_lex.settings.constants.constant_vars import (
     SQL_LOOKUP_TEMPLATE,
     SQL_BOOK_INFO_TEMPLATE,
-
 )
 
 
@@ -33,13 +32,9 @@ class KindleDBProcessor(KindleDBGetter):
         initial_id_dump: bool,
     ):
         super().__init__(
-            device_name,
-            dump_ids,
-            only_allow_unique_ids,
-            vocab_key_reference
+            device_name, dump_ids, only_allow_unique_ids, vocab_key_reference
         )
         self.initial_id_dump = initial_id_dump
-
 
     def process_book_info(self):
         """
@@ -94,7 +89,7 @@ class KindleDBProcessor(KindleDBGetter):
             id_db.append(word_id)
 
         # Removing unused keys
-        keys_to_remove = ['asin', 'guid', 'title', 'authors']
+        keys_to_remove = ["asin", "guid", "title", "authors"]
         for entry in SQL_LOOKUPS:
             for key in keys_to_remove:
                 SQL_LOOKUPS.get(entry).pop(key, None)

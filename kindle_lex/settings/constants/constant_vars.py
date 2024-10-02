@@ -65,7 +65,7 @@ ANKI_HEADER_SELECTION = (
     "Is Vocabulary Card",
     "Is Audio Card",
     "Notes",
-    "Explanation"
+    "Explanation",
 )
 
 ANKI_HEADER = [{"name": head} for head in ANKI_HEADER_SELECTION]

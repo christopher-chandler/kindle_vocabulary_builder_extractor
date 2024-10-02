@@ -12,11 +12,11 @@ from kindle_lex.settings.logger.basic_logger import catch_and_log_error
 class KindleDBGetter:
 
     def __init__(
-            self,
-            device_name: str,
-            dump_ids: bool,
-            only_allow_unique_ids: bool,
-            vocab_key_reference: list,
+        self,
+        device_name: str,
+        dump_ids: bool,
+        only_allow_unique_ids: bool,
+        vocab_key_reference: list,
     ):
         """
         Keyword Arguments:
@@ -43,7 +43,7 @@ class KindleDBGetter:
 
           Returns:
               sqlite3.Cursor: A cursor object for interacting with the database.
-          """
+        """
 
         # Connect to the Kindle vocabulary database
         try:
@@ -56,12 +56,12 @@ class KindleDBGetter:
             catch_and_log_error(
                 error=e,
                 custom_message="The Kindle database could not be opened. This might be "
-                               "because either the device is not connected, the device "
-                               "could not be found or the database on the Kindle was "
-                               "deleted. Please disconnect your device and reconnect it."
-                               "If this does not resolve the issue, please check the "
-                               "setting files to see if the path to the Kindle database"
-                               " was properly specified."
+                "because either the device is not connected, the device "
+                "could not be found or the database on the Kindle was "
+                "deleted. Please disconnect your device and reconnect it."
+                "If this does not resolve the issue, please check the "
+                "setting files to see if the path to the Kindle database"
+                " was properly specified.",
             )
             raise SystemExit
 

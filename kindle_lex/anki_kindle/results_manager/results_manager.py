@@ -95,8 +95,9 @@ class ResultsManager(KindleDBProcessor):
         )
         SQL_LOOKUPS = self.process_lookups().get("SQL_LOOKUPS")
 
-        dict_writer_field_names = ("id,word_key,book_key,dict_key,pos,usage,timestamp,"
-                                    "lang,tag").split(",")
+        dict_writer_field_names = (
+            "id,word_key,book_key,dict_key,pos,usage,timestamp," "lang,tag"
+        ).split(",")
 
         all_entries_csv_dict_writer = csv.DictWriter(
             all_entries, dict_writer_field_names
@@ -147,7 +148,6 @@ class ResultsManager(KindleDBProcessor):
 
         ANKI_DECK = self.__save_files().get("ANKI_DECK")
         device_name = self.device_name
-
 
         SQL_LOOKUPS = self.SQL_LOOKUPS
 
