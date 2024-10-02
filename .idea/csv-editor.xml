@@ -17,13 +17,6 @@
             </Attribute>
           </value>
         </entry>
-        <entry key="/results/csv_vocab_results/current_results_SC_KINDLE_OASIS.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
       </map>
     </option>
   </component>
