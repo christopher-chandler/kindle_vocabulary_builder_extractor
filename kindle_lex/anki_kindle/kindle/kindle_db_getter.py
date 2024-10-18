@@ -1,12 +1,16 @@
 # Standard
+import pickle
 import sqlite3
 
 # Custom
-# None
+import typer
 
 # Standard
 from kindle_lex.settings.constants.constant_paths import GeneralPaths as Gp
-from kindle_lex.settings.logger.basic_logger import catch_and_log_error
+from kindle_lex.settings.logger.basic_logger import (
+    catch_and_log_error,
+    catch_and_log_info,
+)
 
 
 class KindleDBGetter:
@@ -15,15 +19,15 @@ class KindleDBGetter:
         self,
         device_name: str,
         dump_ids: bool,
-        only_allow_unique_ids: bool,
-        vocab_key_reference: list,
+        initial_id_dump: bool,
+        vocab_pickle: str,
     ):
         """
         Keyword Arguments:
         - device_name (str): Name of the Kindle device.
         - dump_ids (bool): Whether to dump vocabulary IDs to a pickle file.
-        - only_allow_unique_ids (bool): Whether to allow only unique vocabulary IDs.
-        - vocab_key_reference (list): List of reference vocabulary keys.
+
+
 
         Returns:
         - bool: True if extraction and processing were successful, False otherwise.
@@ -31,8 +35,8 @@ class KindleDBGetter:
 
         self.device_name = device_name
         self.dump_ids = dump_ids
-        self.only_allow_unique_ids = only_allow_unique_ids
-        self.vocab_key_reference = vocab_key_reference
+        self.initial_id_dump = initial_id_dump
+        self.vocab_pickle = vocab_pickle
 
     @staticmethod
     def __open_kindle_db() -> sqlite3.Cursor:
@@ -100,6 +104,4 @@ if __name__ == "__main__":
     db_getter = KindleDBGetter(
         device_name="Kindle",
         dump_ids=True,
-        only_allow_unique_ids=True,
-        vocab_key_reference=[],
     ).get_lookups()

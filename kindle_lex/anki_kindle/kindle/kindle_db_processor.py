@@ -4,11 +4,14 @@ import pickle
 from datetime import datetime
 
 # Pip
-# None
+import typer.colors
 
 # Custom
 from kindle_lex.settings.constants.constant_paths import GeneralPaths as Gp
-from kindle_lex.settings.logger.basic_logger import catch_and_log_info
+from kindle_lex.settings.logger.basic_logger import (
+    catch_and_log_error,
+    catch_and_log_info,
+)
 
 from kindle_lex.anki_kindle.kindle.kindle_db_getter import KindleDBGetter
 from kindle_lex.settings.constants.constant_vars import (
@@ -28,7 +31,7 @@ class KindleDBProcessor(KindleDBGetter):
         device_name: str,
         dump_ids: bool,
         only_allow_unique_ids: bool,
-        vocab_key_reference: list,
+        vocab_key_reference: str,
         initial_id_dump: bool,
     ):
         super().__init__(
@@ -98,26 +101,6 @@ class KindleDBProcessor(KindleDBGetter):
 
         return results
 
-    def dump_ids_to_pickle(self):
-        initial_id_dump = self.initial_id_dump
-        dump_ids = self.dump_ids
-        device_name = self.device_name
-
-        id_db = self.process_lookups().get("id_db")
-
-        # Dump IDs to a pickle file if specified
-        if dump_ids:
-            with open(f"{Gp.DUMPED_DATA.value}/{device_name}.pkl", "wb") as pickle_file:
-                pickle.dump(id_db, pickle_file)
-
-        if initial_id_dump:
-            with open(f"{Gp.DUMPED_DATA.value}/{device_name}.pkl", "wb") as pickle_file:
-                pickle.dump(id_db, pickle_file)
-            raise SystemExit(
-                f"Word ids for device '{device_name}' files initially dumped. "
-                f"Restart the program."
-            )
-
 
 if __name__ == "__main__":
 
@@ -125,7 +108,7 @@ if __name__ == "__main__":
         device_name="Kindle",
         dump_ids=True,
         only_allow_unique_ids=True,
-        vocab_key_reference=[],
+        vocab_key_reference="",
         initial_id_dump=True,
     )
     print(db_getter.process_lookups())
