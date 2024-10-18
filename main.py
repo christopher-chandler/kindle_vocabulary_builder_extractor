@@ -50,8 +50,7 @@ main_app = typer.Typer(
 
 @main_app.command(name="start", help="start the kindlelex app")
 def start_kindlelex(
-        initial_id_dump: bool = typer.Option(False, "--dump", "-d",
-                                             help="Dump IDS")
+    initial_id_dump: bool = typer.Option(False, "--dump", "-d", help="Dump IDS")
 ) -> None:
     """
     This is the main entry point of the program. Executing this function starts
@@ -104,7 +103,6 @@ def start_kindlelex(
                             dump_ids=True,
                             initial_id_dump=True,
                             vocab_pickle=device_name,
-
                         ).dump_ids_to_pickle()
                     else:
                         analyze_kindle_vocab_data(

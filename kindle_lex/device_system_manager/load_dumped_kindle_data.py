@@ -13,7 +13,8 @@ from kindle_lex.settings.logger.basic_logger import (
 
 
 def get_pickle_data(vocab_pickle: str) -> dict:
-    """Loads data from a pickle file.
+    """
+    Loads data from a pickle file.
 
     Args:
         vocab_pickle: The name of the pickle file to load. (str)

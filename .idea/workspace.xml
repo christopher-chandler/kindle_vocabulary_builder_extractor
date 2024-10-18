@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="392a40ae-7096-4a6c-990f-acead6f6ac57" name="Changes" comment="rename var" />
+    <list default="true" id="392a40ae-7096-4a6c-990f-acead6f6ac57" name="Changes" comment="add typer function for connecting kindle">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kindle_lex/device_system_manager/load_dumped_kindle_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/kindle_lex/device_system_manager/load_dumped_kindle_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kindle_lex/kindle_extractor.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -91,6 +96,11 @@
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlite&quot;
+    ]
   }
 }</component>
   <component name="RecentsManager">
@@ -109,7 +119,7 @@
       <recent name="$PROJECT_DIR$/results/dumped_kindle_data" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.build_docs">
+  <component name="RunManager" selected="Shell Script.main.sh">
     <configuration name="build_docs" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="kindle_vocabulary_builder_extractor" />
       <option name="ENV_FILES" value="" />
@@ -226,9 +236,9 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.build_docs" />
         <item itemvalue="Shell Script.main.sh" />
         <item itemvalue="Python.main" />
+        <item itemvalue="Python.build_docs" />
         <item itemvalue="Python.kindle_db_processor (1)" />
         <item itemvalue="Python.kindle_db_getter (1)" />
       </list>
@@ -268,6 +278,9 @@
       <workItem from="1727461001401" duration="1247000" />
       <workItem from="1727507879685" duration="11000" />
       <workItem from="1727848404491" duration="801000" />
+      <workItem from="1729247064812" duration="1779000" />
+      <workItem from="1729262824755" duration="1131000" />
+      <workItem from="1729275942380" duration="3659000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1673098600716</created>
@@ -471,7 +484,31 @@
       <option name="project" value="LOCAL" />
       <updated>1727461075874</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="update kindle interface">
+      <option name="closed" value="true" />
+      <created>1729279376077</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1729279376077</updated>
+    </task>
+    <task id="LOCAL-00029" summary="update missing log fuction">
+      <option name="closed" value="true" />
+      <created>1729279551030</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1729279551030</updated>
+    </task>
+    <task id="LOCAL-00030" summary="add typer function for connecting kindle">
+      <option name="closed" value="true" />
+      <created>1729279570664</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1729279570665</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -537,14 +574,17 @@
     <MESSAGE value="update docs" />
     <MESSAGE value="add classes for new interface" />
     <MESSAGE value="rename var" />
-    <option name="LAST_COMMIT_MESSAGE" value="rename var" />
+    <MESSAGE value="update kindle interface" />
+    <MESSAGE value="update missing log fuction" />
+    <MESSAGE value="add typer function for connecting kindle" />
+    <option name="LAST_COMMIT_MESSAGE" value="add typer function for connecting kindle" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/kindle_vocabulary_builder_extractor$build_docs.coverage" NAME="build_docs Coverage Results" MODIFIED="1727455284927" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/docs" />
     <SUITE FILE_PATH="coverage/kindle_vocabulary_builder_extractor$results.coverage" NAME="results Coverage Results" MODIFIED="1726982521702" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/results/csv_vocab_results" />
     <SUITE FILE_PATH="coverage/kindle_vocabulary_builder_extractor$class_kindle_vocab_extractor.coverage" NAME="class_kindle_vocab_extractor Coverage Results" MODIFIED="1727105242559" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/kindle_lex/anki_kindle" />
     <SUITE FILE_PATH="coverage/kindle_vocabulary_builder_extractor$kindle_db_getter.coverage" NAME="kindle_db_getter Coverage Results" MODIFIED="1727108245487" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/kindle_lex/anki_kindle/kindle_db" />
-    <SUITE FILE_PATH="coverage/kindle_vocabulary_builder_extractor$main.coverage" NAME="main Coverage Results" MODIFIED="1727428188766" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/kindle_vocabulary_builder_extractor$main.coverage" NAME="main Coverage Results" MODIFIED="1729242671687" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/kindle_vocabulary_builder_extractor$anki_interface.coverage" NAME="anki_interface Coverage Results" MODIFIED="1727381152985" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/kindle_lex/anki_kindle/results_manager" />
     <SUITE FILE_PATH="coverage/kindle_vocabulary_builder_extractor$kindle_db_getter__1_.coverage" NAME="kindle_db_getter (1) Coverage Results" MODIFIED="1727417773984" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/kindle_lex/anki_kindle/kindle" />
     <SUITE FILE_PATH="coverage/kindle_vocabulary_builder_extractor$kindle_db_processor__1_.coverage" NAME="kindle_db_processor (1) Coverage Results" MODIFIED="1727418479609" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/kindle_lex/anki_kindle/kindle" />
