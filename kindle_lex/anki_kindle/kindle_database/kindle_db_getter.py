@@ -74,6 +74,7 @@ class KindleDBGetter:
         """
 
         cursor = self.__open_kindle_db()
+
         # Retrieve data from BOOK_INFO table
         book_info_cursor = cursor.execute("SELECT * from BOOK_INFO")
         book_info_output = book_info_cursor.fetchall()

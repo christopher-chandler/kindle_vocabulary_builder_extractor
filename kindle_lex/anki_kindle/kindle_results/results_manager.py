@@ -3,6 +3,9 @@ import csv
 import logging
 import subprocess
 import random
+import re
+
+from datetime import datetime
 
 # Pip
 import genanki
@@ -30,12 +33,13 @@ unique_notes = list()
 class ResultsManager(KindleDBProcessor):
     def __init__(
         self,
-        anki_deck_name: str,
-        device_name: str,
-        dump_ids: bool,
-        only_allow_unique_ids: bool,
-        vocab_key_reference: list,
-        initial_id_dump: bool,
+        anki_deck_name: str = "kindle_import",
+        device_name: str="kindle",
+        dump_ids: bool=True,
+        only_allow_unique_ids: bool = True,
+        vocab_key_reference: list = None,
+        initial_id_dump: bool = False,
+
     ):
 
         super().__init__(
@@ -48,6 +52,7 @@ class ResultsManager(KindleDBProcessor):
 
         self.SQL_LOOKUPS = self.process_lookups().get("SQL_LOOKUPS")
         self.anki_deck_name = anki_deck_name
+
 
     def import_deck(self) -> None:
         """
@@ -80,7 +85,18 @@ class ResultsManager(KindleDBProcessor):
             echo_color=typer.colors.GREEN,
         )
 
-    def __save_files(self):
+    def __save_files(self) -> dict:
+        """
+        This saves the results from the kindle vocab dump to the respective file type.
+
+        Parameters:
+            None
+
+        :return:
+            save_files (dict): this is a dictionary of the csv writeres (all, current) and
+            the anki dict writer so that the results can be saved to the respective
+            objects
+        """
         device_name = self.device_name
 
         all_entries = open(
@@ -93,12 +109,12 @@ class ResultsManager(KindleDBProcessor):
             mode="w+",
             encoding="utf-8",
         )
-        SQL_LOOKUPS = self.process_lookups().get("SQL_LOOKUPS")
 
+        # Create field names
         dict_writer_field_names = (
-            "id,word_key,book_key,dict_key,pos,usage,timestamp," "lang,tag"
-        ).split(",")
+            "id,word_key,book_key,dict_key,pos,usage,timestamp,lang,tag").split(",")
 
+        # CSV Dict writer
         all_entries_csv_dict_writer = csv.DictWriter(
             all_entries, dict_writer_field_names
         )
@@ -106,47 +122,70 @@ class ResultsManager(KindleDBProcessor):
             current_entries, dict_writer_field_names
         )
 
-        deck_id = random.randint(1, 2059400111)
-
-        ANKI_DECK = genanki.Deck(deck_id=deck_id, name=device_name)
+        # Anki package base
+        anki_deck_id = random.randint(1, 2059400111)
+        anki_deck = genanki.Deck(deck_id=anki_deck_id, name=device_name)
 
         save_files = {
             "all_entries": all_entries_csv_dict_writer,
             "current_entries": current_entries_csv_dict_writer,
-            "ANKI_DECK": ANKI_DECK,
+            "anki_deck": anki_deck,
         }
 
         return save_files
 
-    def write_to_csv(self):
+    def write_to_csv(self, result_filter_keys:dict = None) -> None:
+        """
+
+        :return:
+            None
+        """
+        # Assign dict writeres
         all_entries_csv_dict_writer = self.__save_files().get("all_entries")
         current_entries_csv_dict_writer = self.__save_files().get("current_entries")
 
-        all_entries_csv_dict_writer.writeheader()
-
-        device_name = self.device_name
+        # Add headers to files
         all_entries_csv_dict_writer.writeheader()
         current_entries_csv_dict_writer.writeheader()
+
         SQL_LOOKUPS = self.process_lookups().get("SQL_LOOKUPS")
 
         for sql_entry in SQL_LOOKUPS:
+
             entry = SQL_LOOKUPS.get(sql_entry)
+            
 
-            all_entries_csv_dict_writer.writerow(entry)
+            # converts to comparable date format
+            timestamp = datetime.strptime(entry.get(
+             "timestamp", ""), '%B %d, %Y %I:%M:%S %p')
 
-            for head in ANKI_HEADER_SELECTION:
-                if head not in entry:
-                    entry[head] = " "
+            word_key = entry.get("word_key", None)
+            book_key = entry.get("book_key", None)
 
-            tags = entry.get("tag", None)
+            usage = entry.get("usage", None)
+            lang = entry.get("lang", None)
 
-            if tags is not None:
-                tags.append(device_name)
-                entry.pop("tag")
+
+            if result_filter_keys is not None:
+
+                usage_compare = result_filter_keys.get("usage", None)
+
+                time = entry.get("timestamp","")
+
+                if time:
+                    timestamp = datetime.strptime(time, '%B %d, %Y %I:%M:%S %p')
+                    other_time = result_filter_keys.get("timestamp")
+
+                    if timestamp > other_time:
+                        print(timestamp)
+            else:
+
+                all_entries_csv_dict_writer.writerow(entry)
+
 
     def write_to_anki_package(self):
 
-        ANKI_DECK = self.__save_files().get("ANKI_DECK")
+        anki_deck = self.__save_files().get("anki_deck")
         device_name = self.device_name
 
         SQL_LOOKUPS = self.SQL_LOOKUPS
@@ -166,10 +205,10 @@ class ResultsManager(KindleDBProcessor):
                 model=ANKI_MODEL, fields=list(entry.values()), tags=tags
             )
 
-            ANKI_DECK.add_note(anki_note)
+            anki_deck.add_note(anki_note)
 
         # Create anki decks
-        deck = genanki.Package(ANKI_DECK)
+        deck = genanki.Package(anki_deck)
         deck.write_to_file(f"{Gp.ANKI_APKG.value}/{device_name}.apkg")
 
     def unique_note_information(self):
@@ -210,6 +249,15 @@ if __name__ == "__main__":
         only_allow_unique_ids=True,
         vocab_key_reference=[],
         initial_id_dump=True,
+
     )
-    r = rm.write_to_anki_package()
+    r = rm.write_to_csv(
+
+        result_filter_keys={"usage": re.compile("店内"),
+                            "timestamp": datetime(2023, 10, 1)}
+
+
+
+
+    )
     print(r)

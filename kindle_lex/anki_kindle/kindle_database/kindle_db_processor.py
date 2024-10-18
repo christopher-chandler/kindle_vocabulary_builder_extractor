@@ -89,11 +89,18 @@ class KindleDBProcessor(KindleDBGetter):
             id_db.append(word_id)
 
         # Removing unused keys
-        keys_to_remove = ["asin", "guid", "title", "authors"]
-        for entry in SQL_LOOKUPS:
-            for key in keys_to_remove:
-                SQL_LOOKUPS.get(entry).pop(key, None)
+        # Keys to remove
+        keys_to_remove = {"asin", "guid", "title", "authors"}
 
+        # Filter and clean SQL_LOOKUPS
+        SQL_LOOKUPS = {
+            entry: {k: v for k, v in data.items() if k not in keys_to_remove} # remove
+            # unused tags
+            for entry, data in SQL_LOOKUPS.items()
+            if len(data) == 9 # if sql data too small ,remove it
+        }
+
+        # Construct the result dictionary
         results = {"id_db": id_db, "SQL_LOOKUPS": SQL_LOOKUPS}
 
         return results
