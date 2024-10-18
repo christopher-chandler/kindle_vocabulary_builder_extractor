@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="392a40ae-7096-4a6c-990f-acead6f6ac57" name="Changes" comment="rename var">
-      <change beforePath="$PROJECT_DIR$/.idea/csv-editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/csv-editor.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kindle_lex/anki_kindle/kindle_vocab_extractor.py" beforeDir="false" afterPath="$PROJECT_DIR$/kindle_lex/anki_kindle/main_kindle_vocab_extractor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kindle_lex/device_system_manager/device_detector.py" beforeDir="false" afterPath="$PROJECT_DIR$/kindle_lex/device_system_manager/device_detector.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kindle_lex/device_system_manager/load_dumped_kindle_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/kindle_lex/device_system_manager/load_dumped_kindle_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kindle_lex/kindle_extractor.py" beforeDir="false" afterPath="$PROJECT_DIR$/kindle_lex/kindle_extractor.py" afterDir="false" />
-    </list>
+    <list default="true" id="392a40ae-7096-4a6c-990f-acead6f6ac57" name="Changes" comment="rename var" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
