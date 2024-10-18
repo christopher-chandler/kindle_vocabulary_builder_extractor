@@ -6,4 +6,5 @@ KINDLE_DATABASE: /Volumes/Kindle/System/vocabulary/vocab.db
 KINDLE_DEVICES:
   SC_KINDLE_OASIS: G000WM0602110684
   SC_PAPER_WHITE: G000T60783540207
+LOGGING_RESULTS: logs
 WORKING_DIRECTORY: /Users/christopherchandler/code_repos/christopher-chandler/Python/kindle_vocabulary_builder_extractor
