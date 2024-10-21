@@ -12,22 +12,19 @@ import typer
 
 # Constants
 from kindle_lex.settings.constants.constant_paths import GeneralPaths as Gp
-
-
-# Logger
 from kindle_lex.settings.logger.basic_logger import catch_and_log_info
-
-
-from kindle_lex.anki_kindle.kindle.kindle_db_processor import KindleDBProcessor
 from kindle_lex.settings.constants.constant_vars import (
     ANKI_MODEL,
     ANKI_HEADER_SELECTION,
 )
 
+from kindle_lex.amazon.database_interface.database_processor import DatabaseProcessor
+from kindle_lex.amazon.database_interface.database_pickler import DatabasePickler
+
 unique_notes = list()
 
 
-class ResultsManager(KindleDBProcessor):
+class ResultsManager(DatabaseProcessor):
     def __init__(
         self,
         anki_deck_name: str,
@@ -118,13 +115,19 @@ class ResultsManager(KindleDBProcessor):
 
         return save_files
 
-    def write_to_csv(self):
+    def write_data(self):
+
+        ids = list()
+
         all_entries_csv_dict_writer = self.__save_files().get("all_entries")
         current_entries_csv_dict_writer = self.__save_files().get("current_entries")
+        ANKI_DECK = self.__save_files().get("ANKI_DECK")
 
         all_entries_csv_dict_writer.writeheader()
 
         device_name = self.device_name
+        dp = DatabasePickler(device_name=device_name, vocab_pickle=device_name)
+
         all_entries_csv_dict_writer.writeheader()
         current_entries_csv_dict_writer.writeheader()
         SQL_LOOKUPS = self.process_lookups().get("SQL_LOOKUPS")
@@ -133,16 +136,32 @@ class ResultsManager(KindleDBProcessor):
             entry = SQL_LOOKUPS.get(sql_entry)
 
             all_entries_csv_dict_writer.writerow(entry)
+            if id not in dp.get_pickle_data():
+                current_entries_csv_dict_writer.writerow(entry)
 
             for head in ANKI_HEADER_SELECTION:
                 if head not in entry:
                     entry[head] = " "
-
-            tags = entry.get("tag", None)
-
+            tags = entry.get("tag")
             if tags is not None:
                 tags.append(device_name)
                 entry.pop("tag")
+
+            if id not in dp.get_pickle_data():
+
+                anki_note = genanki.Note(
+                    model=ANKI_MODEL, fields=list(entry.values()), tags=tags
+                )
+
+                ANKI_DECK.add_note(anki_note)
+
+        # Create anki decks
+        deck = genanki.Package(ANKI_DECK)
+        deck.write_to_file(f"{Gp.ANKI_APKG.value}/{device_name}.apkg")
+
+        typer.echo("Wrote to csv file")
+        return len(ids)
+
 
     def write_to_anki_package(self):
 
@@ -174,6 +193,20 @@ class ResultsManager(KindleDBProcessor):
 
     def unique_note_information(self):
 
+        unique_notes = list()
+
+        SQL_LOOKUPS = self.process_lookups().get("SQL_LOOKUPS")
+        device_name = self.device_name
+        dp = DatabasePickler(device_name=device_name, vocab_pickle=device_name)
+
+        for sql_entry in SQL_LOOKUPS:
+            entry = SQL_LOOKUPS.get(sql_entry)
+
+            id = entry.get("id")
+
+            if id not in dp.get_pickle_data():
+                unique_notes.append(id)
+
         # Log and print information about the extraction result
         if len(unique_notes) == 0:
             no_new_notes = "No new notes could be found."
@@ -189,10 +222,8 @@ class ResultsManager(KindleDBProcessor):
 
         else:
 
-            if len(unique_notes) == 1:
-                unique_notes_info = f"{len(unique_notes)} note was found."
-            else:
-                unique_notes_info = f"{len(unique_notes)} notes were found."
+            unique_notes_info = f"{len(unique_notes)} notes  found."
+            self.write_data()
 
             # Log info
             typer.secho(unique_notes_info)
@@ -205,11 +236,11 @@ if __name__ == "__main__":
 
     rm = ResultsManager(
         anki_deck_name="",
-        device_name="Kindle",
+        device_name="SC_KINDLE_OASIS",
         dump_ids=True,
         only_allow_unique_ids=True,
         vocab_key_reference=[],
         initial_id_dump=True,
     )
-    r = rm.write_to_anki_package()
+    r = rm.write_data()
     print(r)
