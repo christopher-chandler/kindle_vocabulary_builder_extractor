@@ -5,7 +5,8 @@ import datetime
 import genanki
 
 # Custom
-from kindle_lex.device_system_manager.file_manager import open_template
+
+from kindle_lex.settings.file_manager import open_template
 
 """
 Constants used by other functions 
@@ -91,7 +92,7 @@ ANKI_MODEL = genanki.Model(
     css=open_template("resources/flash_card_templates/style.css"),
 )
 
-WAITING_TIME_IN_SECONDS = 5
+WAITING_TIME_IN_SECONDS = 2.5
 
 if __name__ == "__main__":
     pass
