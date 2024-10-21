@@ -7,9 +7,10 @@ import time
 import typer
 
 # Custom Imports
+from kindle_lex.amazon.results.results_manager import ResultsManager
+
 from kindle_lex.settings.constants.constant_vars import EJECT_KINDLE
-from kindle_lex.anki_kindle.main_kindle_vocab_extractor import main_extractor
-from kindle_lex.anki_kindle.anki_deck_importer import import_deck
+
 
 from kindle_lex.settings.logger.basic_logger import (
     catch_and_log_error,
@@ -21,7 +22,7 @@ from kindle_lex.settings.constants.constant_vars import WAITING_TIME_IN_SECONDS
 # WAITING_TIME_IN_SECONDS = 5
 
 
-def analyze_kindle_vocab_data(**kwargs) -> None:
+def extract_kindle_vocab_data(**kwargs) -> None:
     """
     Analyze and process Kindle vocabulary data.
 
@@ -46,12 +47,22 @@ def analyze_kindle_vocab_data(**kwargs) -> None:
     analyze_kindle_vocab_data(device_name="kindle_device", time_stamp="2023-01-01 12:00:00",
                      dump_ids=True, only_allow_unique_ids=True, vocab_key_reference=[...])
     """
+    device_name = kwargs.get("device_name", None)
+    time_stamp = kwargs.get("time_stamp", None)
+    dump_ids = kwargs.get("dump_ids", None)
+    only_allow_unique_ids = kwargs.get("only_allow_unique_ids", None)
+    vocab_key_reference = kwargs.get("vocab_key_reference", None)
+
     try:
-        device_name = kwargs.get("device_name", None)
-        time_stamp = kwargs.get("time_stamp", None)
-        dump_ids = kwargs.get("dump_ids", None)
-        only_allow_unique_ids = kwargs.get("only_allow_unique_ids", None)
-        vocab_key_reference = kwargs.get("vocab_key_reference", None)
+        # This imports the results from the processed kindle database
+        kindle_data_results = ResultsManager(
+            anki_deck_name=device_name,
+            device_name=device_name,
+            dump_ids=dump_ids,
+            only_allow_unique_ids=only_allow_unique_ids,
+            vocab_key_reference=vocab_key_reference,
+            initial_id_dump=False
+        )
 
         device_mounted = f"{device_name} is mounted."
         import_data = f"{device_name} data being imported."
@@ -77,17 +88,17 @@ def analyze_kindle_vocab_data(**kwargs) -> None:
         )
         catch_and_log_info(custom_message=import_data, echo_color=True)
 
-        new_notes = main_extractor(
-            device_name=device_name,
-            dump_ids=dump_ids,
-            only_allow_unique_ids=only_allow_unique_ids,
-            vocab_key_reference=vocab_key_reference,
-        )
+        ###
+
+        new_notes = kindle_data_results.unique_note_information()
+
+        ###
+
         time.sleep(WAITING_TIME_IN_SECONDS)
 
         # Kindle Lex checks if there is a difference between the data dumped
         if new_notes:
-            import_deck(device_name)
+            # import_deck(device_name)
             typer.secho(
                 f"{time_stamp}: {data_imported}", fg=typer.colors.BRIGHT_MAGENTA
             )
@@ -105,15 +116,17 @@ def analyze_kindle_vocab_data(**kwargs) -> None:
                 custom_message=kindle_ids_dumped, echo_msg=True, log_info_message=True
             )
 
+            raise SystemExit
             subprocess.run(EJECT_KINDLE)
             time.sleep(WAITING_TIME_IN_SECONDS)
 
         else:
+
             subprocess.run(EJECT_KINDLE)
             time.sleep(WAITING_TIME_IN_SECONDS)
 
     except sqlite3.OperationalError as Error:
 
         catch_and_log_error(
-            custom_message="SQL error", error=Error, kill_if_fatal_error=True
+            custom_message="SQL database error", error=Error, kill_if_fatal_error=True
         )
