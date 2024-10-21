@@ -10,10 +10,10 @@ from kindle_lex.settings.logger.basic_logger import (
     catch_and_log_error,
     catch_and_log_info,
 )
-from kindle_lex.anki_kindle.kindle.kindle_db_processor import KindleDBProcessor
+from kindle_lex.amazon.database_interface.database_processor import DatabaseProcessor
 
 
-class KindlePickle(KindleDBProcessor):
+class DatabasePickler(DatabaseProcessor):
     """
     This class handles the serialization (pickling) and deserialization
     (unpickling) of Kindle vocabulary data. It allows dumping word IDs to
@@ -50,7 +50,7 @@ class KindlePickle(KindleDBProcessor):
         self.dump_ids = dump_ids
         self.initial_id_dump = initial_id_dump
 
-    def dump_ids_to_pickle(self):
+    def dump_ids_to_pickle(self) -> None:
         """
         Dumps Kindle vocabulary word IDs to a pickle file.
 
@@ -104,7 +104,7 @@ class KindlePickle(KindleDBProcessor):
 
                 catch_and_log_info(
                     custom_message="Kindle data loaded successfully.",
-                    echo_msg=True,
+                    echo_msg=False,
                 )
 
                 return loaded_pickle_data

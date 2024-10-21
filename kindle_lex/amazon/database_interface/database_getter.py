@@ -1,11 +1,10 @@
 # Standard
-import pickle
 import sqlite3
 
-# Custom
-import typer
+# Pip
+# None
 
-# Standard
+# Custom
 from kindle_lex.settings.constants.constant_paths import GeneralPaths as Gp
 from kindle_lex.settings.logger.basic_logger import (
     catch_and_log_error,
@@ -13,7 +12,7 @@ from kindle_lex.settings.logger.basic_logger import (
 )
 
 
-class KindleDBGetter:
+class DatabaseGetter:
 
     def __init__(
         self,
@@ -26,8 +25,6 @@ class KindleDBGetter:
         Keyword Arguments:
         - device_name (str): Name of the Kindle device.
         - dump_ids (bool): Whether to dump vocabulary IDs to a pickle file.
-
-
 
         Returns:
         - bool: True if extraction and processing were successful, False otherwise.
@@ -101,7 +98,7 @@ class KindleDBGetter:
 
 
 if __name__ == "__main__":
-    db_getter = KindleDBGetter(
-        device_name="Kindle",
+    db_getter = DatabaseGetter(
+        device_name="SC_KINDLE_OASIS",
         dump_ids=True,
     ).get_lookups()

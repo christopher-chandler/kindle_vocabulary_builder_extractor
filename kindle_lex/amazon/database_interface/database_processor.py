@@ -1,6 +1,4 @@
 # Standard
-import pickle
-
 from datetime import datetime
 
 # Pip
@@ -13,14 +11,14 @@ from kindle_lex.settings.logger.basic_logger import (
     catch_and_log_info,
 )
 
-from kindle_lex.anki_kindle.kindle.kindle_db_getter import KindleDBGetter
+from kindle_lex.amazon.database_interface.database_getter import DatabaseGetter
 from kindle_lex.settings.constants.constant_vars import (
     SQL_LOOKUP_TEMPLATE,
     SQL_BOOK_INFO_TEMPLATE,
 )
 
 
-class KindleDBProcessor(KindleDBGetter):
+class DatabaseProcessor(DatabaseGetter):
     """
     tests
 
@@ -93,9 +91,17 @@ class KindleDBProcessor(KindleDBGetter):
 
         # Removing unused keys
         keys_to_remove = ["asin", "guid", "title", "authors"]
-        for entry in SQL_LOOKUPS:
+
+        # First remove specific keys from each entry
+        for entry in list(
+                SQL_LOOKUPS):  # Convert to list to avoid modifying during iteration
             for key in keys_to_remove:
-                SQL_LOOKUPS.get(entry).pop(key, None)
+                SQL_LOOKUPS[entry].pop(key, None)
+
+        # Then remove entries where the length of the dictionary is not 9
+        for entry in list(SQL_LOOKUPS):  # Again, use a list for safe removal
+            if len(SQL_LOOKUPS[entry]) != 9:
+                SQL_LOOKUPS.pop(entry)
 
         results = {"id_db": id_db, "SQL_LOOKUPS": SQL_LOOKUPS}
 
@@ -104,7 +110,7 @@ class KindleDBProcessor(KindleDBGetter):
 
 if __name__ == "__main__":
 
-    db_getter = KindleDBProcessor(
+    db_getter = DatabaseProcessor(
         device_name="Kindle",
         dump_ids=True,
         only_allow_unique_ids=True,
