@@ -4,11 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="392a40ae-7096-4a6c-990f-acead6f6ac57" name="Changes" comment="add typer function for connecting kindle">
+    <list default="true" id="392a40ae-7096-4a6c-990f-acead6f6ac57" name="Changes" comment="rename directory to amazon">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/csv-editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/csv-editor.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kindle_lex/device_system_manager/load_dumped_kindle_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/kindle_lex/device_system_manager/load_dumped_kindle_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kindle_lex/kindle_extractor.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kindle_lex/anki_kindle/anki_deck_importer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kindle_lex/anki_kindle/main_kindle_vocab_extractor.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kindle_lex/device_system_manager/load_dumped_kindle_data.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.sh" beforeDir="false" afterPath="$PROJECT_DIR$/main.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/anki_apkg/SC_KINDLE_OASIS.apkg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/anki_apkg/SC_PAPER_WHITE.apkg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/csv_vocab_results/Kindle.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/csv_vocab_results/SC_KINDLE_OASIS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/csv_vocab_results/SC_PAPER_WHITE.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/csv_vocab_results/current_results_Kindle.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/csv_vocab_results/current_results_SC_KINDLE_OASIS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/csv_vocab_results/results.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/dumped_kindle_data/SC_KINDLE_OASIS.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/results/dumped_kindle_data/SC_KINDLE_OASIS.pkl" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,6 +95,7 @@
     &quot;Python.load_pkl.executor&quot;: &quot;Run&quot;,
     &quot;Python.main.executor&quot;: &quot;Run&quot;,
     &quot;Python.results.executor&quot;: &quot;Run&quot;,
+    &quot;Python.results_manager.executor&quot;: &quot;Run&quot;,
     &quot;Python.settings_manager.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
@@ -112,11 +126,11 @@
       <recent name="$PROJECT_DIR$/device_system_manager" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/kindle_lex/amazon" />
+      <recent name="$PROJECT_DIR$/kindle_lex/settings" />
       <recent name="$PROJECT_DIR$/docs" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/resources" />
-      <recent name="$PROJECT_DIR$/resources/lang_dict/jp" />
-      <recent name="$PROJECT_DIR$/results/dumped_kindle_data" />
     </key>
   </component>
   <component name="RunManager" selected="Shell Script.main.sh">
@@ -135,29 +149,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/docs/build_docs.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="kindle_db_getter (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="kindle_vocabulary_builder_extractor" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/kindle_lex/anki_kindle/kindle" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/kindle_lex/anki_kindle/kindle/kindle_db_getter.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -212,6 +203,29 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="results_manager" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="kindle_vocabulary_builder_extractor" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/kindle_lex/amazon/results" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/kindle_lex/amazon/results/results_manager.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="main.sh" type="ShConfigurationType" temporary="true">
       <option name="SCRIPT_TEXT" value="" />
       <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
@@ -228,19 +242,19 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Python.results_manager" />
       <item itemvalue="Python.build_docs" />
       <item itemvalue="Python.main" />
-      <item itemvalue="Python.kindle_db_getter (1)" />
       <item itemvalue="Python.kindle_db_processor (1)" />
       <item itemvalue="Shell Script.main.sh" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Shell Script.main.sh" />
+        <item itemvalue="Python.results_manager" />
         <item itemvalue="Python.main" />
         <item itemvalue="Python.build_docs" />
         <item itemvalue="Python.kindle_db_processor (1)" />
-        <item itemvalue="Python.kindle_db_getter (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -280,7 +294,12 @@
       <workItem from="1727848404491" duration="801000" />
       <workItem from="1729247064812" duration="1779000" />
       <workItem from="1729262824755" duration="1131000" />
-      <workItem from="1729275942380" duration="3659000" />
+      <workItem from="1729275942380" duration="3827000" />
+      <workItem from="1729334852404" duration="6619000" />
+      <workItem from="1729361953472" duration="3930000" />
+      <workItem from="1729417543256" duration="967000" />
+      <workItem from="1729436523657" duration="1132000" />
+      <workItem from="1729441406810" duration="6396000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1673098600716</created>
@@ -508,7 +527,63 @@
       <option name="project" value="LOCAL" />
       <updated>1729279570665</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="black .">
+      <option name="closed" value="true" />
+      <created>1729279614189</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1729279614189</updated>
+    </task>
+    <task id="LOCAL-00032" summary="add typer module">
+      <option name="closed" value="true" />
+      <created>1729487407060</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1729487407060</updated>
+    </task>
+    <task id="LOCAL-00033" summary="add file_manager.py">
+      <option name="closed" value="true" />
+      <created>1729487479647</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1729487479647</updated>
+    </task>
+    <task id="LOCAL-00034" summary="update results_manager.py">
+      <option name="closed" value="true" />
+      <created>1729487537970</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1729487537970</updated>
+    </task>
+    <task id="LOCAL-00035" summary="rename database functions that interact with kindle.">
+      <option name="closed" value="true" />
+      <created>1729487558218</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1729487558218</updated>
+    </task>
+    <task id="LOCAL-00036" summary="add kindle typer app">
+      <option name="closed" value="true" />
+      <created>1729487571514</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1729487571514</updated>
+    </task>
+    <task id="LOCAL-00037" summary="rename directory to amazon">
+      <option name="closed" value="true" />
+      <created>1729487590420</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1729487590420</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -556,9 +631,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update" />
-    <MESSAGE value="restore deleted files" />
-    <MESSAGE value="Add id check" />
     <MESSAGE value="implement black format" />
     <MESSAGE value="Add README.MD" />
     <MESSAGE value="Update README.MD&#10;Update constants.py&#10;Update main.py" />
@@ -577,19 +649,27 @@
     <MESSAGE value="update kindle interface" />
     <MESSAGE value="update missing log fuction" />
     <MESSAGE value="add typer function for connecting kindle" />
-    <option name="LAST_COMMIT_MESSAGE" value="add typer function for connecting kindle" />
+    <MESSAGE value="black ." />
+    <MESSAGE value="add typer module" />
+    <MESSAGE value="add file_manager.py" />
+    <MESSAGE value="update results_manager.py" />
+    <MESSAGE value="rename database functions that interact with kindle." />
+    <MESSAGE value="add kindle typer app" />
+    <MESSAGE value="rename directory to amazon" />
+    <option name="LAST_COMMIT_MESSAGE" value="rename directory to amazon" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/kindle_vocabulary_builder_extractor$build_docs.coverage" NAME="build_docs Coverage Results" MODIFIED="1727455284927" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/docs" />
     <SUITE FILE_PATH="coverage/kindle_vocabulary_builder_extractor$results.coverage" NAME="results Coverage Results" MODIFIED="1726982521702" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/results/csv_vocab_results" />
-    <SUITE FILE_PATH="coverage/kindle_vocabulary_builder_extractor$class_kindle_vocab_extractor.coverage" NAME="class_kindle_vocab_extractor Coverage Results" MODIFIED="1727105242559" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/kindle_lex/anki_kindle" />
-    <SUITE FILE_PATH="coverage/kindle_vocabulary_builder_extractor$kindle_db_getter.coverage" NAME="kindle_db_getter Coverage Results" MODIFIED="1727108245487" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/kindle_lex/anki_kindle/kindle_db" />
-    <SUITE FILE_PATH="coverage/kindle_vocabulary_builder_extractor$main.coverage" NAME="main Coverage Results" MODIFIED="1729242671687" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/kindle_vocabulary_builder_extractor$anki_interface.coverage" NAME="anki_interface Coverage Results" MODIFIED="1727381152985" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/kindle_lex/anki_kindle/results_manager" />
-    <SUITE FILE_PATH="coverage/kindle_vocabulary_builder_extractor$kindle_db_getter__1_.coverage" NAME="kindle_db_getter (1) Coverage Results" MODIFIED="1727417773984" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/kindle_lex/anki_kindle/kindle" />
-    <SUITE FILE_PATH="coverage/kindle_vocabulary_builder_extractor$kindle_db_processor__1_.coverage" NAME="kindle_db_processor (1) Coverage Results" MODIFIED="1727418479609" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/kindle_lex/anki_kindle/kindle" />
-    <SUITE FILE_PATH="coverage/kindle_vocabulary_builder_extractor$build_docs__1_.coverage" NAME="build_docs Coverage Results" MODIFIED="1727163927325" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/kindle_vocabulary_builder_extractor$kindle_db_processor.coverage" NAME="kindle_db_processor Coverage Results" MODIFIED="1727356856381" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/kindle_lex/anki_kindle/kindle_db" />
     <SUITE FILE_PATH="coverage/kindle_vocabulary_builder_extractor$conf.coverage" NAME="conf Coverage Results" MODIFIED="1727163877912" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/docs" />
+    <SUITE FILE_PATH="coverage/kindle_vocabulary_builder_extractor$build_docs.coverage" NAME="build_docs Coverage Results" MODIFIED="1727455284927" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/docs" />
+    <SUITE FILE_PATH="coverage/kindle_vocabulary_builder_extractor$class_kindle_vocab_extractor.coverage" NAME="class_kindle_vocab_extractor Coverage Results" MODIFIED="1727105242559" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/kindle_lex/anki_kindle" />
+    <SUITE FILE_PATH="coverage/kindle_vocabulary_builder_extractor$kindle_db_getter.coverage" NAME="kindle_db_getter Coverage Results" MODIFIED="1727108245487" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/kindle_lex/anki_kindle/kindle_db" />
+    <SUITE FILE_PATH="coverage/kindle_vocabulary_builder_extractor$main.coverage" NAME="main Coverage Results" MODIFIED="1729366274907" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/kindle_vocabulary_builder_extractor$kindle_db_getter__1_.coverage" NAME="kindle_db_getter (1) Coverage Results" MODIFIED="1727417773984" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/kindle_lex/anki_kindle/kindle" />
+    <SUITE FILE_PATH="coverage/kindle_vocabulary_builder_extractor$kindle_db_processor__1_.coverage" NAME="kindle_db_processor (1) Coverage Results" MODIFIED="1727418479609" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/kindle_lex/anki_kindle/kindle" />
+    <SUITE FILE_PATH="coverage/kindle_vocabulary_builder_extractor$results_manager.coverage" NAME="results_manager Coverage Results" MODIFIED="1729441431266" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/kindle_lex/amazon/results" />
+    <SUITE FILE_PATH="coverage/kindle_vocabulary_builder_extractor$build_docs__1_.coverage" NAME="build_docs Coverage Results" MODIFIED="1727163927325" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

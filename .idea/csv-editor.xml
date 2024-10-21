@@ -3,6 +3,13 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
+        <entry key="/results/csv_vocab_results/Kindle.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/results/csv_vocab_results/SC_KINDLE_OASIS.csv">
           <value>
             <Attribute>
@@ -10,7 +17,14 @@
             </Attribute>
           </value>
         </entry>
-        <entry key="/results/csv_vocab_results/SC_PAPER_WHITE.csv">
+        <entry key="/results/csv_vocab_results/current_results_Kindle.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/results/csv_vocab_results/current_results_SC_KINDLE_OASIS.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />

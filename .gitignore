@@ -285,3 +285,6 @@ venv.bak/
 /results/dumped_kindle_data/kindle_oasis.csv
 /results/kindle_paper_white.csv
 /results/dumped_kindle_data/note_id.pkl
+/results/csv_vocab_results/current_results_SC_KINDLE_OASIS.csv
+/results/csv_vocab_results/SC_KINDLE_OASIS.csv
+/results/anki_apkg/SC_KINDLE_OASIS.apkg
