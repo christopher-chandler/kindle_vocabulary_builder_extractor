@@ -61,7 +61,7 @@ def extract_kindle_vocab_data(**kwargs) -> None:
             dump_ids=dump_ids,
             only_allow_unique_ids=only_allow_unique_ids,
             vocab_key_reference=vocab_key_reference,
-            initial_id_dump=False
+            initial_id_dump=False,
         )
 
         device_mounted = f"{device_name} is mounted."

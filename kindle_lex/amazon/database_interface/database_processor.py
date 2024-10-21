@@ -94,7 +94,8 @@ class DatabaseProcessor(DatabaseGetter):
 
         # First remove specific keys from each entry
         for entry in list(
-                SQL_LOOKUPS):  # Convert to list to avoid modifying during iteration
+            SQL_LOOKUPS
+        ):  # Convert to list to avoid modifying during iteration
             for key in keys_to_remove:
                 SQL_LOOKUPS[entry].pop(key, None)
 

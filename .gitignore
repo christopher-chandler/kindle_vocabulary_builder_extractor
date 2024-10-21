@@ -288,3 +288,5 @@ venv.bak/
 /results/csv_vocab_results/current_results_SC_KINDLE_OASIS.csv
 /results/csv_vocab_results/SC_KINDLE_OASIS.csv
 /results/anki_apkg/SC_KINDLE_OASIS.apkg
+/results/dumped_kindle_data/SC_KINDLE_OASIS.pkl
+/results/dumped_kindle_data/SC_PAPER_WHITE.pkl

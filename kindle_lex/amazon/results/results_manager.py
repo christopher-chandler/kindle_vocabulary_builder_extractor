@@ -162,7 +162,6 @@ class ResultsManager(DatabaseProcessor):
         typer.echo("Wrote to csv file")
         return len(ids)
 
-
     def write_to_anki_package(self):
 
         ANKI_DECK = self.__save_files().get("ANKI_DECK")
